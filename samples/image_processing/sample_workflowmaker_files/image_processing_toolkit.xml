@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<toolkit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="toolkit.xsd">
+  <id>IMAGE_PROCESSING_TOOLKIT</id>
+  <description>Sample toolkit with a few image processing tools</description>
+  <parameters>
+    <parameter>
+      <id>RADIUS</id>
+      <description>Radius (in pixels) for which an image processing function is applied</description>
+      <type>REAL</type>
+    </parameter>
+    <parameter>
+      <id>SIGMA</id>
+      <description>Standard deviation for the image processing function applied</description>
+      <type>REAL</type>
+    </parameter>
+    <parameter>
+      <id>DEGREES</id>
+      <description>Amount in degrees to apply by the image processing function</description>
+      <type>REAL</type>
+    </parameter>
+    <parameter>
+      <id>FLIP_MODE</id>
+      <description>Flip the image horizontally (0) or vertically (1)?</description>
+      <type>INTEGER</type>
+    </parameter>
+  </parameters>
+  <file_types>
+    <file_type>
+      <id>IMAGE_JPG</id>
+      <description>An image in JPG format</description>
+      <extension>jpg</extension>
+    </file_type>
+    <file_type>
+      <id>IMAGE_PNG</id>
+      <description>An image in PGN format</description>
+      <extension>.png</extension>
+    </file_type>
+  </file_types>
+  <tasks>
+    <task>
+      <id>MOSAIC</id>
+      <description>Mosaics two JPG images</description>
+      <name_of_executable>mosaic</name_of_executable>
+      <input_files>
+        <input_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>Image that will be copied to the LEFT part of the mosaic</description>
+          <options_file_label>LEFT_IMAGE_FILENAME</options_file_label>
+        </input_file>
+        <input_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>Image that will be copied to the RIGHT side of the mosaic</description>
+          <options_file_label>RIGHT_IMAGE_FILENAME</options_file_label>
+        </input_file>
+      </input_files>
+      <output_files>
+        <output_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>The output mosaic</description>
+          <options_file_label>MOSAIC_FILENAME</options_file_label>
+        </output_file>
+      </output_files>
+    </task>
+    <task>
+      <id>BLUR</id>
+      <description>Blur an image</description>
+      <name_of_executable>blur</name_of_executable>
+      <parameters>
+        <parameter_id>RADIUS</parameter_id>
+        <parameter_id>SIGMA</parameter_id>
+      </parameters>
+      <input_files>
+        <input_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>JPEG image to blur</description>
+          <options_file_label>INPUT_FILENAME</options_file_label>
+        </input_file>
+      </input_files>
+      <output_files>
+        <output_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>Output, blurred JPG image</description>
+          <options_file_label>OUTPUT_FILENAME</options_file_label>
+        </output_file>
+      </output_files>
+    </task>
+    <task>
+      <id>CHARCOAL</id>
+      <description>Apply the charcoal effect to an image</description>
+      <name_of_executable>charcoal</name_of_executable>
+      <parameters>
+        <parameter_id>RADIUS</parameter_id>
+        <parameter_id>SIGMA</parameter_id>
+      </parameters>
+      <input_files>
+        <input_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>Input JPG file to which the charcoal effect will be applied</description>
+          <options_file_label>INPUT_FILENAME</options_file_label>
+        </input_file>
+      </input_files>
+      <output_files>
+        <output_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>Output JPG image, with the charcoal effect applied</description>
+          <options_file_label>OUTPUT_FILENAME</options_file_label>
+        </output_file>
+      </output_files>
+    </task>
+    <task>
+      <id>OILPAINT</id>
+      <description>Apply the oil paint effect to an image</description>
+      <name_of_executable>oilpaint</name_of_executable>
+      <parameters>
+        <parameter_id>RADIUS</parameter_id>
+      </parameters>
+      <input_files>
+        <input_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>The input JPG file to which the oil paint effect will be applied</description>
+          <options_file_label>INPUT_FILENAME</options_file_label>
+        </input_file>
+      </input_files>
+      <output_files>
+        <output_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>The output JPG file, with the oil paint effect applied</description>
+          <options_file_label>OUTPUT_FILENAME</options_file_label>
+        </output_file>
+      </output_files>
+    </task>
+    <task>
+      <id>ROTATE</id>
+      <description>Rotate an image</description>
+      <name_of_executable>rotate</name_of_executable>
+      <parameters>
+        <parameter_id>DEGREES</parameter_id>
+      </parameters>
+      <input_files>
+        <input_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>Image to rotate</description>
+          <options_file_label>INPUT_FILENAME</options_file_label>
+        </input_file>
+      </input_files>
+      <output_files>
+        <output_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>Image rotated</description>
+          <options_file_label>OUTPUT_FILENAME</options_file_label>
+        </output_file>
+      </output_files>
+    </task>
+    <task>
+      <id>MIRROR</id>
+      <description>Mirrors an image, either horizontally or vertically</description>
+      <name_of_executable>mirror</name_of_executable>
+      <parameters>
+        <parameter_id>FLIP_MODE</parameter_id>
+      </parameters>
+      <input_files>
+        <input_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>Image to be mirrored</description>
+          <options_file_label>INPUT_FILENAME</options_file_label>
+        </input_file>
+      </input_files>
+      <output_files>
+        <output_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>Mirrored image</description>
+          <options_file_label>OUTPUT_FILENAME</options_file_label>
+        </output_file>
+      </output_files>
+    </task>
+    <task>
+      <id>GRAYSCALE</id>
+      <description>Converts a color image to grayscale</description>
+      <name_of_executable>grayscale</name_of_executable>
+      <input_files>
+        <input_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>Color image to convert to grayscale</description>
+          <options_file_label>INPUT_FILENAME</options_file_label>
+        </input_file>
+      </input_files>
+      <output_files>
+        <output_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>Output grayscale image</description>
+          <options_file_label>OUTPUT_FILENAME</options_file_label>
+        </output_file>
+      </output_files>
+    </task>
+    <task>
+      <id>JPG2PNG</id>
+      <description>Convert a JPG image to PNG format</description>
+      <name_of_executable>jpg2png</name_of_executable>
+      <input_files>
+        <input_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>JPG image to convert</description>
+          <options_file_label>INPUT_FILENAME</options_file_label>
+        </input_file>
+      </input_files>
+      <output_files>
+        <output_file>
+          <file_type_id>IMAGE_PNG</file_type_id>
+          <description>Converted PNG image</description>
+          <options_file_label>OUTPUT_FILENAME</options_file_label>
+        </output_file>
+      </output_files>
+    </task>
+    <task>
+      <id>PNG2JPG</id>
+      <description>Convert a PNG image to JPG format</description>
+      <name_of_executable>png2jpg</name_of_executable>
+      <input_files>
+        <input_file>
+          <file_type_id>IMAGE_PNG</file_type_id>
+          <description>PNG image to convert</description>
+          <options_file_label>INPUT_FILENAME</options_file_label>
+        </input_file>
+      </input_files>
+      <output_files>
+        <output_file>
+          <file_type_id>IMAGE_JPG</file_type_id>
+          <description>Converted JPG image</description>
+          <options_file_label>OUTPUT_FILENAME</options_file_label>
+        </output_file>
+      </output_files>
+    </task>
+  </tasks>
+</toolkit>

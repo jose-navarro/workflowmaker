@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/pointer.png</file>
+        <file>resources/linepointer.png</file>
+        <file>resources/bringtofront.png</file>
+        <file>resources/delete.png</file>
+        <file>resources/sendtoback.png</file>
+        <file>resources/WFMEditor_about_logo.png</file>
+        <file>resources/CTTC_logo.png</file>
+    </qresource>
+</RCC>

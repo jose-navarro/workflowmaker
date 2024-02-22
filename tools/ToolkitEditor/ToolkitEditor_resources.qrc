@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/add.png</file>
+        <file>resources/delete.png</file>
+        <file>resources/refresh.png</file>
+        <file>resources/edit.png</file>
+        <file>resources/confirm.png</file>
+        <file>resources/ToolkitEditor.png</file>
+        <file>resources/ToolkitEditor.ico</file>
+    </qresource>
+</RCC>

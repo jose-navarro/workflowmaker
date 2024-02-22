@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<toolkit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="toolkit.xsd">
+  <id>TEXT_FILE_PROCESSING_TOOLKIT</id>
+  <description>Simple set of text file utilities</description>
+  <parameters>
+    <parameter>
+      <id>CUT_TAIL_MAX_LINES</id>
+      <description>Maximum number of lines to keep when removing the queue of some text file</description>
+      <type>INTEGER</type>
+    </parameter>
+    <parameter>
+      <id>INTERLEAVE_COPY_QUEUE</id>
+      <description>Copy (not zero) or not (0) the remaining lines in the longest file when interleaving two text files </description>
+      <type>INTEGER</type>
+    </parameter>
+  </parameters>
+  <file_types>
+    <file_type>
+      <id>TXT</id>
+      <description>Text file</description>
+      <extension>txt</extension>
+    </file_type>
+  </file_types>
+  <tasks>
+    <task>
+      <id>APPEND</id>
+      <description>Appends two files</description>
+      <name_of_executable>append</name_of_executable>
+      <input_files>
+        <input_file>
+          <file_type_id>TXT</file_type_id>
+          <description>First file to append</description>
+          <options_file_label>APPEND_INPUT_FILENAME_1</options_file_label>
+        </input_file>
+        <input_file>
+          <file_type_id>TXT</file_type_id>
+          <description>Second file to append</description>
+          <options_file_label>APPEND_INPUT_FILENAME_2</options_file_label>
+        </input_file>
+      </input_files>
+      <output_files>
+        <output_file>
+          <file_type_id>TXT</file_type_id>
+          <description>Result of appending the two input files</description>
+          <options_file_label>APPEND_OUTPUT_FILENAME</options_file_label>
+        </output_file>
+      </output_files>
+    </task>
+    <task>
+      <id>CUT_TAIL</id>
+      <description>Remove the last lines of some file, keeping only some at the beginning</description>
+      <name_of_executable>cut_tail</name_of_executable>
+      <parameters>
+        <parameter_id>CUT_TAIL_MAX_LINES</parameter_id>
+      </parameters>
+      <input_files>
+        <input_file>
+          <file_type_id>TXT</file_type_id>
+          <description>Fille whose last lines must be removed</description>
+          <options_file_label>CUT_TAIL_INPUT_FILENAME</options_file_label>
+        </input_file>
+      </input_files>
+      <output_files>
+        <output_file>
+          <file_type_id>TXT</file_type_id>
+          <description>File whose last lines have been removed</description>
+          <options_file_label>CUT_TAIL_OUTPUT_FILENAME</options_file_label>
+        </output_file>
+      </output_files>
+    </task>
+    <task>
+      <id>INTERLEAVE</id>
+      <description>Interleave the lines of two files, copying or not the queue of the longest one</description>
+      <name_of_executable>interleave</name_of_executable>
+      <parameters>
+        <parameter_id>INTERLEAVE_COPY_QUEUE</parameter_id>
+      </parameters>
+      <input_files>
+        <input_file>
+          <file_type_id>TXT</file_type_id>
+          <description>First file whose lines must be interleaved</description>
+          <options_file_label>INTERLEAVE_INPUT_FILENAME_1</options_file_label>
+        </input_file>
+        <input_file>
+          <file_type_id>TXT</file_type_id>
+          <description>Second file whose lines must be interleaved</description>
+          <options_file_label>INTERLEAVE_INPUT_FILENAME_2</options_file_label>
+        </input_file>
+      </input_files>
+      <output_files>
+        <output_file>
+          <file_type_id>TXT</file_type_id>
+          <description>File with lines interleaved and, optionally, the remaining lines of the longest file</description>
+          <options_file_label>INTERLEAVE_OUTPUT_FILENAME</options_file_label>
+        </output_file>
+      </output_files>
+    </task>
+    <task>
+      <id>REVERSE</id>
+      <description>Reverse (right to left) the lines in a text file</description>
+      <name_of_executable>reverse</name_of_executable>
+      <input_files>
+        <input_file>
+          <file_type_id>TXT</file_type_id>
+          <description>File whose lines must be reversed</description>
+          <options_file_label>REVERSE_INPUT_FILENAME</options_file_label>
+        </input_file>
+      </input_files>
+      <output_files>
+        <output_file>
+          <file_type_id>TXT</file_type_id>
+          <description>File whose lines have been reversed</description>
+          <options_file_label>REVERSE_OUTPUT_FILENAME</options_file_label>
+        </output_file>
+      </output_files>
+    </task>
+    <task>
+      <id>TO_UPPERCASE</id>
+      <description>Capitalize all letters in a text file</description>
+      <name_of_executable>to_uppercase</name_of_executable>
+      <input_files>
+        <input_file>
+          <file_type_id>TXT</file_type_id>
+          <description>File whose letters must be capitalized</description>
+          <options_file_label>TO_UPPERCASE_INPUT_FILENAME</options_file_label>
+        </input_file>
+      </input_files>
+      <output_files>
+        <output_file>
+          <file_type_id>TXT</file_type_id>
+          <description>File whose letters have been capitalized</description>
+          <options_file_label>TO_UPPERCASE_OUTPUT_FILENAME</options_file_label>
+        </output_file>
+      </output_files>
+    </task>
+  </tasks>
+</toolkit>

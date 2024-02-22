@@ -1,0 +1,63 @@
+# Subversion files at the root directory.
+
+.svn/
+
+# Deployment directories
+
+QT_redistributables/
+VC_redistributables/
+
+# Installers, wherever these are.
+
+**/installer/
+
+# Binaries, header and intermediat build folders.
+
+**/binaries/
+**/headers/
+**/x64/
+
+# HTML directories.
+
+**/html/
+
+# QT files and folders.
+
+**/*.pro.user
+
+**/build-*
+
+# C++ common temporary files --------------------
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app

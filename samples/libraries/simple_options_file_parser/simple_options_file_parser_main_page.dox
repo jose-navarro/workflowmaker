@@ -1,0 +1,7 @@
+/** \mainpage The simple_options_file_parser application
+
+The simple_options_file_parser library implements an options text file parser. Options are input by means of sentences adhering to a very simple syntax, assigning a value to a label identifying the option to set:
+
+LABEL = some\_value
+ 
+*/
