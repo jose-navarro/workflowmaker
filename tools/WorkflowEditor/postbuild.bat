@@ -34,7 +34,7 @@ COPY ..\..\VC_redistributables\%2\*.* ..\..\installer\deployment\bin\%2\*.*
 REM Copy the workflow schema to the destination folder.
 
 COPY ..\..\data\workflow.xsd ..\..\installer\deployment\bin\%2\workflow.xsd
-COPY ..\..\data_samples\IN2PNG_workflow.xml ..\..\installer\deployment\data_samples\IN2PNG_workflow.xml
+COPY ..\..\samples\image_processing\sample_workflowmaker_files\image_processing_workflow.xml ..\..\installer\deployment\data_samples\image_processing_workflow.xml
 
 REM Copy the executable to destination folders.
 

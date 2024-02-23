@@ -34,7 +34,9 @@ COPY ..\..\VC_redistributables\%2\*.* ..\..\installer\deployment\bin\%2\*.*
 REM Copy the launcher schema & sample to the respective destination folders.
 
 COPY ..\..\data\launcher.xsd ..\..\installer\deployment\bin\%2\launcher.xsd
-COPY ..\..\data_samples\IN2PNG_launcher.xml ..\..\installer\deployment\data_samples\IN2PNG_launcher.xml
+COPY ..\..\samples\image_processing\sample_workflowmaker_files\image_processing_launcher.xml ..\..\installer\deployment\data_samples\image_processing_launcher.xml
+
+
 
 REM Copy the executable to destination folders.
 

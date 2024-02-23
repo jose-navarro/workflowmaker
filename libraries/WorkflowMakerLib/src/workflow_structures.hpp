@@ -1,3 +1,7 @@
+/** \file workflow_structures.hpp
+  \brief Defines some structures required by WorkFlowEditor.
+*/
+
 #ifndef WORKFLOW_STRUCTURES_HPP
 #define WORKFLOW_STRUCTURES_HPP
 

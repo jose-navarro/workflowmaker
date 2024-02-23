@@ -1,4 +1,4 @@
-/** \file WorkflowLauncher_structures.hpp
+/** \file launcher_structures.hpp
   \brief Defines several structures for the use of WorkflowLauncher.
 */
 

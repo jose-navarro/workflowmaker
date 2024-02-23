@@ -31,6 +31,7 @@ class AboutBox : public QDialog
 
     /// \brief Constructor.
     /**
+      \param version The application's version.
       \param parent The parent widget.
      */
     explicit AboutBox    (QString& version, QWidget *parent = nullptr);

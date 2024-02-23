@@ -27,10 +27,12 @@ COPY ..\..\QT_redistributables\%2\platforms\*.* ..\..\installer\deployment\bin\%
 
 @ECHO COPYING TOOLKIT SCHEMA AND SAMPLE
 
+..\..\samples\image_processing\sample_workflowmaker_files\image_processing_toolkit.xml
+
 REM Copy the toolkit schema & sample to the destination folder.
 
 COPY ..\..\data\toolkit.xsd ..\..\installer\deployment\bin\%2\toolkit.xsd
-COPY ..\..\data_samples\IN2PNG_toolkit.xml ..\..\installer\deployment\data_samples\IN2PNG_toolkit.xml
+COPY ..\..\samples\image_processing\sample_workflowmaker_files\image_processing_toolkit.xml ..\..\installer\deployment\data_samples\image_processing_toolkit.xml
 
 REM Copy the VC runtimes.
 

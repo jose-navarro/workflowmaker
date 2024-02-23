@@ -38,7 +38,7 @@ class launcher_parser
     /**
       \param[in]  filename The name of the XML file with the definition
                   of the launcher.
-      \param[out] wf The launcher, once parsed and verified, is loaded
+      \param[out] lch The launcher, once parsed and verified, is loaded
                   into this structure.
       \return     An error code:
                   - 0: successful completion.
