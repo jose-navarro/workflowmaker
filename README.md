@@ -37,6 +37,12 @@ The information related to the two test sets is also available in the repository
 * Image processing: /samples/image_processing/docs/.pdf
 * Text file processing": /samples/text_file_processing/docs/.pdf
 
+## How may I build from source code?
+
+Read the document /docs/user guide/Building WorkFlowMaker.pdf
+
+Note that building from source may be a painful process, since no automation is provided yet. Libraries and tools must be built one by one. Take special care reading the section about post build files to understand how these work and how to adapt it to your needs.
+
 ## Features
 
 * Create workflows by combining, visually, console applications 
@@ -48,11 +54,10 @@ The information related to the two test sets is also available in the repository
 
 ## Benefits
 
-* Automate repetitive tasks
 * Reduce errors 
-* Improve efficiency 
-* Save time 
-* Users with no programming knowledge may create their own workflows.
+* Save time
+* Users _with no programming knowledge_ may create their own workflows.
+* Workflows are self-documented.
 
 ## Use cases
 
@@ -64,20 +69,16 @@ The information related to the two test sets is also available in the repository
 
 ## Get started
 
-1. Download the WorkFlowMaker installer from the Releases section. 
+1. Download the WorkFlowMaker installer / deb package from the Releases section. 
 2. Install WorkFlowMaker on your computer. 
-3. Define your tasks (console applications) using ToolKitEditor. This is, clearly, a task for the developer(s) of the said applications.
+3. Define your tasks (console applications) using ToolKitEditor. This is, clearly, a task for the developer(s) of the said applications. For *Windows* platforms, there are two installers for sample toolkits including (1) the definition of the toolkit and a single workflow plus (2) the binaries of the tools in the toolkit, so these are ready to use and (3) guides to understand the toolkit. See the Releases section to download these. For *Linux* platforms these sample toolkits are also available, but the tools are not prebuilt.
 4. Create new workflows running WorkflowEditor. Add tasks and connect their input and outputs by means of connections. This may be done by anyone with enough knowledge about _what the applications do_; no programming skills are thus required.
 5. Run WorkflowLauncher to assign data values to input and output file names and keyboard parameters to the workflow of your choice. Generate the script. Again, no programming skills are needed.
 6. Run your workflow by executing the script.
 
 Note that step 3 above require the adaptation of the console applications so these comply with the requisites set by WorkFlowMaker.
 
-## How may I build from source code?
 
-Read the document /docs/user guide/*.pdfBuilding WorkFlowMaker.pdf
-
-Note that building from source may be a painful process, since no automation is provided yet. Libraries and tools must be built one by one. Take special care reading the section about post build files to understand how these work and how to adapt it to your needs.
 
 ## The licence
 
