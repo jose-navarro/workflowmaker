@@ -27,7 +27,7 @@ Furthermore, the test applications include the source code, so developers may se
 
 ## Are there any user guides?
 
-The user guide for the WorkFlowMaker suite may be found at the following path of the repository:
+The user guides for the WorkFlowMaker suite may be found at the following path of the repository:
 
 /docs/user guide/*.pdf
 
@@ -72,6 +72,12 @@ The information related to the two test sets is also available in the repository
 6. Run your workflow by executing the script.
 
 Note that step 3 above require the adaptation of the console applications so these comply with the requisites set by WorkFlowMaker.
+
+## How may I build from source code?
+
+Read the document /docs/user guide/*.pdfBuilding WorkFlowMaker.pdf
+
+Note that building from source may be a painful process, since no automation is provided yet. Libraries and tools must be built one by one. Take special care reading the section about post build files to understand how these work and how to adapt it to your needs.
 
 ## The licence
 
