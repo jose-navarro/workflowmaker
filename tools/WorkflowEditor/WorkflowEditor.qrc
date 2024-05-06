@@ -7,5 +7,6 @@
         <file>resources/sendtoback.png</file>
         <file>resources/WFMEditor_about_logo.png</file>
         <file>resources/CTTC_logo.png</file>
+        <file>resources/WFMEditor_128.png</file>
     </qresource>
 </RCC>

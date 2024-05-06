@@ -2805,8 +2805,8 @@ version_string
                         + "/workflowmaker_version.txt";
 
     //
-    // Open and read the version file. Should this file, return
-    // 'Unknown WorkflowMaker version' as the result.
+    // Open and read the version file. If this file does not
+    // exist, return 'Unknown WorkflowMaker version' as the result.
     //
 
     version = "'Unknown WorkflowMaker version'";
@@ -2938,7 +2938,11 @@ WorkflowLauncher_widget
 
     // Window icon
 
-    setWindowIcon(QIcon(":/resources/WorkflowLauncher.png"));
+    setWindowIcon(QIcon(":/resources/WorkflowLauncher_128.png"));
+
+    // Set window flags to include all except the close button
+
+    setWindowFlags(Qt::Window | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint);
 
   }
 }

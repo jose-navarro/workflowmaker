@@ -588,20 +588,33 @@ MainWindow
     QString version;
     QString window_title;
 
+    // Get the WorkflowMaker package's current version.
+
     sversion = version_string();
     version  = QString::fromStdString(sversion);
     window_title = "WorkflowEditor version " + version;
 
+    // Create an instance of the About box, so it may be
+    // shown each time the user wants to see it.
+
     about_box_ = new AboutBox(version);
 
+    // Initialize
 
     wf_id_          = "";
     wf_description_ = "";
     open_document_  = false;
 
+    // Create the several elements integrating the interface.
+
     createActions();
     createToolBox();
     createMenus();
+
+    //
+    // Create the underlying scene and make the necessary
+    // connections to let it work.
+    //
 
     scene = new DiagramScene(itemMenu, this);
     scene->setSceneRect(QRectF(0, 0, 5000, 5000));
@@ -609,7 +622,14 @@ MainWindow
     connect(scene, &DiagramScene::itemInserted,
             this, &MainWindow::itemInserted);
 
+    //
+    // Create the toolbars HERE. Otherwise (?) it
+    // does not work.
+    //
+
     createToolbars();
+
+    // Arrange the graphics components.
 
     QHBoxLayout *layout = new QHBoxLayout;
     layout->addWidget(toolBox);
@@ -625,11 +645,19 @@ MainWindow
     setWindowTitle(window_title);
     setUnifiedTitleAndToolBarOnMac(true);
 
+    // Connections.
+
     connect (task_panel_,     SIGNAL (row_selected      (int)),
              this,            SLOT   (task_selected     (int)));
 
     connect (&wf_data_widget, SIGNAL (data_is_available ()),
              this,            SLOT   (new_wf_data_ready ()));
+
+    setWindowIcon(QIcon(":/resources/WFMEditor_128.png"));
+
+    // Set window flags to include all except the close button
+
+    setWindowFlags(Qt::Window | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint);
   }
 }
 

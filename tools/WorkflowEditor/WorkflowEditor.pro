@@ -114,6 +114,6 @@ unix:!macx {
 
 # ICONS and other resources.
 
-RESOURCES   =	WorkflowEditor.qrc
-win32:RC_FILE += resources/WFMEditor_windows_resources.rc
-win32:OTHER_FILES += resources/WFMEditor_windows_resources
+RESOURCES          = WorkflowEditor.qrc
+win32:RC_FILE     += resources/WFMEditor_windows_resources.rc
+win32:OTHER_FILES += resources/WFMEditor_windows_resources.rc

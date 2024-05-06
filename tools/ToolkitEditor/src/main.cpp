@@ -1,5 +1,5 @@
 /** \file main.cpp
-\brief Main entry point for the ADAfinder application.
+\brief Main entry point for the ToolkitEditor application.
 */
 
 #include "ToolkitEditor_widget.hpp"
@@ -15,7 +15,7 @@ using namespace std;
   \return 0 if the process finished successfully, any other
          value otherwise.
 
-  This is the ADAfinder application's main entry point.
+  This is the ToolkitEditor application's main entry point.
  */
 
 int

@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>resources/WorkflowLauncher_about_logo.png</file>
         <file>resources/CTTC_logo.png</file>
+        <file>resources/WorkflowLauncher_128.png</file>
     </qresource>
 </RCC>

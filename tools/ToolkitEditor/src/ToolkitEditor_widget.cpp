@@ -504,6 +504,10 @@ ToolkitEditor_widget
 
     setWindowIcon(QIcon(":/resources/ToolkitEditor.png"));
 
+    // Set window flags to include all except the close button
+
+    setWindowFlags(Qt::Window | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint);
+
   }
 }
 

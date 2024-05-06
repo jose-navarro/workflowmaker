@@ -135,6 +135,6 @@ RESOURCES += ToolkitEditor_resources.qrc
 
 win32:RC_FILE += resources/ToolkitEditor_windows_resources.rc
 
-win32:OTHER_FILES += resources/ADAfinder_windows_resources.rc
+win32:OTHER_FILES += resources/ToolkitEditor_windows_resources.rc
 
 
