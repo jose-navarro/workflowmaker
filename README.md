@@ -21,7 +21,9 @@ To achieve this, WorkFlowMaker imposes a few restrictions that explain how conso
 
 Yes.
 
-In the Releases section you can download the WorkFlowMaker installer for Windows, the .deb package for Ubuntu based distributions. In addition, there are two more installers (exclusively for Windows) that include two sets of test applications (image processing and text file processing). By installing these two test sets, it is possible to start practicing with WorkFlowMaker without having to go through the process of formalizing your own tools.
+In the Releases section you can download the WorkFlowMaker installer for Windows, the .deb package for Ubuntu based distributions.
+
+In addition, and for the Windows platform, there are two more installers that include two sets of test applications (the image processing and text file processing toolkits). By installing these two test toolkits, it is possible to start practicing with WorkFlowMaker without having to go through the process of formalizing your own tools. For the Linux platform a .deb package for the image processing toolkit is also included (not for the text processing one).
 
 Furthermore, the test applications include the source code, so developers may see how WorkFlowMaker-compliant applications must be implemented.
 
