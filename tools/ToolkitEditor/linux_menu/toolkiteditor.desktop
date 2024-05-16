@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=toolkiteditor
+Comment=Design toolkits made of console applications
+Exec=/usr/local/bin/toolkiteditor
+Icon=/usr/share/workflowmaker/toolkiteditor.png
+Terminal=false
+Categories=Development;
+Type=Application

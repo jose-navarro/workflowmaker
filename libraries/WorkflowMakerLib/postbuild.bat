@@ -11,6 +11,8 @@ REM Create the header folder if it does not exist.
 
 CD %1
 
+@ECHO Creating the headers and binaries folders if these do not exist yet...
+
 IF NOT EXIST ".\headers" (
   @ECHO CREATING THE headers FOLDER...
   MKDIR ".\headers"
@@ -23,31 +25,61 @@ IF NOT EXIST ".\binaries" (
   MKDIR ".\binaries"
 )
 
-@ECHO INSTALLER'S DEPLOYMENT FOLDERS: Creating if needed...
+REM
+REM Create the installer's deployment directories. Note that
+REM we check for the existence of every individual sub-folder
+REM instead of just checking for the existence of the root one.
+REM In this way, if the user deletes any of the sub-folders,
+REM we'll still detect it and re-create it.
+REM
+
+@ECHO INSTALLER'S DEPLOYMENT FOLDERS: Creating if these do not exist yet...
 
 IF NOT EXIST "..\..\installer\deployment" (
   MKDIR "..\..\installer\deployment"
+)
+
+IF NOT EXIST "..\..\installer\deployment\bin" (
   MKDIR "..\..\installer\deployment\bin"
+)
+
+IF NOT EXIST "..\..\installer\deployment\bin\x64" (
   MKDIR "..\..\installer\deployment\bin\x64"
+)
+
+IF NOT EXIST "..\..\installer\deployment\bin\x64\platforms" (
   MKDIR "..\..\installer\deployment\bin\x64\platforms"
+)
+
+IF NOT EXIST "..\..\installer\deployment\data_samples" (
   MKDIR "..\..\installer\deployment\data_samples"
+)
+
+IF NOT EXIST "..\..\installer\deployment\docs" (
   MKDIR "..\..\installer\deployment\docs"
 )
 
+
 REM Copy all *.hpp files.
 
-@ECHO COPYING HEADERS TO THE headers FOLDER...
+@ECHO Copying headers (.h,.hpp) to the headers folder...
 
 COPY .\src\*.hpp .\headers\*.hpp
 
 REM Copy library
 
-@ECHO COPYING THE LIBRARY TO THE binaries FOLDER...
+@ECHO Copying the library (.lib) to the binaries folder...
 
 COPY .\%2\%3\%4.lib .\binaries\*.*
 
 REM Copy the version file.
 
-@ECHO COPYING THE VERSION FILE TO THE binaries FOLDER...
+@ECHO INSTALLER'S DEPLOYMENT FOLDERS: Copying the version file to the binaries folder...
 
 COPY .\data_to_bin_folder\workflowmaker_version.txt ..\..\installer\deployment\bin\%2\*.* 
+
+REM Copy the documentation
+
+@ECHO INSTALLER'S DEPLOYMENT FOLDERS: Copying the docs (.pdf) to the docs folder.
+
+COPY "..\..\docs\user guide\WorkflowMaker user guide.pdf" ..\..\installer\deployment\docs\*.* 

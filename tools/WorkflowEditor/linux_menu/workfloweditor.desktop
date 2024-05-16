@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=workfloweditor
+Comment=Design workflows based on your toolkits
+Exec=/usr/local/bin/workfloweditor
+Icon=/usr/share/workflowmaker/workfloweditor.png
+Terminal=false
+Categories=Development;
+Type=Application

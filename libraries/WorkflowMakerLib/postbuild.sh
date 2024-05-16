@@ -28,6 +28,8 @@ mkdir -p ../../installer/workflowmaker_x.y-zz_amd64/DEBIAN
 mkdir -p ../../installer/workflowmaker_x.y-zz_amd64/usr
 mkdir -p ../../installer/workflowmaker_x.y-zz_amd64/usr/local
 mkdir -p ../../installer/workflowmaker_x.y-zz_amd64/usr/local/bin
+mkdir -p ../../installer/workflowmaker_x.y-zz_amd64/usr/share
+mkdir -p ../../installer/workflowmaker_x.y-zz_amd64/usr/share/workflowmaker
 
 # Copy all *.hpp files.
 
@@ -40,5 +42,13 @@ cp ./$1/*.a ./binaries/
 # Copy the version file to the .deb folder.
 
 cp ./data_to_bin_folder/workflowmaker_version.txt ../../installer/workflowmaker_x.y-zz_amd64/usr/local/bin
+
+# Copy the files that must be stored in the DEBIAN folder.
+
+cp ../../installer/installer_sw_linux/* ../../installer/workflowmaker_x.y-zz_amd64/DEBIAN
+
+chmod +x ../../installer/workflowmaker_x.y-zz_amd64/DEBIAN/control
+chmod +x ../../installer/workflowmaker_x.y-zz_amd64/DEBIAN/postinst
+chmod +x ../../installer/workflowmaker_x.y-zz_amd64/DEBIAN/prerm
 
 

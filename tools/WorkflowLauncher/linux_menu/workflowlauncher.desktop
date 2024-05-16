@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=workflowlauncher
+Comment=Run your workflows designed with workfloweditor
+Exec=/usr/local/bin/workflowlauncher
+Icon=/usr/share/workflowmaker/workflowlauncher.png
+Terminal=false
+Categories=Development;
+Type=Application

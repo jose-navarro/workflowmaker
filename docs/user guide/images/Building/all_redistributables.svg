@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="69.401886mm"
+   height="63.852779mm"
+   viewBox="0 0 69.401886 63.852779"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="all_redistributables.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1"
+     inkscape:cx="258"
+     inkscape:cy="372"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="1680"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-36.181877,-49.999999)">
+    <g
+       id="graph0"
+       class="graph"
+       transform="matrix(0.35277778,0,0,0.35277778,36.358266,113.67639)">
+      <title
+         id="title824">G</title>
+      <!-- QT_redistributables_1 -->
+      <g
+         id="node1"
+         class="node">
+        <title
+           id="title826">QT_redistributables_1</title>
+        <polygon
+           fill="#ffffff"
+           stroke="#000000"
+           points="0,-180 0,-144 86,-144 86,-180 "
+           id="polygon828" />
+        <text
+           text-anchor="middle"
+           x="43"
+           y="-160.10001"
+           font-family="arial"
+           font-size="8px"
+           id="text830">QT_redistributables</text>
+      </g>
+      <!-- x64_2 -->
+      <g
+         id="node2"
+         class="node">
+        <title
+           id="title833">x64_2</title>
+        <polygon
+           fill="#ffffff"
+           stroke="#000000"
+           points="16,-108 16,-72 70,-72 70,-108 "
+           id="polygon835" />
+        <text
+           text-anchor="middle"
+           x="43"
+           y="-88.099998"
+           font-family="arial"
+           font-size="8px"
+           id="text837">x64</text>
+      </g>
+      <!-- QT_redistributables_1&#45;&gt;x64_2 -->
+      <g
+         id="edge1"
+         class="edge">
+        <title
+           id="title840">QT_redistributables_1-&gt;x64_2</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 43,-143.7 c 0,7.72 0,16.99 0,25.59"
+           id="path842" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="39.5,-118.1 46.5,-118.1 43,-108.1 "
+           id="polygon844" />
+      </g>
+      <!-- platforms_3 -->
+      <g
+         id="node3"
+         class="node">
+        <title
+           id="title847">platforms_3</title>
+        <polygon
+           fill="#ffffff"
+           stroke="#000000"
+           points="16,-36 16,0 70,0 70,-36 "
+           id="polygon849" />
+        <text
+           text-anchor="middle"
+           x="43"
+           y="-16.1"
+           font-family="arial"
+           font-size="8px"
+           id="text851">platforms</text>
+      </g>
+      <!-- x64_2&#45;&gt;platforms_3 -->
+      <g
+         id="edge2"
+         class="edge">
+        <title
+           id="title854">x64_2-&gt;platforms_3</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 43,-71.7 c 0,7.72 0,16.99 0,25.59"
+           id="path856" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="39.5,-46.1 46.5,-46.1 43,-36.1 "
+           id="polygon858" />
+      </g>
+    </g>
+    <g
+       id="graph0-3"
+       class="graph"
+       transform="matrix(0.3518527,0,0,0.35185184,74.708686,88.175924)">
+      <title
+         id="title890">G</title>
+      <!-- VC_redistributables_1 -->
+      <g
+         id="node1-6"
+         class="node">
+        <title
+           id="title892">VC_redistributables_1</title>
+        <polygon
+           fill="#ffffff"
+           stroke="#000000"
+           points="0,-108 0,-72 87.25,-72 87.25,-108 "
+           id="polygon894" />
+        <text
+           text-anchor="middle"
+           x="43.619999"
+           y="-87.650002"
+           font-family="arial"
+           font-size="8px"
+           id="text896">VC_redistributables</text>
+      </g>
+      <!-- x64_2 -->
+      <g
+         id="node2-7"
+         class="node">
+        <title
+           id="title899">x64_2</title>
+        <polygon
+           fill="#ffffff"
+           stroke="#000000"
+           points="16.62,-36 16.62,0 70.62,0 70.62,-36 "
+           id="polygon901" />
+        <text
+           text-anchor="middle"
+           x="43.619999"
+           y="-15.65"
+           font-family="arial"
+           font-size="8px"
+           id="text903">x64</text>
+      </g>
+      <!-- VC_redistributables_1&#45;&gt;x64_2 -->
+      <g
+         id="edge1-5"
+         class="edge">
+        <title
+           id="title906">VC_redistributables_1-&gt;x64_2</title>
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 43.62,-71.7 c 0,7.29 0,15.97 0,24.16"
+           id="path908" />
+        <polygon
+           fill="#000000"
+           stroke="#000000"
+           points="43.63,-37.62 40.13,-47.62 47.13,-47.62 "
+           id="polygon910" />
+      </g>
+    </g>
+  </g>
+</svg>
