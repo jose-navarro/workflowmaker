@@ -2,10 +2,10 @@
   \brief Implementation file for mainwindow.hpp.
 */
 
+#include "mainwindow.hpp"
 #include "connection.hpp"
 #include "diagramitem.hpp"
 #include "diagramscene.hpp"
-#include "mainwindow.hpp"
 
 #include <QtWidgets>
 #include <QDebug>
@@ -333,7 +333,7 @@ deleteItem
         // counter twice instead of once.
         //
 
-        subnode_data start_node, end_node;
+        wfme_subnode_data start_node, end_node;
         start_node = conn->startNode();
         end_node   = conn->endNode();
 
@@ -432,6 +432,8 @@ load_toolkit
 
     // Check the validity of the input file using the schema.
 
+    /*
+
     status = tk_parser.set_schema(schema_file);
 
     if (!status)
@@ -456,6 +458,8 @@ load_toolkit
       msgBox.exec();
       return false;
     }
+
+    */
 
     // Try to parse the toolkit file, since it could be erroneous.
 
@@ -516,6 +520,8 @@ load_workflow
 
     // Check the validity of the input file using the schema.
 
+    /*
+
     status = wf_parser.set_schema(schema_file);
 
     if (!status)
@@ -540,6 +546,8 @@ load_workflow
       msgBox.exec();
       return false;
     }
+
+    */
 
     // Try to parse the workflow file, since it could be erroneous.
 

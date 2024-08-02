@@ -5,19 +5,20 @@
 #ifndef LAUNCHER_PARSER_HPP
 #define LAUNCHER_PARSER_HPP
 
-#include <QDomDocument>
-#include <QFile>
-#include <QtXmlPatterns>
+#include "rapidxml.hpp"
+
 #include <QString>
 
+#include <algorithm>
 #include <vector>
 #include <set>
 #include <sstream>
+#include <fstream>
 
 #include "launcher_structures.hpp"
-#include "launcher_parser_message_handler.hpp"
 
 using namespace std;
+using namespace rapidxml;
 
 /// \brief Parse toolkit XML files.
 
@@ -46,21 +47,6 @@ class launcher_parser
 
     bool            parse           (QString& filename, WLLauncher& lch);
 
-
-    /// \brief Set the path to the validating schema.
-    /**
-      \param[in] path_to_schema
-      \return True if the schema is set, false otherwise.
-
-      Call this method if a validating schema is available.
-      Setting a schema means that the parse() method will be
-      safer to use, since not only the syntactic validity
-      will be checked; the structure of the xml file to read
-      will be compared with the one defined by the schema.
-     */
-
-    bool            set_schema      (QString& path_to_schema);
-
     /// \brief Constructor.
 
                     launcher_parser (void);
@@ -70,14 +56,6 @@ class launcher_parser
     /// \brief The list of detected errors.
 
     vector<string> error_list_;
-
-    /// \brief Flag stating whether a validating schema is available.
-
-    bool           got_schema_;
-
-    /// \brief The validating schema.
-
-    QXmlSchema     schema_;
 };
 
 #endif // LAUNCHER_PARSER_HPP

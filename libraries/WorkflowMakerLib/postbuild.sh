@@ -3,7 +3,7 @@
 #
 # Create the WorkflowMakerLib library.
 #
-# Parameter 1: Current configuration (Debug | Release)
+# Parameter 1: Build directory.
 # Parameter 2: Project directory.
 #
 
@@ -14,6 +14,14 @@
 
 cd $2
 
+# Create the deb package structure, and copy there the files that
+# must be stored in the debian and DEBIAN FOLDERS. Pass the
+# default directory as parameter, so the called script knows
+# where to set the default folder.
+
+source ../../installer/installer_sw_linux/build_deb_folder_structure.sh
+build_deb_folder_structure "$2"
+
 #
 # Create the output directories. These may exist, but we do it just in case...
 #
@@ -21,34 +29,15 @@ cd $2
 mkdir -p ./binaries
 mkdir -p ./headers
 
-# Create, if needed, the folders for the .deb package.
-
-mkdir -p ../../installer/workflowmaker_x.y-zz_amd64
-mkdir -p ../../installer/workflowmaker_x.y-zz_amd64/DEBIAN
-mkdir -p ../../installer/workflowmaker_x.y-zz_amd64/usr
-mkdir -p ../../installer/workflowmaker_x.y-zz_amd64/usr/local
-mkdir -p ../../installer/workflowmaker_x.y-zz_amd64/usr/local/bin
-mkdir -p ../../installer/workflowmaker_x.y-zz_amd64/usr/share
-mkdir -p ../../installer/workflowmaker_x.y-zz_amd64/usr/share/workflowmaker
-
 # Copy all *.hpp files.
 
 cp ./src/*.hpp ./headers/
 
 # Copy library
 
-cp ./$1/*.a ./binaries/
+cp $1/*.a ./binaries/
 
 # Copy the version file to the .deb folder.
 
 cp ./data_to_bin_folder/workflowmaker_version.txt ../../installer/workflowmaker_x.y-zz_amd64/usr/local/bin
-
-# Copy the files that must be stored in the DEBIAN folder.
-
-cp ../../installer/installer_sw_linux/* ../../installer/workflowmaker_x.y-zz_amd64/DEBIAN
-
-chmod +x ../../installer/workflowmaker_x.y-zz_amd64/DEBIAN/control
-chmod +x ../../installer/workflowmaker_x.y-zz_amd64/DEBIAN/postinst
-chmod +x ../../installer/workflowmaker_x.y-zz_amd64/DEBIAN/prerm
-
 

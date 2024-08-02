@@ -35,8 +35,9 @@ class connection : public QGraphicsLineItem
         - The type of connector (input / output).
         - The slot number (for instance, the first, third, ..., slot).
      */
-                 connection        (subnode_data&  startNode, subnode_data& endNode,
-                                    QGraphicsItem* parent = nullptr);
+                      connection        (wfme_subnode_data& startNode,
+                                         wfme_subnode_data& endNode,
+                                         QGraphicsItem*     parent = nullptr);
 
     /// \brief Retrieve the DiagramItem related to the final endpoint of the
     ///        connection.
@@ -45,7 +46,7 @@ class connection : public QGraphicsLineItem
               the connection.
      */
 
-    DiagramItem* endItem           (void);
+    DiagramItem*      endItem           (void);
 
     /// \brief Retrieve the subnode data related to the final endpoint of the
     ///        connection.
@@ -59,14 +60,14 @@ class connection : public QGraphicsLineItem
       starts or ends.
      */
 
-    subnode_data endNode           (void);
+    wfme_subnode_data endNode           (void);
 
     /// \brief Set the color used to draw the connection.
     /**
       \param[in] color The color to use.
      */
 
-    void         setColor          (const QColor &color);
+    void              setColor          (const QColor &color);
 
     /// \brief Retrieve the DiagramItem related to the initial endpoint of the
     ///        connection.
@@ -75,7 +76,7 @@ class connection : public QGraphicsLineItem
               the connection.
      */
 
-    DiagramItem* startItem         (void);
+    DiagramItem*      startItem         (void);
 
     /// \brief Retrieve the subnode data related to the initial endpoint of the
     ///        connection.
@@ -89,7 +90,7 @@ class connection : public QGraphicsLineItem
       starts or ends.
      */
 
-    subnode_data startNode         (void);
+    wfme_subnode_data startNode         (void);
 
     /// \brief Returns the type of the item as an int.
     /**
@@ -98,12 +99,12 @@ class connection : public QGraphicsLineItem
       This method overrides the one from the parent of this class.
      */
 
-    int          type              (void) const override;
+    int               type              (void) const override;
 
     /// \brief Draws the line representing the connection taking into account
     ///        the positions of its two endpoints.
 
-    void         updatePosition    (void);
+    void              updatePosition    (void);
 
   protected:
 
@@ -118,7 +119,7 @@ class connection : public QGraphicsLineItem
       of the task / repository where the connection starts and ends.
      */
 
-    void         compute_endpoints (QPointF& start, QPointF& end);
+    void              compute_endpoints (QPointF& start, QPointF& end);
 
     /// \brief Paint the contents of the item in local (item's) coordinates.
     /**
@@ -130,8 +131,8 @@ class connection : public QGraphicsLineItem
                          is always 0.
      */
 
-    void         paint             (QPainter* painter, const QStyleOptionGraphicsItem* option,
-                                    QWidget*  widget = nullptr) override;
+    void              paint             (QPainter* painter, const QStyleOptionGraphicsItem* option,
+                                         QWidget*  widget = nullptr) override;
 
   private:
 
@@ -142,7 +143,7 @@ class connection : public QGraphicsLineItem
     /// \brief Detailed information (DiagramItem, type of connection, slot) about
     ///        the current connection's initial endpoint.
 
-    subnode_data end_node_;
+    wfme_subnode_data end_node_;
 
     /// \brief Color to use when drawing the lines representing the connections.
 
@@ -155,7 +156,7 @@ class connection : public QGraphicsLineItem
     /// \brief Detailed information (DiagramItem, type of connection, slot) about
     ///        the current connection's final endpoint.
 
-    subnode_data start_node_;
+    wfme_subnode_data start_node_;
 };
 
 #endif // CONNECTION_HPP

@@ -682,7 +682,7 @@ remove_connections
       // counter twice instead of once.
       //
 
-      subnode_data start_node, end_node;
+      wfme_subnode_data start_node, end_node;
       start_node = conn->startNode();
       end_node   = conn->endNode();
 
@@ -761,8 +761,8 @@ set_seq_id
 bool
 DiagramItem::
 subnode_coordinates
-(subnode_data& subnode,
- QPointF&      coordinates)
+(wfme_subnode_data& subnode,
+ QPointF&           coordinates)
 {
   {
     if (diagram_type_ == Repository)
@@ -862,8 +862,8 @@ const
 void
 DiagramItem::
 update_input_connection
-(subnode_data&    subnode,
- ConnectionStatus status)
+(wfme_subnode_data& subnode,
+ ConnectionStatus   status)
 {
   {
     if (diagram_type_ != Task) return;
@@ -877,8 +877,8 @@ update_input_connection
 void
 DiagramItem::
 update_output_connection
-(subnode_data&    subnode,
- int              connection_delta)
+(wfme_subnode_data& subnode,
+ int                connection_delta)
 {
   {
     if (diagram_type_ != Task) return;
@@ -892,9 +892,9 @@ update_output_connection
 bool
 DiagramItem::
 validate_click
-(ConnectionMode mode,
- QPointF&       click,
- subnode_data&  where)
+(ConnectionMode     mode,
+ QPointF&           click,
+ wfme_subnode_data& where)
 {
   {
     if (diagram_type_ == Repository)

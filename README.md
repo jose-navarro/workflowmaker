@@ -43,8 +43,6 @@ The information related to the two test sets is also available in the repository
 
 Read the document /docs/user guide/Building WorkFlowMaker.pdf
 
-Note that building from source may be a painful process, since no automation is provided yet. Libraries and tools must be built one by one. Take special care reading the section about post build files to understand how these work and how to adapt it to your needs.
-
 ## Features
 
 * Create workflows by combining, visually, console applications 

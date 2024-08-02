@@ -276,7 +276,7 @@ class DiagramItem : public QGraphicsPolygonItem
       exist, the method returns false.
      */
 
-    bool        subnode_coordinates       (subnode_data& subnode, QPointF& coordinates);
+    bool        subnode_coordinates       (wfme_subnode_data& subnode, QPointF& coordinates);
 
     /// \brief Get the connection status of the item.
     /**
@@ -307,7 +307,7 @@ class DiagramItem : public QGraphicsPolygonItem
       \param[in] status The new status of the slot.
      */
 
-    void        update_input_connection   (subnode_data& subnode, ConnectionStatus status);
+    void        update_input_connection   (wfme_subnode_data& subnode, ConnectionStatus status);
 
     /// \brief Update the number of connections the requested output slot.
     /**
@@ -317,8 +317,8 @@ class DiagramItem : public QGraphicsPolygonItem
                  to the output slot.
      */
 
-    void        update_output_connection  (subnode_data& subnode,
-                                           int           connection_delta);
+    void        update_output_connection  (wfme_subnode_data& subnode,
+                                           int                connection_delta);
 
     /// \brief Check if a click took place in a valid slot and, if so, return its local
     ///        (item) coordinates.
@@ -330,7 +330,7 @@ class DiagramItem : public QGraphicsPolygonItem
                  pointed to by parameter click.
      */
 
-    bool        validate_click            (ConnectionMode mode, QPointF& click, subnode_data& where);
+    bool        validate_click            (ConnectionMode mode, QPointF& click, wfme_subnode_data& where);
 
   protected:
 
@@ -391,7 +391,7 @@ class DiagramItem : public QGraphicsPolygonItem
     ///        as identifiers (either string or numeric), number of inputs
     ///        or output slots, etc.
 
-    node_data            node_data_;
+    wfme_node_data       node_data_;
 
     /// \brief Temporary numerical identifier, used when checking graph cycles.
 

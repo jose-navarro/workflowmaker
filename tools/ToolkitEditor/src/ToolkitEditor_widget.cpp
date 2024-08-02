@@ -162,8 +162,16 @@ on_load_toolkit_file
 
     schema_file = QString::fromStdString(get_executable_path() + "/toolkit.xsd");
 
+    //
+    // THE FOLLOWING BLOCK, CHECKING THE VALIDITY OF THE SCHEMA, IS COMMENTED
+    // BECAUSE THE RAPIDXML LIBRARY REPLACING OBSOLETE QT'S ONE HAS NO VALIDATING
+    // MECHANISMS. THE CODE IS PRESERVED JUST IN CASE MIGRATING TO ANOTHER XML
+    // LIBRARY ALLOW FOR SCHEMA VALIDATION.
+    //
+
     // Check the validity of the input file using the schema.
 
+    /*
     status = tk_parser.set_schema(schema_file);
 
     if (!status)
@@ -188,6 +196,8 @@ on_load_toolkit_file
       msgBox.exec();
       return;
     }
+
+    */
 
     // Try to parse the toolkit file, since it could be erroneous.
 

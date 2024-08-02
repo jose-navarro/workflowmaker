@@ -173,7 +173,7 @@ class DiagramScene : public QGraphicsScene
      */
 
     void     build_candidate_list (DiagramItem*           start,
-                                   subnode_data&          start_slot,
+                                   wfme_subnode_data&     start_slot,
                                    QVector<DiagramItem*>& candidates);
 
     /// \brief Build a graph including only the tasks currently present
@@ -294,7 +294,7 @@ class DiagramScene : public QGraphicsScene
 
     /// \brief Detailed information about the slot where a connection ends.
 
-    subnode_data             end_subnode_;
+    wfme_subnode_data        end_subnode_;
 
     /// \brief Flag stating whether a toolkit as already been selected.
 
@@ -332,7 +332,7 @@ class DiagramScene : public QGraphicsScene
 
     /// \brief Detailed information about the slot where a connection starts.
 
-    subnode_data             start_subnode_;
+    wfme_subnode_data        start_subnode_;
 
     /// \brief Graph for the workflow, including only tasks (repositories
     ///        are NOT included.

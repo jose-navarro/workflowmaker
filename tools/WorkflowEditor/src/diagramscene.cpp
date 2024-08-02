@@ -8,7 +8,7 @@ void
 DiagramScene::
 build_candidate_list
 (DiagramItem*           start,
- subnode_data&          start_slot,
+ wfme_subnode_data&     start_slot,
  QVector<DiagramItem*>& candidates)
 {
   {
@@ -686,10 +686,10 @@ insert_workflow
     for (size_t i = 0; i < wf.connections.size(); i++)
     {
       DiagramItem*                     endItem;
-      subnode_data                     end_subnode;
+      wfme_subnode_data                end_subnode;
       map<int, DiagramItem*>::iterator item_finder;
       DiagramItem*                     startItem;
-      subnode_data                     start_subnode;
+      wfme_subnode_data                start_subnode;
       WFConnection                     wconn;
 
       // Get the current connection.
@@ -820,7 +820,7 @@ mousePressEvent
         // there's nothing to do.
         //
 
-        subnode_data subnode_item;
+        wfme_subnode_data subnode_item;
 
         existing_item = qgraphicsitem_cast<DiagramItem *>(itemAt(mouseEvent->scenePos(), QTransform()));
         if (existing_item == nullptr) break;
@@ -1006,8 +1006,8 @@ mouseReleaseEvent
           {
             // We do not accept direct connections between repositories.
 
-            QPointF      clicked;
-            subnode_data subnode_item;
+            QPointF           clicked;
+            wfme_subnode_data subnode_item;
 
             clicked = endItem->mapFromScene(mouseEvent->scenePos());
 

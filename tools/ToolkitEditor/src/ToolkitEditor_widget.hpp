@@ -5,6 +5,14 @@
 #ifndef TOOLKITEDITOR_WIDGET_HPP
 #define TOOLKITEDITOR_WIDGET_HPP
 
+#ifdef __GNUC__
+  #include <libgen.h>         // dirname
+  #include <unistd.h>         // readlink
+  #include <linux/limits.h>   // PATH_MAX
+#else
+  #include <Windows.h>
+#endif
+
 #include <QFile>
 #include <QFileDialog>
 #include <QHBoxLayout>
@@ -27,14 +35,6 @@
 #include "ToolkitEditor_parameters_widget.hpp"
 #include "ToolkitEditor_filetypes_widget.hpp"
 #include "ToolkitEditor_tasks_widget.hpp"
-
-#ifdef __GNUC__
-  #include <libgen.h>         // dirname
-  #include <unistd.h>         // readlink
-  #include <linux/limits.h>   // PATH_MAX
-#else
-  #include <Windows.h>
-#endif
 
 using namespace std;
 

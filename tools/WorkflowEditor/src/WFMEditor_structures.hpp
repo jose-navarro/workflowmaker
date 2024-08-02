@@ -46,7 +46,7 @@ class DiagramItem;
   \brief Defines the dimensions of a node.
  */
 
-struct node_dimensions
+struct wfme_node_dimensions
 {
   qreal height;       /**< Height of the outer box to draw. Item units. */
 
@@ -66,7 +66,7 @@ struct node_dimensions
   \brief Defines the positions of the several elements making a node.
  */
 
-struct node_positions
+struct wfme_node_positions
 {
   QPointF         center;       /**< Coordinates (scene's coordinate space) of
                                      the center of the node. */
@@ -88,7 +88,7 @@ struct node_positions
 
  */
 
-struct node_data
+struct wfme_node_data
 {
   string                   id;                 /**< Unique identifier for the node. */
 
@@ -116,10 +116,10 @@ struct node_data
 
   vector<int>              output_connections; /**< Connection counters for the output files. */
 
-  node_dimensions          dim;                /**< Dimensions of the several elements making
+  wfme_node_dimensions     dim;                /**< Dimensions of the several elements making
                                                     the node. */
 
-  node_positions           pos;                /**< Positions of the node and its elements. */
+  wfme_node_positions      pos;                /**< Positions of the node and its elements. */
 
 };
 
@@ -127,7 +127,7 @@ struct node_data
   \brief Identifies a subnode inside a node
  */
 
-struct subnode_data
+struct wfme_subnode_data
 {
   DiagramItem*     item;     /**< Pointer to the diagram item to which this info refers. */
 

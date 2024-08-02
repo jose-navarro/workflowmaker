@@ -18,7 +18,7 @@ REM Release.
 
 "%QMAKE_TOOL%" -makefile CONFIG+=release ToolkitEditor.pro
 nmake
-call postbuild.bat "%WORKING_DIR%" x64 Release toolkiteditor
+call postbuild.bat "%WORKING_DIR%" release "%WORKING_DIR%"
 
 del .qmake.stash
 del Makefile
@@ -27,7 +27,6 @@ del Makefile.Release
 
 rmdir /S /Q "release"
 rmdir /S /Q "debug"
-rmdir /S /Q "x64"
 
 cd ..
 
@@ -40,7 +39,7 @@ REM Release.
 
 "%QMAKE_TOOL%" -makefile CONFIG+=release WorkflowEditor.pro
 nmake
-call postbuild.bat "%WORKING_DIR%" x64 Release workfloweditor
+call postbuild.bat "%WORKING_DIR%" release "%WORKING_DIR%"
 
 del .qmake.stash
 del Makefile
@@ -49,7 +48,6 @@ del Makefile.Release
 
 rmdir /S /Q "release"
 rmdir /S /Q "debug"
-rmdir /S /Q "x64"
 
 cd ..
 
@@ -62,7 +60,7 @@ REM Release.
 
 "%QMAKE_TOOL%" -makefile CONFIG+=release WorkflowLauncher.pro
 nmake
-call postbuild.bat "%WORKING_DIR%" x64 Release workflowlauncher
+call postbuild.bat "%WORKING_DIR%" release "%WORKING_DIR%"
 
 del .qmake.stash
 del Makefile
@@ -71,7 +69,6 @@ del Makefile.Release
 
 rmdir /S /Q "release"
 rmdir /S /Q "debug"
-rmdir /S /Q "x64"
 
 cd ..
 

@@ -1482,6 +1482,8 @@ load_launcher
 
     // Check the validity of the input file using the schema.
 
+    /*
+
     status = lch_parser.set_schema(schema_file);
 
     if (!status)
@@ -1506,6 +1508,8 @@ load_launcher
       msgBox.exec();
       return false;
     }
+
+    */
 
     // Try to parse the launcher file, since it could be erroneous.
 
@@ -1566,6 +1570,8 @@ load_toolkit
 
     // Check the validity of the input file using the schema.
 
+    /*
+
     status = tk_parser.set_schema(schema_file);
 
     if (!status)
@@ -1590,6 +1596,8 @@ load_toolkit
       msgBox.exec();
       return false;
     }
+
+    */
 
     // Try to parse the toolkit file, since it could be erroneous.
 
@@ -1650,6 +1658,8 @@ load_workflow
 
     // Check the validity of the input file using the schema.
 
+    /*
+
     status = wf_parser.set_schema(schema_file);
 
     if (!status)
@@ -1674,6 +1684,8 @@ load_workflow
       msgBox.exec();
       return false;
     }
+
+    */
 
     // Try to parse the workflow file, since it could be erroneous.
 
@@ -2863,9 +2875,9 @@ WorkflowLauncher_widget
     tabs_->addTab(tab_repositories_, tr("Repositories"));
     tabs_->addTab(tab_files_,        tr("Files"));
 
-    tab_parameters_->setMinimumWidth(700);
-    tab_repositories_->setMinimumWidth(700);
-    tab_files_->setMinimumWidth(700);
+    tab_parameters_->setMinimumWidth(800);
+    tab_repositories_->setMinimumWidth(800);
+    tab_files_->setMinimumWidth(800);
 
     setMinimumHeight(500);
 

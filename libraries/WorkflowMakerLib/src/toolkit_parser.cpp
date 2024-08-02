@@ -17,324 +17,174 @@ error_list
 bool
 toolkit_parser::
 parse
-(QString& filename, toolkit& tk)
+(QString& filename,
+ toolkit& tk)
 {
   {
-    // If we've got a validating schema, try to validate our XML document.
+    // Read the XML file into a string
 
-    if (got_schema_)
+    ifstream file(filename.toStdString());
+
+    if (!file.is_open())
     {
-      QFile file(filename);
-      if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
-      {
-        error_list_.push_back("Unable to open the input file '" + filename.toStdString() + "'");
-        return false;
-      }
-
-      toolkit_parser_message_handler message_handler;
-
-      QXmlSchemaValidator validator(schema_);
-      validator.setMessageHandler(&message_handler);
-
-      if (!validator.validate(&file, QUrl::fromLocalFile(file.fileName())))
-      {
-        string message;
-
-        message = "'" + filename.toStdString() + "' is not a valid toolkit XML definition file.";
-        error_list_.push_back(message);
-
-        message = "  These are the errors detected:";
-        error_list_.push_back(message);
-
-        for (size_t i = 0; i < message_handler.error_total(); i++)
-        {
-          string       scolumn;
-          string       sline;
-          stringstream ss1;
-          stringstream ss2;
-
-          ss1 << message_handler.error_line(i);
-          sline = ss1.str();
-
-          ss2 << message_handler.error_column(i);
-          scolumn = ss2.str();
-
-          message = "    " + message_handler.error_message(i)
-                           + "(line "    + sline
-                           + ", column " + scolumn
-                           + ")";
-
-          error_list_.push_back(message);
-        }
-
-        file.close();
-        return false;
-      }
-
-      file.close();
-    }
-
-    // Open the actual file with the XML data.
-
-    QFile file(filename);
-    if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
-    {
-      error_list_.push_back("Unable to open the input file '" + filename.toStdString() + "'");
+      error_list_.push_back("Unable to open the input XML toolkit file '" + filename.toStdString() + "'");
       return false;
     }
 
-    // Parse our input XML file.
+    string buffer((istreambuf_iterator<char>(file)), (istreambuf_iterator<char>()));
+    file.close();
 
-    QDomDocument document;
-    int          column;
-    QString      error;
-    int          line;
-    QString      message;
+    // Parse the XML file
 
-    if(!document.setContent(&file, &error, &line, &column))
-    {
-      // Unable to load the input file.
+    xml_document<> doc;
+    doc.parse<0>(&buffer[0]);
 
-      file.close();
+    // Access the toolkit element
+    xml_node<> *toolkit = doc.first_node("toolkit");
 
-      message = "  " + error + ". Line: " + QString::number(line) + ". Column: " + QString::number(column);
+    // Parse the toolkit's general information
 
-      error_list_.push_back("Error parsing '" + filename.toStdString() + "'");
-      error_list_.push_back(message.toStdString());
+    tk.id          = toolkit->first_node("id")->value();
+    tk.description = toolkit->first_node("description")->value();
 
-      return false;
-    }
+    std::transform(tk.id.begin(), tk.id.end(), tk.id.begin(), ::toupper);
 
-    // Get the document's root element
-
-    QDomElement root = document.firstChildElement();
-
-    // Get the identifier and description of the toolkit.
-
-    QDomElement element;
-
-    element = root.firstChildElement("id");
-    tk.id = element.text().toUpper().toStdString();
-
-    element = root.firstChildElement("description");
-    tk.description = element.text().toStdString();
-
-    // Get the list of parameters.
+    // Parse the list of unique parameters
 
     tk.parameters.clear();
 
-    QDomNodeList nodes;
-
-    element = root.firstChildElement("parameters");
-    nodes = element.elementsByTagName("parameter");
-
-    for(int i = 0; i < nodes.count(); i++)
+    for (xml_node<> *parameter = toolkit->first_node("parameters")->first_node("parameter");
+         parameter;
+         parameter = parameter->next_sibling())
     {
-      QDomNode elm = nodes.at(i);
+      toolkit_parameter tp;
 
-      if(elm.isElement())
-      {
-        QDomElement e = elm.toElement();
+      tp.id          = parameter->first_node("id")->value();
+      tp.description = parameter->first_node("description")->value();
+      tp.type        = parameter->first_node("type")->value();
 
-        QDomElement id          = e.firstChildElement("id");
-        QDomElement description = e.firstChildElement("description");
-        QDomElement type        = e.firstChildElement("type");
+      std::transform(tp.id.begin()  , tp.id.end()  , tp.id.begin()  , ::toupper);
+      std::transform(tp.type.begin(), tp.type.end(), tp.type.begin(), ::toupper);
 
-        toolkit_parameter tp;
-        tp.id          = id.text().toUpper().toStdString();
-        tp.description = description.text().toStdString();
-        tp.type        = type.text().toUpper().toStdString();
-
-        tk.parameters.push_back(tp);
-      }
+      tk.parameters.push_back(tp);
     }
 
-    // Get the list of file types
+    // Parse the list of unique file types
 
     tk.file_types.clear();
 
-    element = root.firstChildElement("file_types");
-    nodes = element.elementsByTagName("file_type");
-
-    for(int i = 0; i < nodes.count(); i++)
+    for (xml_node<> *file_type = toolkit->first_node("file_types")->first_node("file_type");
+         file_type;
+         file_type = file_type->next_sibling())
     {
-      QDomNode elm = nodes.at(i);
+      toolkit_file_type tft;
 
-      if(elm.isElement())
-      {
-        QDomElement e = elm.toElement();
+      tft.id          = file_type->first_node("id")->value();
+      tft.description = file_type->first_node("description")->value();
+      tft.extension   = file_type->first_node("extension")->value();
 
-        QDomElement id          = e.firstChildElement("id");
-        QDomElement description = e.firstChildElement("description");
-        QDomElement extension   = e.firstChildElement("extension");
+      std::transform(tft.id.begin(), tft.id.end(), tft.id.begin(), ::toupper);
 
-        toolkit_file_type tft;
-        tft.id          = id.text().toUpper().toStdString();
-        tft.description = description.text().toStdString();
-        tft.extension   = extension.text().toStdString();
-
-        tk.file_types.push_back(tft);
-      }
+      tk.file_types.push_back(tft);
     }
 
-    // Get the list of tasks
+    // Parse the list of tasks
 
     tk.tasks.clear();
 
-    element = root.firstChildElement("tasks");
-    nodes = element.elementsByTagName("task");
-
-    for(int i = 0; i < nodes.count(); i++)
+    for (xml_node<> *task = toolkit->first_node("tasks")->first_node("task");
+         task;
+         task = task->next_sibling())
     {
-      QDomNode elm = nodes.at(i);
+      toolkit_task tt;
 
-      if(elm.isElement())
+      tt.id                 = task->first_node("id")->value();
+      tt.description        = task->first_node("description")->value();
+      tt.name_of_executable = task->first_node("name_of_executable")->value();
+
+      std::transform(tt.id.begin(), tt.id.end(), tt.id.begin(), ::toupper);
+
+      // Check whether the task has parameters. If so, parse its identifiers.
+
+      tt.parameters.clear();
+
+      xml_node<> *parameters_node = task->first_node("parameters");
+      if (parameters_node)
       {
-        QDomElement e = elm.toElement();
+        // Parse parameter identifiers, since we know that we've got at least one parameter.
 
-        QDomElement id          = e.firstChildElement("id");
-        QDomElement description = e.firstChildElement("description");
-        QDomElement name_of_executable = e.firstChildElement("name_of_executable");
-
-        toolkit_task tt;
-        tt.id                 = id.text().toUpper().toStdString();
-        tt.description        = description.text().toStdString();
-        tt.name_of_executable = name_of_executable.text().toStdString();
-
-        // The parameters. There may be none.
-
-        tt.parameters.clear();
-
-        QDomElement  pars   = e.firstChildElement("parameters");
-
-        if (!pars.isNull())
+        for (xml_node<> *parameter_id = task->first_node("parameters")->first_node("parameter_id");
+             parameter_id;
+             parameter_id = parameter_id->next_sibling())
         {
-          QDomNodeList parids = pars.elementsByTagName("parameter_id");
-
-          for (int j = 0; j < parids.count(); j++)
-          {
-            QDomNode parelm = parids.at(j);
-
-            if (parelm.isElement())
-            {
-              QDomElement parid = parelm.toElement();
-              tt.parameters.push_back(parid.text().toUpper().toStdString());
-            }
-          }
+          string parid = parameter_id->value();
+          std::transform(parid.begin(), parid.end(), parid.begin(), ::toupper);
+          tt.parameters.push_back(parid);
         }
-
-        // The input files. Again, there may be none.
-
-        tt.input_files.clear();
-
-        QDomElement  ifiles    = e.firstChildElement("input_files");
-
-        if (!ifiles.isNull())
-        {
-          QDomNodeList ifilelist = ifiles.elementsByTagName("input_file");
-
-          for (int j = 0; j < ifilelist.count(); j++)
-          {
-            QDomNode ifile = ifilelist.at(j);
-
-            if (ifile.isElement())
-            {
-              QDomElement ifilelem = ifile.toElement();
-
-              QDomElement file_type_id       = ifilelem.firstChildElement("file_type_id");
-              QDomElement description        = ifilelem.firstChildElement("description");
-              QDomElement options_file_label = ifilelem.firstChildElement("options_file_label");
-
-              toolkit_file tf;
-
-              tf.file_type_id       = file_type_id.text().toUpper().toStdString();
-              tf.description        = description.text().toStdString();
-              tf.options_file_label = options_file_label.text().toUpper().toStdString();
-
-              tt.input_files.push_back(tf);
-            }
-          }
-        }
-
-        // The output files.
-
-        tt.output_files.clear();
-
-        QDomElement  ofiles    = e.firstChildElement("output_files");
-        QDomNodeList ofilelist = ofiles.elementsByTagName("output_file");
-
-        for (int j = 0; j < ofilelist.count(); j++)
-        {
-          QDomNode ofile = ofilelist.at(j);
-
-          if (ofile.isElement())
-          {
-            QDomElement ofilelem = ofile.toElement();
-
-            QDomElement file_type_id       = ofilelem.firstChildElement("file_type_id");
-            QDomElement description        = ofilelem.firstChildElement("description");
-            QDomElement options_file_label = ofilelem.firstChildElement("options_file_label");
-
-            toolkit_file tf;
-
-            tf.file_type_id       = file_type_id.text().toUpper().toStdString();
-            tf.description        = description.text().toStdString();
-            tf.options_file_label = options_file_label.text().toUpper().toStdString();
-
-            tt.output_files.push_back(tf);
-          }
-        }
-
-        // We've parsed the task completely. Add it to our list of tasks.
-
-        tk.tasks.push_back(tt);
       }
+
+      // Check whether we have input files, since there may be none.
+
+      tt.input_files.clear();
+
+      xml_node<> *input_files_node = task->first_node("input_files");
+      if (input_files_node)
+      {
+        // Parse the input files, now that we're sure that there's one at least.
+
+        for (xml_node<> *input_file = task->first_node("input_files")->first_node("input_file");
+             input_file;
+             input_file = input_file->next_sibling())
+        {
+          toolkit_file tf;
+
+          tf.file_type_id       = input_file->first_node("file_type_id")->value();
+          tf.description        = input_file->first_node("description")->value();
+          tf.options_file_label = input_file->first_node("options_file_label")->value();
+
+          std::transform(tf.file_type_id.begin(),
+                         tf.file_type_id.end(),
+                         tf.file_type_id.begin(), ::toupper);
+
+          std::transform(tf.options_file_label.begin(),
+                         tf.options_file_label.end(),
+                         tf.options_file_label.begin(), ::toupper);
+
+          tt.input_files.push_back(tf);
+        }
+      }
+
+      // Parse output files. There will be at least one.
+
+      tt.output_files.clear();
+
+      for (xml_node<> *output_file = task->first_node("output_files")->first_node("output_file");
+           output_file;
+           output_file = output_file->next_sibling())
+      {
+        toolkit_file tf;
+
+        tf.file_type_id       = output_file->first_node("file_type_id")->value();
+        tf.description        = output_file->first_node("description")->value();
+        tf.options_file_label = output_file->first_node("options_file_label")->value();
+
+        std::transform(tf.file_type_id.begin(),
+                       tf.file_type_id.end(),
+                       tf.file_type_id.begin(), ::toupper);
+
+        std::transform(tf.options_file_label.begin(),
+                       tf.options_file_label.end(),
+                       tf.options_file_label.begin(), ::toupper);
+
+        tt.output_files.push_back(tf);
+      }
+
+      tk.tasks.push_back(tt);
     }
-
-    // Close the input file.
-
-    file.close();
 
     // Validate the toolkit and return.
 
     return validate_toolkit(tk);
-
-  }
-}
-
-bool
-toolkit_parser::
-set_schema
-(QString& path_to_schema)
-{
-  {
-    QUrl schema_url;
-
-    // Transform the path to the schema file to a valid URL.
-
-    schema_url = QUrl::fromLocalFile(path_to_schema);
-
-    // Try to load the schema.
-
-    schema_.load(schema_url);
-    if (!schema_.isValid())
-    {
-      string message;
-
-      message = "Unable to set the validating schema at '" + schema_url.toString().toStdString() + "'";
-      error_list_.push_back(message);
-      got_schema_ = false;
-
-      return false;
-    }
-
-    // We've got a validating schema!
-
-    got_schema_ = true;
-
-    // That's all.
-
-    return true;
   }
 }
 
@@ -343,7 +193,7 @@ toolkit_parser
 (void)
 {
   {
-    got_schema_ = false;
+    error_list_.clear();
   }
 }
 

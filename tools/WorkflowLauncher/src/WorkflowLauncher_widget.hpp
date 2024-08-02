@@ -5,6 +5,14 @@
 #ifndef WORKFLOWLAUNCHER_WIDGET_HPP
 #define WORKFLOWLAUNCHER_WIDGET_HPP
 
+#ifdef __GNUC__
+  #include <libgen.h>         // dirname
+  #include <unistd.h>         // readlink
+  #include <linux/limits.h>   // PATH_MAX
+#else
+  #include <Windows.h>
+#endif
+
 #include <QFile>
 #include <QFileDialog>
 #include <QHBoxLayout>
@@ -36,16 +44,6 @@
 #include "WorkflowLauncher_files_widget.hpp"
 #include "WorkflowLauncher_parameters_widget.hpp"
 #include "WorkflowLauncher_repos_widget.hpp"
-
-#ifdef __GNUC__
-  #include <libgen.h>         // dirname
-  #include <unistd.h>         // readlink
-  #include <linux/limits.h>   // PATH_MAX
-#else
-  #include <Windows.h>
-#endif
-
-#include <QDebug>
 
 using namespace std;
 

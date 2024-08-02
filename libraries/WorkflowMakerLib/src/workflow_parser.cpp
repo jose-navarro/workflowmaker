@@ -21,281 +21,119 @@ parse
  WFWorkflow& wf)
 {
   {
-    // If we've got a validating schema, try to validate our XML document.
+    // Read the XML file into a string
+      ifstream file(filename.toStdString());
 
-    if (got_schema_)
-    {
-      QFile file(filename);
-      if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+      if (!file.is_open())
       {
-        error_list_.push_back("Unable to open the input file '" + filename.toStdString() + "'");
+        error_list_.push_back("Unable to open the input XML workflow file '" + filename.toStdString() + "'");
         return false;
       }
 
-      workflow_parser_message_handler message_handler;
-
-      QXmlSchemaValidator validator(schema_);
-      validator.setMessageHandler(&message_handler);
-
-      if (!validator.validate(&file, QUrl::fromLocalFile(file.fileName())))
-      {
-
-        string message;
-
-        message = "'" + filename.toStdString() + "' is not a valid workflow XML definition file.";
-        error_list_.push_back(message);
-
-        message = "  These are the errors detected:";
-        error_list_.push_back(message);
-
-        for (size_t i = 0; i < message_handler.error_total(); i++)
-        {
-          string       scolumn;
-          string       sline;
-          stringstream ss1;
-          stringstream ss2;
-
-          ss1 << message_handler.error_line(i);
-          sline = ss1.str();
-
-          ss2 << message_handler.error_column(i);
-          scolumn = ss2.str();
-
-          message = "    " + message_handler.error_message(i)
-                           + "(line "    + sline
-                           + ", column " + scolumn
-                           + ")";
-
-          error_list_.push_back(message);
-        }
-
-        file.close();
-        return false;
-      }
-
-      file.close();
-    }
-
-    // Open the actual file with the XML data.
-
-    QFile file(filename);
-    if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
-    {
-      error_list_.push_back("Unable to open the input file '" + filename.toStdString() + "'");
-      return false;
-    }
-
-    // Parse our input XML file.
-
-    QDomDocument document;
-    int          column;
-    QString      error;
-    int          line;
-    QString      message;
-
-    if(!document.setContent(&file, &error, &line, &column))
-    {
-      // Unable to load the input file.
-
+      string buffer((std::istreambuf_iterator<char>(file)), (std::istreambuf_iterator<char>()));
       file.close();
 
-      message = "  " + error + ". Line: " + QString::number(line) + ". Column: " + QString::number(column);
+      // Parse the XML file
+      xml_document<> doc;
+      doc.parse<0>(&buffer[0]);
 
-      error_list_.push_back("Error parsing '" + filename.toStdString() + "'");
-      error_list_.push_back(message.toStdString());
+      // Parse the general workflow information
 
-      return false;
-    }
+      wf.id           = doc.first_node("workflow")->first_node("id")->value();
+      wf.description  = doc.first_node("workflow")->first_node("description")->value();
+      wf.toolkit_id   = doc.first_node("workflow")->first_node("toolkit_id")->value();
+      wf.last_repo_id = stoi(doc.first_node("workflow")->first_node("last_repository_id")->value());
+      wf.last_task_id = stoi(doc.first_node("workflow")->first_node("last_task_id")->value());
 
-    // Get the document's root element
+      std::transform(wf.id.begin()        , wf.id.end()        , wf.id.begin()        , ::toupper);
+      std::transform(wf.toolkit_id.begin(), wf.toolkit_id.end(), wf.toolkit_id.begin(), ::toupper);
 
-    QDomElement root = document.firstChildElement();
+      // Parse repositories, if any.
 
-    // Get the identifier and description of the toolkit.
+      wf.repos.clear();
 
-    QDomElement element;
-
-    element = root.firstChildElement("id");
-    wf.id = element.text().toUpper().toStdString();
-
-    element = root.firstChildElement("description");
-    wf.description = element.text().toStdString();
-
-    element = root.firstChildElement("toolkit_id");
-    wf.toolkit_id = element.text().toStdString();
-
-    element = root.firstChildElement("last_repository_id");
-    wf.last_repo_id = element.text().trimmed().toInt();
-
-    element = root.firstChildElement("last_task_id");
-    wf.last_task_id = element.text().trimmed().toInt();
-
-    // Get the list of repositories, if any.
-
-    wf.repos.clear();
-
-    QDomNodeList nodes;
-
-    element = root.firstChildElement("repositories");
-    if (!element.isNull())
-    {
-      nodes = element.elementsByTagName("repository");
-
-      for(int i = 0; i < nodes.count(); i++)
+      xml_node<> *repositories_node = doc.first_node("workflow")->first_node("repositories");
+      if (repositories_node)
       {
-        QDomNode elm = nodes.at(i);
-
-        if(elm.isElement())
+        for (xml_node<> *repository_node = doc.first_node("workflow")->first_node("repositories")->first_node("repository");
+            repository_node;
+            repository_node = repository_node->next_sibling())
         {
-          QDomElement e = elm.toElement();
+          WFNode rep;
 
-          QDomElement id           = e.firstChildElement("id");
-          QDomElement numerical_id = e.firstChildElement("numerical_id");
-          QDomElement pos          = e.firstChildElement("position");
-          QDomElement x            = pos.firstChildElement("x");
-          QDomElement y            = pos.firstChildElement("y");
+          rep.id           = repository_node->first_node("id")->value();
+          rep.numerical_id = stoi(repository_node->first_node("numerical_id")->value());
+          rep.pos.x        = stoi(repository_node->first_node("position")->first_node("x")->value());
+          rep.pos.y        = stoi(repository_node->first_node("position")->first_node("y")->value());
 
-          WFNode       rep;
-
-          rep.id           = id.text().toUpper().toStdString();
-          rep.numerical_id = numerical_id.text().toInt();
-          rep.pos.x        = x.text().toInt();
-          rep.pos.y        = y.text().toInt();
+          std::transform(rep.id.begin(), rep.id.end(), rep.id.begin(), ::toupper);
 
           wf.repos.push_back(rep);
         }
       }
-    }
 
-    // Get the list of tasks, if any.
+      // Parse tasks, if any.
 
-    wf.tasks.clear();
+      wf.tasks.clear();
 
-    element = root.firstChildElement("tasks");
-    if (!element.isNull())
-    {
-      nodes = element.elementsByTagName("task");
-
-      for(int i = 0; i < nodes.count(); i++)
+      xml_node<> *tasks_node = doc.first_node("workflow")->first_node("tasks");
+      if (tasks_node)
       {
-        QDomNode elm = nodes.at(i);
-
-        if(elm.isElement())
+        for (xml_node<> *task_node = doc.first_node("workflow")->first_node("tasks")->first_node("task");
+             task_node;
+             task_node = task_node->next_sibling())
         {
-          QDomElement e = elm.toElement();
+          WFNode tsk;
 
-          QDomElement id            = e.firstChildElement("id");
-          QDomElement numerical_id  = e.firstChildElement("numerical_id");
-          QDomElement sequential_id = e.firstChildElement("sequential_id");
-          QDomElement pos           = e.firstChildElement("position");
-          QDomElement x             = pos.firstChildElement("x");
-          QDomElement y             = pos.firstChildElement("y");
+          tsk.id            = task_node->first_node("id")->value();
+          tsk.numerical_id  = stoi(task_node->first_node("numerical_id")->value());
+          tsk.sequential_id = stoi(task_node->first_node("sequential_id")->value());
+          tsk.pos.x         = stoi(task_node->first_node("position")->first_node("x")->value());
+          tsk.pos.y         = stoi(task_node->first_node("position")->first_node("y")->value());
 
-          WFNode       tsk;
-
-          tsk.id            = id.text().toUpper().toStdString();
-          tsk.numerical_id  = numerical_id.text().toInt();
-          tsk.sequential_id = sequential_id.text().toInt();
-          tsk.pos.x         = x.text().toInt();
-          tsk.pos.y         = y.text().toInt();
+          std::transform(tsk.id.begin(), tsk.id.end(), tsk.id.begin(), ::toupper);
 
           wf.tasks.push_back(tsk);
         }
       }
-    }
 
-    // Get the list of connections, if any.
+      // Parse connections, if any.
 
-    wf.connections.clear();
+      wf.connections.clear();
 
-    element = root.firstChildElement("connections");
-    if (!element.isNull())
-    {
-      nodes = element.elementsByTagName("connection");
-
-      for(int i = 0; i < nodes.count(); i++)
+      xml_node<> *connections_node = doc.first_node("workflow")->first_node("connections");
+      if (connections_node)
       {
-        QDomNode elm = nodes.at(i);
-
-        if(elm.isElement())
+        for (xml_node<> *connection_node = doc.first_node("workflow")->first_node("connections")->first_node("connection");
+             connection_node;
+             connection_node = connection_node->next_sibling())
         {
           WFConnection conn;
-          QString      node_type;
+          string       node_type;
 
-          QDomElement e    = elm.toElement();
-          QDomElement from = e.firstChildElement("from");
-          QDomElement to   = e.firstChildElement("to");
-
-          QDomElement type = from.firstChildElement("type");
-          QDomElement nid  = from.firstChildElement("numerical_id");
-          QDomElement pos  = from.firstChildElement("position");
-
-          node_type = type.text().toUpper();
+          node_type = connection_node->first_node("from")->first_node("type")->value();
+          std::transform(node_type.begin(), node_type.end(), node_type.begin(), ::toupper);
           if (node_type == "REPOSITORY") conn.from.type = RepoEndPoint;
           else                           conn.from.type = TaskEndPoint;
 
-          conn.from.endpoint_id = nid.text().toInt();
-          conn.from.slot        = pos.text().toInt();
+          conn.from.endpoint_id = stoi(connection_node->first_node("from")->first_node("numerical_id")->value());
+          conn.from.slot        = stoi(connection_node->first_node("from")->first_node("position")->value());
 
-          type = to.firstChildElement("type");
-          nid  = to.firstChildElement("numerical_id");
-          pos  = to.firstChildElement("position");
-
-          node_type = type.text().toUpper();
+          node_type = connection_node->first_node("to")->first_node("type")->value();
+          std::transform(node_type.begin(), node_type.end(), node_type.begin(), ::toupper);
           if (node_type == "REPOSITORY") conn.to.type = RepoEndPoint;
           else                           conn.to.type = TaskEndPoint;
 
-          conn.to.endpoint_id = nid.text().toInt();
-          conn.to.slot        = pos.text().toInt();
+          conn.to.endpoint_id = stoi(connection_node->first_node("to")->first_node("numerical_id")->value());
+          conn.to.slot        = stoi(connection_node->first_node("to")->first_node("position")->value());
 
           wf.connections.push_back(conn);
         }
       }
-    }
 
-    // Close the input file.
+      // That's all.
 
-    file.close();
-
-    // That's all
-
-    return true;
-  }
-}
-
-bool
-workflow_parser::
-set_schema
-(QString& path_to_schema)
-{
-  {
-    QUrl schema_url;
-
-    // Transform the path to the schema file to a valid URL.
-
-    schema_url = QUrl::fromLocalFile(path_to_schema);
-
-    // Try to load the schema.
-
-    schema_.load(schema_url);
-    if (!schema_.isValid())
-    {
-      string message;
-
-      message = "Unable to set the validating schema at '" + schema_url.toString().toStdString() + "'";
-      error_list_.push_back(message);
-      got_schema_ = false;
-
-      return false;
-    }
-
-    // We've got a validating schema!
-
-    got_schema_ = true;
-
-    // That's all.
-
-    return true;
+      return true;
   }
 }
 
@@ -304,6 +142,6 @@ workflow_parser
 (void)
 {
   {
-    got_schema_ = false;
+    error_list_.clear();
   }
 }

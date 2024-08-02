@@ -19,8 +19,12 @@ chmod +x postbuild.sh
 "$QMAKE_TOOL" -makefile CONFIG+=release ToolkitEditor.pro
 make
 rm Makefile
-rm toolkiteditor_plugin_import.cpp
-rm -rf Release
+rm .qmake.stash
+rm *.o
+rm moc*.*
+rm qrc_ToolkitEditor_resources.cpp
+rm toolkiteditor
+
 
 cd ..
 
@@ -30,8 +34,12 @@ chmod +x postbuild.sh
 "$QMAKE_TOOL" -makefile CONFIG+=release WorkflowEditor.pro
 make
 rm Makefile
-rm workfloweditor_plugin_import.cpp
-rm -rf Release
+rm .qmake.stash
+rm *.o
+rm moc*.*
+rm qrc_WorkflowEditor.cpp
+rm workfloweditor
+
 
 cd ..
 
@@ -41,8 +49,12 @@ chmod +x postbuild.sh
 "$QMAKE_TOOL" -makefile CONFIG+=release WorkflowLauncher.pro
 make
 rm Makefile
-rm workflowlauncher_plugin_import.cpp
-rm -rf Release
+rm .qmake.stash
+rm *.o
+rm moc*.*
+rm qrc_WorkflowLauncher_resources.cpp
+rm workflowlauncher
+
 
 cd ..
 

@@ -18,7 +18,7 @@ REM Release.
 
 "%QMAKE_TOOL%" -makefile CONFIG+=release WorkflowMakerLib.pro
 nmake
-call postbuild.bat "%WORKING_DIR%" x64 Release WorkflowMakerLib_x64_mtd
+call postbuild.bat "%WORKING_DIR%" release "%WORKING_DIR%"
 
 del .qmake.stash
 del Makefile
@@ -27,13 +27,12 @@ del Makefile.Release
 
 rmdir /S /Q "release"
 rmdir /S /Q "debug"
-rmdir /S /Q "x64"
 
 REM Debug.
 
 "%QMAKE_TOOL%" -makefile CONFIG+=debug WorkflowMakerLib.pro
 nmake
-call postbuild.bat "%WORKING_DIR%" x64 Debug WorkflowMakerLib_x64_dmtd
+call postbuild.bat "%WORKING_DIR%" debug "%WORKING_DIR%"
 
 del .qmake.stash
 del Makefile
@@ -42,7 +41,6 @@ del Makefile.Release
 
 rmdir /S /Q "release"
 rmdir /S /Q "debug"
-rmdir /S /Q "x64"
 
 cd ..
 

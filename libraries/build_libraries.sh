@@ -19,13 +19,15 @@ chmod +x postbuild.sh
 "$QMAKE_TOOL" -makefile CONFIG+=release WorkflowMakerLib.pro
 make
 rm Makefile
+rm *.o
 rm .qmake.stash
-rm -rf Release
+rm libWorkflowMakerLib.a
 
 "$QMAKE_TOOL" -makefile CONFIG+=debug WorkflowMakerLib.pro
 make
 rm Makefile
+rm *.o
 rm .qmake.stash
-rm -rf Debug
+rm libWorkflowMakerLibd.a
 
 cd ..

@@ -2,7 +2,7 @@
 
 # Define the location of qmake (replace with your actual path)
 
-QMAKE_TOOL="/home/janavaro/Qt/5.15.3-static/bin/qmake"
+QMAKE_TOOL="/lib/qt6/bin/qmake"
 
 # Build the libraries.
 

@@ -123,7 +123,7 @@ WorkflowLauncher_parameters_widget
     scroll_area->setWidget(container);
     scroll_area->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
-    v_layout->setMargin(0);
+    v_layout->setContentsMargins(0, 0, 0, 0);
     v_layout->addWidget(scroll_area);
 
   }

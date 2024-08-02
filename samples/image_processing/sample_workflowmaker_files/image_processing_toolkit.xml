@@ -34,7 +34,7 @@
     <file_type>
       <id>IMAGE_PNG</id>
       <description>An image in PGN format</description>
-      <extension>.png</extension>
+      <extension>png</extension>
     </file_type>
   </file_types>
   <tasks>

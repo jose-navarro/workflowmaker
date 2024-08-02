@@ -35,8 +35,8 @@ compute_endpoints
 
 connection::
 connection
-(subnode_data&  startNode,
- subnode_data&  endNode,
+(wfme_subnode_data&  startNode,
+ wfme_subnode_data&  endNode,
  QGraphicsItem* parent)
   : QGraphicsLineItem(parent), end_node_(endNode), start_node_(startNode)
 {
@@ -64,7 +64,7 @@ endItem
   }
 }
 
-subnode_data
+wfme_subnode_data
 connection::
 endNode
 (void)
@@ -134,7 +134,7 @@ startItem
   }
 }
 
-subnode_data
+wfme_subnode_data
 connection::
 startNode
 (void)
