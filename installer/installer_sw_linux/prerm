@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Remove the desktop files during uninstallation
+
+rm /usr/share/applications/toolkiteditor.desktop
+rm /usr/share/applications/workfloweditor.desktop
+rm /usr/share/applications/workflowlauncher.desktop
+

@@ -9,7 +9,8 @@ VC_redistributables/
 
 # Installers, wherever these are.
 
-**/installer/
+**/installer/deployment
+**/installer/installer_sw/*.exe
 
 # Binaries, header and intermediat build folders.
 

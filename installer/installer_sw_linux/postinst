@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Copy the desktop file(s) to the applications directory
+
+cp /usr/share/workflowmaker/*.desktop /usr/share/applications/
+
+# Grant permission to access the desktop file(s)
+
+chmod 644 /usr/share/applications/toolkiteditor.desktop
+chmod 644 /usr/share/applications/workfloweditor.desktop
+chmod 644 /usr/share/applications/workflowlauncher.desktop
+
+
