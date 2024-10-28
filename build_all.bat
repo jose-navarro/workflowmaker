@@ -5,20 +5,27 @@ SET QMAKE_TOOL="C:\Qt\6.2.4\msvc2019_64\bin\qmake.exe"
 REM Build the libraries
 
 cd libraries
-
 call build_libraries.bat
+cd ..
 
 REM Build the tools
 
-cd ..
 cd tools
-
 call build_tools.bat
+cd ..
+
+REM Build the installer.
+
+cd installer
+cd installer_sw_windows
+
+@ECHO --------------------- BUILDING THE INSTALLER ---------------------
+
+makensis WorkflowMaker.nsi
+
+cd ..
+cd ..
 
 REM That's all.
 
-cd ..
-
-echo All projects built
-
-
+echo All projects and installer built

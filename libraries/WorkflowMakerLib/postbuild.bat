@@ -10,7 +10,7 @@ CD %3
 
 REM create the deployment folders.
 
-CALL "..\..\prepare_deployment.bat" "..\..\installer"
+CALL "..\..\installer\installer_sw_windows\prepare_deployment.bat" "..\..\installer\installer_sw_windows"
 
 @ECHO Creating the headers and binaries folders if these do not exist yet...
 
@@ -42,10 +42,10 @@ REM Copy the version file.
 
 @ECHO INSTALLER'S DEPLOYMENT FOLDERS: Copying the version file to the binaries folder...
 
-COPY .\data_to_bin_folder\workflowmaker_version.txt       ..\..\installer\deployment\bin\*.* 
+COPY .\data_to_bin_folder\workflowmaker_version.txt       ..\..\installer\installer_sw_windows\deployment\bin\*.* 
 
 REM Copy the documentation
 
 @ECHO INSTALLER'S DEPLOYMENT FOLDERS: Copying the docs (.pdf) to the docs folder.
 
-COPY "..\..\docs\user guide\WorkflowMaker user guide.pdf" ..\..\installer\deployment\docs\*.* 
+COPY "..\..\docs\user guide\WorkflowMaker user guide.pdf" ..\..\installer\installer_sw_windows\deployment\docs\*.* 

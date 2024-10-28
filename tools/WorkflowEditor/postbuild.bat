@@ -8,21 +8,21 @@ CD %3
 
 REM create the deployment folders.
 
-CALL "..\..\prepare_deployment.bat" "..\..\installer"
+CALL "..\..\installer\installer_sw_windows\prepare_deployment.bat"    "..\..\installer\installer_sw_windows"
 
 REM Copy the QT and MSVC runtimes.
 
-CALL "..\..\copy_redistributables.bat" "..\..\installer\deployment"
+CALL "..\..\installer\installer_sw_windows\copy_redistributables.bat" "..\..\installer\installer_sw_windows\deployment"
 
 REM Copy the toolkit schema & sample to the destination folder.
 
 @ECHO INSTALLER'S DEPLOYMENT FOLDERS: Copying WorkflowEditor's schema and sample
 
-COPY ..\..\data\workflow.xsd ..\..\installer\deployment\bin\workflow.xsd
-COPY ..\..\samples\image_processing\sample_workflowmaker_files\image_processing_workflow.xml ..\..\installer\deployment\data_samples\image_processing_workflow.xml
+COPY ..\..\data\workflow.xsd ..\..\installer\installer_sw_windows\deployment\bin\workflow.xsd
+COPY ..\..\samples\image_processing\sample_workflowmaker_files\image_processing_workflow.xml ..\..\installer\installer_sw_windows\deployment\data_samples\image_processing_workflow.xml
 
 REM Copy the executable to destination folders.
 
 @ECHO INSTALLER'S DEPLOYMENT FOLDERS: Copying executable.
 
-COPY "%1\%2\*.exe"          ..\..\installer\deployment\bin\*.* 
+COPY "%1\%2\*.exe"          ..\..\installer\installer_sw_windows\deployment\bin\*.* 
