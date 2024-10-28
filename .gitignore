@@ -62,3 +62,4 @@ VC_redistributables/
 *.exe
 *.out
 *.app
+deployment
