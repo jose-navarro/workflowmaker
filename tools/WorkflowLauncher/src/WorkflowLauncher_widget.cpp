@@ -1132,7 +1132,6 @@ complete_launcher_data
 
     for (size_t i = 0; i < launcher_.files.size(); i++)
     {
-
       ConnectionType type_start = launcher_.files[i].start_node_type;
       ConnectionType type_end   = launcher_.files[i].end_node_type;
       int            nid_start  = launcher_.files[i].start_node_nid;
@@ -1249,6 +1248,80 @@ complete_launcher_data
     // That's all.
 
     return;
+  }
+}
+
+void
+WorkflowLauncher_widget::
+dragEnterEvent
+(QDragEnterEvent *event)
+{
+  {
+    if (event->mimeData()->hasUrls())
+    {
+      // Check if the file extension is valid
+
+      const QUrl url = event->mimeData()->urls().first();
+      QString    filePath = url.toLocalFile();
+      QFileInfo  fileInfo(filePath);
+      QString     suffix;
+
+      //
+      // Get the extension of the file being dragged.
+      // Make it uppercase to make comparisons easier.
+      //
+
+      suffix = fileInfo.suffix().toUpper();
+
+      // We ONLY accept the .xml extension
+
+      if (suffix == "XML")
+      {
+        // We accept these extensions.
+
+        event->acceptProposedAction();
+      }
+      else
+      {
+        // The extension was not one of those we accept.
+
+        event->ignore();
+      }
+    }
+    else
+    {
+      // There are no URLs, so the event does not involve a file.
+
+      event->ignore();
+    }
+  }
+}
+
+void
+WorkflowLauncher_widget::
+dropEvent
+(QDropEvent *event)
+{
+  {
+    // We only react when the dropped item is a file.
+
+    if (event->mimeData()->hasUrls())
+    {
+      // Get the file path
+
+      const QUrl url = event->mimeData()->urls().first();
+      QString path   = url.toLocalFile();
+
+      //
+      // Try to load the launcher-workflow-toolkit chain
+      // of files. If everything is OK, then the data
+      // from these files will be shown on the screeen.
+      // Otherwise, message boxes explaining what the
+      // problems found were will be shown.
+      //
+
+      load_launcher_chain(path);
+    }
   }
 }
 
@@ -1546,6 +1619,165 @@ load_launcher
     // That's all.
 
     return true;
+  }
+}
+
+void
+WorkflowLauncher_widget::
+load_launcher_chain
+(QString& lch_path)
+{
+  {
+    QString     banner;
+    WLLauncher  lch;
+    QString     loaded_tk_id;
+    QString     loaded_wf_id;
+    QString     message;
+    QMessageBox msgBox;
+    bool        status;
+    toolkit     tk;
+    QString     tk_id;
+    WFWorkflow  wf;
+    QString     wf_id;
+
+    // Try to load the launcher.
+
+    if (!load_launcher(lch_path, lch)) return;
+
+    //
+    // We've got a launcher. Try to load the workflow it relies on.
+    //
+
+    // First, get its name.
+
+    wf_id = QString::fromStdString(lch.workflow_id);
+
+    //
+    // Tell the users that they must load the workflow on which
+    // the workflow relies.
+    //
+
+    message  = "The launcher you are just loading relies\n";
+    message += "on a workflow whose identifier is '" + wf_id + "'.\n\n";
+    message += "Please, locate the file defining the workflow above\n";
+    message += "to continue the loading of the launcher you selected.";
+
+    msgBox.setText(message);
+    msgBox.setWindowTitle("Please, locate the workflow used by your launcher");
+    msgBox.setIcon(QMessageBox::Information);
+    msgBox.setStandardButtons(QMessageBox::Ok);
+    msgBox.setDefaultButton(QMessageBox::Ok);
+    msgBox.exec();
+
+    // Load the related workflow.
+
+    banner = "Select the file with the workflow with id '" + wf_id + "'";
+    status = select_and_open_workflow(banner, wf);
+
+    if (!status) return;
+
+    // Check that the workflow loaded is the right one.
+
+    loaded_wf_id = QString::fromStdString(wf.id);
+    if (wf_id != loaded_wf_id)
+    {
+      message  = "The workflow just loaded is not the one needed by the launcher,\n";
+      message += "since its identifier is '" + loaded_wf_id;
+      message += "' instead of '" + wf_id + "'.\n\n";
+      message += "Please, try again.";
+
+      msgBox.setText(message);
+      msgBox.setWindowTitle("Invalid workflow selected");
+      msgBox.setIcon(QMessageBox::Critical);
+      msgBox.setStandardButtons(QMessageBox::Ok);
+      msgBox.setDefaultButton(QMessageBox::Ok);
+      msgBox.exec();
+
+      return;
+    }
+
+    //
+    // The workflow is OK.
+    // Get the identifier of the underlying toolkit.
+    //
+
+    tk_id = QString::fromStdString(wf.toolkit_id);
+
+    //
+    // Tell the user that (s)he must load the toolkit on which
+    // the workflow relies.
+    //
+
+    message  = "The workflow (' " + wf_id + "') for this launcher relies\n";
+    message += "also on a toolkit whose identifier is '" + tk_id + "'.\n\n";
+    message += "Please, locate the file defining the toolkit above\n";
+    message += "to finalize the loading of the launcher you selected.";
+
+    msgBox.setText(message);
+    msgBox.setWindowTitle("Please, locate the toolkit used by your launcher + workflow");
+    msgBox.setIcon(QMessageBox::Information);
+    msgBox.setStandardButtons(QMessageBox::Ok);
+    msgBox.setDefaultButton(QMessageBox::Ok);
+    msgBox.exec();
+
+    // Load the related toolkit.
+
+    banner = "Select the file with the toolkit with id '" + tk_id + "'";
+    status = select_and_open_toolkit(banner, tk);
+
+    if (!status) return;
+
+    //
+    // Check that the toolkit just loaded is the one we need.
+    // The user may have loaded a toolkit that is not the
+    // one used by our workflow!!!
+    //
+
+    loaded_tk_id = QString::fromStdString(tk.id);
+    if (tk_id != loaded_tk_id)
+    {
+      message  = "The toolkit just loaded is not the one needed by the workflow,\n";
+      message += "since its identifier is '" + loaded_tk_id;
+      message += "' instead of '" + tk_id + "'.\n\n";
+      message += "Please, try again.";
+
+      msgBox.setText(message);
+      msgBox.setWindowTitle("Invalid toolkit selected");
+      msgBox.setIcon(QMessageBox::Critical);
+      msgBox.setStandardButtons(QMessageBox::Ok);
+      msgBox.setDefaultButton(QMessageBox::Ok);
+      msgBox.exec();
+
+      return;
+    }
+
+    // We've got a launcher, and the related workflow and tookit.
+
+    launcher_ = lch;
+    workflow_ = wf;
+    toolkit_  = tk;
+
+    //
+    // Since the launcher file does not include the structural
+    // information about the workflow & toolkit, we must fill
+    // the holes using, precisely, our workflow and toolkit...
+    //
+
+    complete_launcher_data();
+
+    // Build the list of task-to-task files.
+
+    build_ttt_filelist();
+
+    // Let our widget show the parameters, repositories and files.
+
+    tab_parameters_->set_values(launcher_.parameters);
+    tab_repositories_->set_values(launcher_.repositories);
+    tab_files_->set_values(launcher_.files);
+
+    // That's all.
+
+    return;
   }
 }
 
@@ -2197,19 +2429,8 @@ on_load_launcher_file
 (void)
 {
   {
-    QString         banner;
-    string          error_message;
-    QStringList     file_names;
-    WLLauncher      lch;
-    launcher_parser lp;
-    QString         message;
-    QMessageBox     msgBox;
-    QString         path;
-    bool            status;
-    toolkit         tk;
-    QString         tk_id;
-    WFWorkflow      wf;
-    QString         wf_id;
+    QStringList file_names;
+    QString     path;
 
     // First, get the name of the toolkit file to load.
 
@@ -2224,140 +2445,15 @@ on_load_launcher_file
 
     path = file_names[0];
 
-    // Try to load the launcher.
-
-    if (!load_launcher(path, lch)) return;
-
     //
-    // We've got a launcher. Try to load the workflow it relies on.
-    //
-
-    // First, get its name.
-
-    wf_id = QString::fromStdString(lch.workflow_id);
-
-    //
-    // Tell the user that (s)he must load the workflow on which
-    // the workflow relies.
+    // Try to load the launcher-workflow-toolkit chain
+    // of files. If everything is OK, then the data
+    // from these files will be shown on the screeen.
+    // Otherwise, message boxes explaining what the
+    // problems found were will be shown.
     //
 
-    message  = "The launcher you are just loading relies\n";
-    message += "on a workflow whose identifier is '" + wf_id + "'.\n\n";
-    message += "Please, locate the file defining the workflow above\n";
-    message += "to continue the load of the launcher you selected.";
-
-    msgBox.setText(message);
-    msgBox.setWindowTitle("Please, locate the workflow used by your launcher");
-    msgBox.setIcon(QMessageBox::Information);
-    msgBox.setStandardButtons(QMessageBox::Ok);
-    msgBox.setDefaultButton(QMessageBox::Ok);
-    msgBox.exec();
-
-    // Load the related workflow.
-
-    banner = "Select the file with the workflow with id '" + wf_id + "'";
-    status = select_and_open_workflow(banner, wf);
-
-    if (!status) return;
-
-    // Check that the workflow loaded is the right one.
-
-    QString loaded_wf_id = QString::fromStdString(wf.id);
-    if (wf_id != loaded_wf_id)
-    {
-      message  = "The workflow just loaded is not the one needed by the launcher,\n";
-      message += "since its identifier is '" + loaded_wf_id;
-      message += "' instead of '" + wf_id + "'.\n\n";
-      message += "Please, try again.";
-
-      msgBox.setText(message);
-      msgBox.setWindowTitle("Invalid workflow selected");
-      msgBox.setIcon(QMessageBox::Critical);
-      msgBox.setStandardButtons(QMessageBox::Ok);
-      msgBox.setDefaultButton(QMessageBox::Ok);
-      msgBox.exec();
-
-      return;
-    }
-
-    //
-    // The workflow is OK.
-    // Get the identifier of the underlying toolkit.
-    //
-
-    tk_id = QString::fromStdString(wf.toolkit_id);
-
-    //
-    // Tell the user that (s)he must load the toolkit on which
-    // the workflow relies.
-    //
-
-    message  = "The workflow (' " + wf_id + "') for this launcher relies\n";
-    message += "also on a toolkit whose identifier is '" + tk_id + "'.\n\n";
-    message += "Please, locate the file defining the toolkit above\n";
-    message += "to finalize the load of the launcher you selected.";
-
-    msgBox.setText(message);
-    msgBox.setWindowTitle("Please, locate the toolkit used by your launcher + workflow");
-    msgBox.setIcon(QMessageBox::Information);
-    msgBox.setStandardButtons(QMessageBox::Ok);
-    msgBox.setDefaultButton(QMessageBox::Ok);
-    msgBox.exec();
-
-    // Load the related toolkit.
-
-    banner = "Select the file with the toolkit with id '" + tk_id + "'";
-    status = select_and_open_toolkit(banner, tk);
-
-    if (!status) return;
-
-    //
-    // Check that the toolkit just loaded is the one we need.
-    // The user may have loaded a toolkit that is not the
-    // one used by our workflow!!!
-    //
-
-    QString loaded_tk_id = QString::fromStdString(tk.id);
-    if (tk_id != loaded_tk_id)
-    {
-      message  = "The toolkit just loaded is not the one needed by the workflow,\n";
-      message += "since its identifier is '" + loaded_tk_id;
-      message += "' instead of '" + tk_id + "'.\n\n";
-      message += "Please, try again.";
-
-      msgBox.setText(message);
-      msgBox.setWindowTitle("Invalid toolkit selected");
-      msgBox.setIcon(QMessageBox::Critical);
-      msgBox.setStandardButtons(QMessageBox::Ok);
-      msgBox.setDefaultButton(QMessageBox::Ok);
-      msgBox.exec();
-
-      return;
-    }
-
-    // We've got a launcher, and the related workflow and tookit.
-
-    launcher_ = lch;
-    workflow_ = wf;
-    toolkit_  = tk;
-
-    //
-    // Since the launcher file does not include the structural
-    // information about the workflow & toolkit, we must fill
-    // the holes using, precisely, our workflow and toolkit...
-    //
-
-    complete_launcher_data();
-
-    // Build the list of task-to-task files.
-
-    build_ttt_filelist();
-
-    // Let our widget show the parameters, repositories and files.
-
-    tab_parameters_->set_values(launcher_.parameters);
-    tab_repositories_->set_values(launcher_.repositories);
-    tab_files_->set_values(launcher_.files);
+    load_launcher_chain(path);
 
     // That's all.
 
@@ -2955,6 +3051,10 @@ WorkflowLauncher_widget
     // Set window flags to include all except the close button
 
     setWindowFlags(Qt::Window | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint);
+
+    // Enable drag-and-drop.
+
+    setAcceptDrops(true);
 
   }
 }

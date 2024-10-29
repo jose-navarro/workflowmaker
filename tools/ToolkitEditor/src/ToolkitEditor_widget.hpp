@@ -13,10 +13,14 @@
   #include <Windows.h>
 #endif
 
+#include <QDragEnterEvent>
+#include <QDropEvent>
 #include <QFile>
 #include <QFileDialog>
+#include <QFileInfo>
 #include <QHBoxLayout>
 #include <QMessageBox>
+#include <QMimeData>
 #include <QPushButton>
 #include <QString>
 #include <QTabWidget>
@@ -106,6 +110,33 @@ class ToolkitEditor_widget : public QWidget
 
     void   copy_toolkit_values   (void);
 
+    /// \brief Re-implementation of the inherited method to accept
+    ///        dragging toolkit xml files over the application.
+    /**
+      \param event The object including all the information about
+             the drag event.
+
+      This method is re-implemented to add drag capabilities to
+      the application. It will check that the event corresponds
+      to a file drag and that it contains the appropriate extension.
+     */
+
+    void   dragEnterEvent        (QDragEnterEvent *event) override;
+
+    /// \brief Re-implementation of the inherited method handling
+    ///        the drop of an xml toolkit file over the application.
+    /**
+      \param event The object including all the information about
+             the file dropped.
+
+      This method is re-implemented to add drop capabilities to
+      the application. It will check that the object dropped is
+      a file; if so, it will parse the xml file and display its
+      information on the application screen.
+     */
+
+    void   dropEvent             (QDropEvent *event) override;
+
     /// \brief Retrieve the path or the executable.
     /**
       \return The path were the executable resides.
@@ -113,13 +144,32 @@ class ToolkitEditor_widget : public QWidget
 
     string get_executable_path   (void);
 
+    /// \brief Validate, parse and load a toolkit file.
+    /**
+      \param path_to_toolkit_file Path to the file with
+             the toolkit file to validate, parse and load.
+
+      This method tries first to validate the grammar of
+      the input toolkit file using the corresponding XML
+      schema; assuming the validation succeeds, then
+      it parses the file to retrieve the information
+      about the toolkit it contains; if this step is
+      also correct, it will load said data and display
+      it on the screen.
+
+      Should any error happen, a message box will be shown.
+
+     */
+
+    void   parse_and_load_tk     (QString& path_to_toolkit_file);
+
     /// \brief Reset the error messages for all tabs.
 
     void   reset_error_messages  (void);
 
     /// \brief Check that the values input by the user in the
-    /// interface of the widget are correct, warning the user
-    /// if not (via message boxes).
+    ///        interface of the widget are correct, warning the user
+    ///        if not (via message boxes).
     /**
       \return True if the values are correct, false otherwise.
     */

@@ -13,10 +13,14 @@
   #include <Windows.h>
 #endif
 
+#include <QDragEnterEvent>
+#include <QDropEvent>
 #include <QFile>
 #include <QFileDialog>
+#include <QFileInfo>
 #include <QHBoxLayout>
 #include <QMessageBox>
+#include <QMimeData>
 #include <QPushButton>
 #include <QString>
 #include <QTabWidget>
@@ -200,6 +204,33 @@ class WorkflowLauncher_widget : public QWidget
 
     void   complete_launcher_data    (void);
 
+    /// \brief Re-implementation of the inherited method to accept
+    ///        dragging launcher xml files over the application.
+    /**
+      \param event The object including all the information about
+             the drag event.
+
+      This method is re-implemented to add drag capabilities to
+      the application. It will check that the event corresponds
+      to a file drag and that it contains the appropriate extension.
+     */
+
+    void   dragEnterEvent            (QDragEnterEvent *event) override;
+
+    /// \brief Re-implementation of the inherited method handling
+    ///        the drop of an xml launcher file over the application.
+    /**
+      \param event The object including all the information about
+             the file dropped.
+
+      This method is re-implemented to add drop capabilities to
+      the application. It will check that the object dropped is
+      a file; if so, it will parse the xml file and display its
+      information on the application screen.
+     */
+
+    void   dropEvent                 (QDropEvent *event) override;
+
     /// \brief Determine what are the files that must be deleted
     ///        after the execution of each task.
     /**
@@ -233,6 +264,25 @@ class WorkflowLauncher_widget : public QWidget
 
     bool   load_launcher             (QString&    lch_path,
                                       WLLauncher& lch);
+
+    /// \brief Load a launcher as well as the workflow and toolkit
+    ///        on which it relies.
+    /**
+      \param[in] lch_path Path to the xml file containing the definition
+                 of the launcher.
+
+      The method first tries to load the launcher file using load_launcher();
+      then, asks for the workflow on which the launcher relies; it tries to
+      load it and, if successful, the repeats the process, this time asking
+      for the underlying toolkit. If everything is correct, then this method
+      copies the information loaded from the file chain to the several
+      tabs in the application's GUI.
+
+      Note that this method uses message boxes to tell the user about
+      the possible errors detected when loading the launcher.
+     */
+
+    void   load_launcher_chain       (QString& lch_path);
 
     /// \brief Load an existing toolkit.
     /**

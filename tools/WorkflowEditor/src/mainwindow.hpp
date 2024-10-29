@@ -27,10 +27,13 @@
 #include <string>
 #include <fstream>
 
+#include <QDragEnterEvent>
+#include <QDropEvent>
+#include <QFileInfo>
 #include <QMainWindow>
-#include "workflow_data_widget.hpp"
+#include <QMimeData>
 
-#include <QDebug>
+#include "workflow_data_widget.hpp"
 
 class DiagramScene;
 
@@ -183,6 +186,33 @@ class MainWindow : public QMainWindow
 
     void     createToolBox         (void);
 
+    /// \brief Re-implementation of the inherited method to accept
+    ///        dragging xml workflow files over the application.
+    /**
+      \param event The object including all the information about
+             the drag event.
+
+      This method is re-implemented to add drag capabilities to
+      the application. It will check that the event corresponds
+      to a file drag and that it contains the appropriate extension.
+     */
+
+    void   dragEnterEvent          (QDragEnterEvent *event) override;
+
+    /// \brief Re-implementation of the inherited method handling
+    ///        the drop of an xml workflow file over the application.
+    /**
+      \param event The object including all the information about
+             the file dropped.
+
+      This method is re-implemented to add drop capabilities to
+      the application. It will check that the object dropped is
+      a file; if so, it will parse the xml file and display its
+      information on the application screen.
+     */
+
+    void   dropEvent               (QDropEvent *event) override;
+
     /// \brief Retrieve the path or the executable.
     /**
       \return The path were the executable resides.
@@ -216,6 +246,22 @@ class MainWindow : public QMainWindow
 
     bool     load_workflow         (QString& wf_path, WFWorkflow& wf);
 
+    /// \brief Load a workflow as well as the toolkit on which it
+    ///        relies.
+    /**
+      \param[in] wf_path Path to the xml file containing the definition
+                 of the workflow.
+
+      The method first tries to load the workflow file using load_workflow();
+      then, asks for the toolkit on which the launcher relies. If everything
+      is correct, then this method displays the workflow on the screen.
+
+      Note that this method uses message boxes to tell the user about
+      the possible errors detected when loading the launcher.
+     */
+
+    void   load_workflow_chain       (QString& wf_path);
+
     /// \brief Search for an existing toolkit to load it.
     /**
       \param[in] banner Text to show as the header (banner) of the open file
@@ -226,13 +272,13 @@ class MainWindow : public QMainWindow
 
     bool     selectAndOpenToolkit  (QString& banner, toolkit& tk);
 
-    /// \brief Search for an existing workflow and load it.
+    /// \brief Search for an existing workflow, and retrieve its path.
     /**
-      \param[out] wf The workflow, once loaded.
+      \param[out] wf_path The path to the selected workflow.
       \return True if the workflow is loaded, false otherwise.
      */
 
-    bool     selectAndOpenWorkflow (WFWorkflow& wf);
+    bool     selectWorkflow        (QString& wf_path);
 
     /// \brief Read the file containing the version string
     ///        and return it as a string.

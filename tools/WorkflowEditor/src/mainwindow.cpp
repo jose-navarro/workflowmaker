@@ -362,6 +362,91 @@ deleteItem
   }
 }
 
+void
+MainWindow::
+dragEnterEvent
+(QDragEnterEvent *event)
+{
+  {
+    if (event->mimeData()->hasUrls())
+    {
+      //
+      // If another workflow is already loaded, we'll
+      // refuse the dragg event.
+      //
+
+      if (open_document_)
+      {
+        event->ignore();
+        return;
+      }
+
+      // Check if the file extension is valid
+
+      const QUrl url = event->mimeData()->urls().first();
+      QString    filePath = url.toLocalFile();
+      QFileInfo  fileInfo(filePath);
+      QString     suffix;
+
+      //
+      // Get the extension of the file being dragged.
+      // Make it uppercase to make comparisons easier.
+      //
+
+      suffix = fileInfo.suffix().toUpper();
+
+      // We ONLY accept the .xml extension
+
+      if (suffix == "XML")
+      {
+        // We accept these extensions.
+
+        event->acceptProposedAction();
+      }
+      else
+      {
+        // The extension was not one of those we accept.
+
+        event->ignore();
+      }
+    }
+    else
+    {
+      // There are no URLs, so the event does not involve a file.
+
+      event->ignore();
+    }
+  }
+}
+
+void
+MainWindow::
+dropEvent
+(QDropEvent *event)
+{
+  {
+    // We only react when the dropped item is a file.
+
+    if (event->mimeData()->hasUrls())
+    {
+      // Get the file path
+
+      const QUrl url = event->mimeData()->urls().first();
+      QString path   = url.toLocalFile();
+
+      //
+      // Try to load the workflow-toolkit chain
+      // of files. If everything is OK, then the data
+      // from these files will be shown on the screeen.
+      // Otherwise, message boxes explaining what the
+      // problems found were will be shown.
+      //
+
+      load_workflow_chain(path);
+    }
+  }
+}
+
 #ifdef __GNUC__
 
 string
@@ -587,6 +672,120 @@ load_workflow
   }
 }
 
+void
+MainWindow::
+load_workflow_chain
+(QString& wf_path)
+{
+  {
+    QString     banner;
+    QString     message;
+    QMessageBox msgBox;
+    bool        status;
+    toolkit     tk;
+    QString     tk_id;
+    WFWorkflow  wf;
+    QString     wf_id;
+
+    // Try to parse the workflow.
+
+    if (!load_workflow(wf_path, wf)) return;
+
+    // Get the identifier of the workflow and underlying toolkit.
+
+    wf_id = QString::fromStdString(wf.id);
+    tk_id = QString::fromStdString(wf.toolkit_id);
+
+    // Set the values of the variables related to the workflow lineage.
+
+    wf_id_          = wf.id;
+    wf_description_ = wf.description;
+
+    //
+    // Tell the user that (s)he must load the toolkit on which
+    // the workflow relies.
+    //
+
+    message  = "The workflow you are loading relies on a toolkit\n";
+    message += "whose identifier is '" + tk_id + "'.\n\n";
+    message += "Please, locate the file defining the toolkit above\n";
+    message += "to finalize the load of the workflow you selected.";
+
+    msgBox.setText(message);
+    msgBox.setWindowTitle("Please, locate the toolkit used by your workflow");
+    msgBox.setIcon(QMessageBox::Information);
+    msgBox.setStandardButtons(QMessageBox::Ok);
+    msgBox.setDefaultButton(QMessageBox::Ok);
+    msgBox.exec();
+
+    // Load the related toolkit.
+
+    banner = "Select the file with the toolkit with id '" + tk_id + "'";
+    status = selectAndOpenToolkit(banner, tk);
+
+    if (!status) return;
+
+    //
+    // Check that the toolkit just loaded is the one we need.
+    // The user may have loaded a toolkit that is not the
+    // one used by our workflow!!!
+    //
+
+    QString loaded_tk_id = QString::fromStdString(tk.id);
+    if (tk_id != loaded_tk_id)
+    {
+      message  = "The toolkit just loaded is not the one needed by the workflow,\n";
+      message += "since its identifier is '" + loaded_tk_id;
+      message += "' instead of '" + tk_id + "'.\n\n";
+      message += "Please, try again.";
+
+      msgBox.setText(message);
+      msgBox.setWindowTitle("Invalid toolkit selected");
+      msgBox.setIcon(QMessageBox::Critical);
+      msgBox.setStandardButtons(QMessageBox::Ok);
+      msgBox.setDefaultButton(QMessageBox::Ok);
+      msgBox.exec();
+
+      return;
+    }
+
+    //
+    // Sort the list of tasks, so they are ordered by
+    // their task identifier. This will help us later on
+    // to identify what's the task selected in our task
+    // info panel.
+    //
+
+    std::sort(tk.tasks.begin(), tk.tasks.end());
+
+    // Tell our task info panel and scene that we've got a toolkit.
+
+    task_panel_->set_toolkit(tk);
+    scene->setToolkit(tk);
+
+    //
+    // Tell our scene to add the items (tasks, repos, connections)
+    // defined in our workflow.
+    //
+    // Note that we will ignore the return code issued by
+    // insert_workflow below. This is so because the only reason
+    // why this method will fail is the absence of a toolkit, and
+    // we've set the scene's toolkit just above... so no
+    // errors will happen!
+    //
+
+    scene->insert_workflow(wf);
+
+    // We have an open workflow!!!
+
+    open_document_ = true;
+
+    // That's all.
+
+    return;
+  }
+}
+
 MainWindow::
 MainWindow
 (void)
@@ -628,7 +827,7 @@ MainWindow
     scene->setSceneRect(QRectF(0, 0, 5000, 5000));
 
     connect(scene, &DiagramScene::itemInserted,
-            this, &MainWindow::itemInserted);
+            this,  &MainWindow::itemInserted);
 
     //
     // Create the toolbars HERE. Otherwise (?) it
@@ -666,6 +865,10 @@ MainWindow
     // Set window flags to include all except the close button
 
     setWindowFlags(Qt::Window | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint);
+
+    // Enable drag-and-drop
+
+    setAcceptDrops(true);
   }
 }
 
@@ -756,14 +959,9 @@ openWorkflow
 (void)
 {
   {
-    QString        banner;
-    QString        message;
-    QMessageBox    msgBox;
-    bool           status;
-    toolkit        tk;
-    QString        tk_id;
-    WFWorkflow     wf;
-    QString        wf_id;
+    QString     message;
+    QMessageBox msgBox;
+    QString     wf_path;
 
     //
     // We'll open a workflow providing there is not another one
@@ -787,98 +985,19 @@ openWorkflow
       return;
     }
 
-    // First of all, load a workflow.
+    // First of all, select and a workflow.
 
-    if (!selectAndOpenWorkflow(wf)) return;
-
-    // Get the identifier of the workflow and underlying toolkit.
-
-    wf_id = QString::fromStdString(wf.id);
-    tk_id = QString::fromStdString(wf.toolkit_id);
-
-    // Set the values of the variables related to the workflow lineage.
-
-    wf_id_          = wf.id;
-    wf_description_ = wf.description;
+    if (!selectWorkflow(wf_path)) return;
 
     //
-    // Tell the user that (s)he must load the toolkit on which
-    // the workflow relies.
+    // Try to load the workflow-toolkit chain
+    // of files. If everything is OK, then the data
+    // from these files will be shown on the screeen.
+    // Otherwise, message boxes explaining what the
+    // problems found were will be shown.
     //
 
-    message  = "The workflow you are loading relies on a toolkit\n";
-    message += "whose identifier is '" + tk_id + "'.\n\n";
-    message += "Please, locate the file defining the toolkit above\n";
-    message += "to finalize the load of the workflow you selected.";
-
-    msgBox.setText(message);
-    msgBox.setWindowTitle("Please, locate the toolkit used by your workflow");
-    msgBox.setIcon(QMessageBox::Information);
-    msgBox.setStandardButtons(QMessageBox::Ok);
-    msgBox.setDefaultButton(QMessageBox::Ok);
-    msgBox.exec();
-
-    // Load the related toolkit.
-
-    banner = "Select the file with the toolkit with id '" + tk_id + "'";
-    status = selectAndOpenToolkit(banner, tk);
-
-    if (!status) return;
-
-    //
-    // Check that the toolkit just loaded is the one we need.
-    // The user may have loaded a toolkit that is not the
-    // one used by our workflow!!!
-    //
-
-    QString loaded_tk_id = QString::fromStdString(tk.id);
-    if (tk_id != loaded_tk_id)
-    {
-      message  = "The toolkit just loaded is not the one needed by the workflow,\n";
-      message += "since its identifier is '" + loaded_tk_id;
-      message += "' instead of '" + tk_id + "'.\n\n";
-      message += "Please, try again.";
-
-      msgBox.setText(message);
-      msgBox.setWindowTitle("Invalid toolkit selected");
-      msgBox.setIcon(QMessageBox::Critical);
-      msgBox.setStandardButtons(QMessageBox::Ok);
-      msgBox.setDefaultButton(QMessageBox::Ok);
-      msgBox.exec();
-
-      return;
-    }
-
-    //
-    // Sort the list of tasks, so they are ordered by
-    // their task identifier. This will help us later on
-    // to identify what's the task selected in our task
-    // info panel.
-    //
-
-    std::sort(tk.tasks.begin(), tk.tasks.end());
-
-    // Tell our task info panel and scene that we've got a toolkit.
-
-    task_panel_->set_toolkit(tk);
-    scene->setToolkit(tk);
-
-    //
-    // Tell our scene to add the items (tasks, repos, connections)
-    // defined in our workflow.
-    //
-    // Note that we will ignore the return code issued by
-    // insert_workflow below. This is so because the only reason
-    // why this method will fail is the absence of a toolkit, and
-    // we've set the scene's toolkit just above... so no
-    // errors will happen!
-    //
-
-    scene->insert_workflow(wf);
-
-    // We have an open workflow!!!
-
-    open_document_ = true;
+    load_workflow_chain(wf_path);
 
     // That's all.
 
@@ -1072,14 +1191,11 @@ selectAndOpenToolkit
 
 bool
 MainWindow::
-selectAndOpenWorkflow
-(WFWorkflow& wf)
+selectWorkflow
+(QString& wf_path)
 {
   {
-    string         error_message;
-    QStringList    file_names;
-    QString        path;
-    QString        schema_file;
+    QStringList file_names;
 
     // First, get the name of the workflow file to load.
 
@@ -1092,14 +1208,11 @@ selectAndOpenWorkflow
 
     file_names = dialog.selectedFiles();
 
-    path = file_names[0];
+    wf_path = file_names[0];
 
-    //
-    // Parse the workflow. Our return code is the one returned
-    // by load_workflow.
-    //
+    // That's all.
 
-    return load_workflow(path, wf);
+    return true;
   }
 }
 

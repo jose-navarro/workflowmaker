@@ -63,6 +63,83 @@ copy_toolkit_values
   }
 }
 
+void
+ToolkitEditor_widget::
+dragEnterEvent
+(QDragEnterEvent *event)
+{
+  {
+    if (event->mimeData()->hasUrls())
+    {
+      // Check if the file extension is valid
+
+      const QUrl url = event->mimeData()->urls().first();
+      QString    filePath = url.toLocalFile();
+      QFileInfo  fileInfo(filePath);
+      QString     suffix;
+
+      //
+      // Get the extension of the file being dragged.
+      // Make it uppercase to make comparisons easier.
+      //
+
+      suffix = fileInfo.suffix().toUpper();
+
+      // We ONLY accept the .xml extension
+
+      if (suffix == "XML")
+      {
+        // We accept these extensions.
+
+        event->acceptProposedAction();
+      }
+      else
+      {
+        // The extension was not one of those we accept.
+
+        event->ignore();
+      }
+    }
+    else
+    {
+      // There are no URLs, so the event does not involve a file.
+
+      event->ignore();
+    }
+  }
+}
+
+void
+ToolkitEditor_widget::
+dropEvent
+(QDropEvent *event)
+{
+  {
+    QString        path;
+
+    // We only react when the dropped item is a file.
+
+    if (event->mimeData()->hasUrls())
+    {
+      // Get the file path
+
+      const QUrl url = event->mimeData()->urls().first();
+      path           = url.toLocalFile();
+
+      //
+      // Try to parse the toolkit file. If everything's OK,
+      // the loaded data will be displayed its on the
+      // several tabs provided by the application.
+      //
+      // If there are any errors, then the method below will
+      // display a message box explaining what happened.
+      //
+
+      parse_and_load_tk(path);
+    }
+  }
+}
+
 #ifdef __GNUC__
 
 string
@@ -135,12 +212,8 @@ on_load_toolkit_file
 (void)
 {
   {
-    string         error_message;
-    QStringList    file_names;
-    QString        path;
-    QString        schema_file;
-    int            status;
-    toolkit_parser tk_parser;
+    QStringList file_names;
+    QString     path;
 
     // First, get the name of the toolkit file to load.
 
@@ -156,90 +229,15 @@ on_load_toolkit_file
     path = file_names[0];
 
     //
-    // Get the path to the schema defining the toolkit files.
-    // It resides in the same folder than our executable file.
+    // Try to parse the toolkit file. If everything's OK,
+    // the loaded data will be displayed its on the
+    // several tabs provided by the application.
+    //
+    // If there are any errors, then the method below will
+    // display a message box explaining what happened.
     //
 
-    schema_file = QString::fromStdString(get_executable_path() + "/toolkit.xsd");
-
-    //
-    // THE FOLLOWING BLOCK, CHECKING THE VALIDITY OF THE SCHEMA, IS COMMENTED
-    // BECAUSE THE RAPIDXML LIBRARY REPLACING OBSOLETE QT'S ONE HAS NO VALIDATING
-    // MECHANISMS. THE CODE IS PRESERVED JUST IN CASE MIGRATING TO ANOTHER XML
-    // LIBRARY ALLOW FOR SCHEMA VALIDATION.
-    //
-
-    // Check the validity of the input file using the schema.
-
-    /*
-    status = tk_parser.set_schema(schema_file);
-
-    if (!status)
-    {
-      vector<string> errors = tk_parser.error_list();
-
-      error_message  = "Unable to load the schema definition for toolkit files.\n";
-      error_message += "Maybe reinstalling the application would solve the problem.\n";
-      error_message += "The precise error messages detected are listed below:\n";
-
-      for (size_t i = 0; i < errors.size(); i++)
-      {
-        error_message = error_message + "  " + errors[i] + "\n";
-      }
-
-      QMessageBox msgBox;
-      msgBox.setText(QString::fromStdString(error_message));
-      msgBox.setWindowTitle("Error(s) loading the toolkit schema");
-      msgBox.setIcon(QMessageBox::Critical);
-      msgBox.setStandardButtons(QMessageBox::Ok);
-      msgBox.setDefaultButton(QMessageBox::Ok);
-      msgBox.exec();
-      return;
-    }
-
-    */
-
-    // Try to parse the toolkit file, since it could be erroneous.
-
-    status = tk_parser.parse(path, toolkit_);
-    if (!status)
-    {
-      vector<string> error_list;
-
-      //
-      // We've got problems when parsing the toolkit file.
-      // Notify about the issue and go away!
-      //
-
-      error_list = tk_parser.error_list();
-
-      error_message  = "Errors detected when loading the toolkit file.\n";
-      error_message += "See the list of detected errors below:\n";
-
-      for (size_t i = 0; i < error_list.size(); i++)
-      {
-        error_message = error_message + "  " + error_list[i] + "\n";
-      }
-
-      QMessageBox msgBox;
-      msgBox.setText(QString::fromStdString(error_message));
-      msgBox.setWindowTitle("Error(s) reading the toolkit file");
-      msgBox.setIcon(QMessageBox::Critical);
-      msgBox.setStandardButtons(QMessageBox::Ok);
-      msgBox.setDefaultButton(QMessageBox::Ok);
-      msgBox.exec();
-      return;
-    }
-
-    //
-    // Well, at this point the toolkit file has been successfully
-    // loaded. Let's copy its values into the widget's fields.
-    //
-
-    tab_description_->set_values(toolkit_);
-    tab_parameters_->set_values(toolkit_);
-    tab_filetypes_->set_values(toolkit_);
-    tab_tasks_->set_values(toolkit_);
+    parse_and_load_tk(path);
   }
 }
 
@@ -390,6 +388,105 @@ on_save_toolkit_file
   }
 }
 
+void
+ToolkitEditor_widget::
+parse_and_load_tk
+(QString& path_to_toolkit_file)
+{
+  {
+    string         error_message;
+    QString        schema_file;
+    int            status;
+    toolkit_parser tk_parser;
+
+    //
+    // Get the path to the schema defining the toolkit files.
+    // It resides in the same folder than our executable file.
+    //
+
+    schema_file = QString::fromStdString(get_executable_path() + "/toolkit.xsd");
+
+    //
+    // THE FOLLOWING BLOCK, CHECKING THE VALIDITY OF THE FILE, IS COMMENTED
+    // BECAUSE THE RAPIDXML LIBRARY REPLACING OBSOLETE QT'S ONE HAS NO VALIDATING
+    // MECHANISMS. THE CODE IS PRESERVED JUST IN CASE MIGRATING TO ANOTHER XML
+    // LIBRARY ALLOW FOR SCHEMA VALIDATION.
+    //
+
+    // Check the validity of the input file using the schema.
+
+    /*
+    status = tk_parser.set_schema(schema_file);
+
+    if (!status)
+    {
+      vector<string> errors = tk_parser.error_list();
+
+      error_message  = "Unable to load the schema definition for toolkit files.\n";
+      error_message += "Maybe reinstalling the application would solve the problem.\n";
+      error_message += "The precise error messages detected are listed below:\n";
+
+      for (size_t i = 0; i < errors.size(); i++)
+      {
+        error_message = error_message + "  " + errors[i] + "\n";
+      }
+
+      QMessageBox msgBox;
+      msgBox.setText(QString::fromStdString(error_message));
+      msgBox.setWindowTitle("Error(s) loading the toolkit schema");
+      msgBox.setIcon(QMessageBox::Critical);
+      msgBox.setStandardButtons(QMessageBox::Ok);
+      msgBox.setDefaultButton(QMessageBox::Ok);
+      msgBox.exec();
+      return;
+    }
+
+    */
+
+    // Try to parse the toolkit file, since it could be erroneous.
+
+    status = tk_parser.parse(path_to_toolkit_file, toolkit_);
+    if (!status)
+    {
+      vector<string> error_list;
+
+      //
+      // We've got problems when parsing the toolkit file.
+      // Notify about the issue and go away!
+      //
+
+      error_list = tk_parser.error_list();
+
+      error_message  = "Errors detected when loading the toolkit file.\n";
+      error_message += "See the list of detected errors below:\n";
+
+      for (size_t i = 0; i < error_list.size(); i++)
+      {
+        error_message = error_message + "  " + error_list[i] + "\n";
+      }
+
+      QMessageBox msgBox;
+      msgBox.setText(QString::fromStdString(error_message));
+      msgBox.setWindowTitle("Error(s) reading the toolkit file");
+      msgBox.setIcon(QMessageBox::Critical);
+      msgBox.setStandardButtons(QMessageBox::Ok);
+      msgBox.setDefaultButton(QMessageBox::Ok);
+      msgBox.exec();
+      return;
+    }
+
+    //
+    // Well, at this point the toolkit file has been successfully
+    // loaded. Let's copy its values into the widget's fields.
+    //
+
+    tab_description_->set_values(toolkit_);
+    tab_parameters_->set_values(toolkit_);
+    tab_filetypes_->set_values(toolkit_);
+    tab_tasks_->set_values(toolkit_);
+  }
+}
+
 
 void
 ToolkitEditor_widget::
@@ -517,6 +614,10 @@ ToolkitEditor_widget
     // Set window flags to include all except the close button
 
     setWindowFlags(Qt::Window | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint);
+
+    // Enable drag-and-drop (for toolkit files).
+
+    setAcceptDrops(true);  // Enable drag-and-drop
 
   }
 }
