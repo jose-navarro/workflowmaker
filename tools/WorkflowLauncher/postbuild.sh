@@ -32,3 +32,10 @@ cp ../../data/launcher.xsd ../../installer/installer_sw_linux/workflowmaker_x.y-
 cp ./linux_menu/*.png      ../../installer/installer_sw_linux/workflowmaker_x.y-zz_amd64/usr/share/workflowmaker/
 cp ./linux_menu/*.desktop  ../../installer/installer_sw_linux/workflowmaker_x.y-zz_amd64/usr/share/workflowmaker/
 
+# Try to generate the doxygen documentation. Only if doxygen is installed.
+
+if which doxygen > /dev/null; then
+  doxygen WorkflowLauncher.dox
+  cp ./resources/HTML_WorkflowLauncher_logo.png ./doc_html/
+fi
+

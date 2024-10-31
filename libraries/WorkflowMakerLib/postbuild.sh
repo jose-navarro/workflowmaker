@@ -41,3 +41,10 @@ cp $1/*.a ./binaries/
 
 cp ./data_to_bin_folder/workflowmaker_version.txt ../../installer/installer_sw_linux/workflowmaker_x.y-zz_amd64/usr/local/bin
 
+# Try to generate the doxygen documentation. Only if doxygen is installed.
+
+if which doxygen > /dev/null; then
+  doxygen WorkFlowMakerLib.dox
+  cp ./resources/HTML_WorkFlowMakerLib_logo.png ./doc_html
+fi
+

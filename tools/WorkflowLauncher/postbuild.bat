@@ -27,4 +27,9 @@ REM Copy the executable to destination folders.
 
 COPY "%1\%2\*.exe"           ..\..\installer\installer_sw_windows\deployment\bin\*.* 
 
+REM Try to generate the doxygen documentation. Only if doxygen is installed.
 
+if exist "%ProgramFiles%\doxygen\bin\doxygen.exe" (
+  doxygen WorkflowLauncher.dox
+  COPY .\resources\HTML_WorkflowLauncher_logo.png .\doc_html\*.*
+)

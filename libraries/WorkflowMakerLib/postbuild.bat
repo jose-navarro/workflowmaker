@@ -49,3 +49,10 @@ REM Copy the documentation
 @ECHO INSTALLER'S DEPLOYMENT FOLDERS: Copying the docs (.pdf) to the docs folder.
 
 COPY "..\..\docs\user guide\WorkflowMaker user guide.pdf" ..\..\installer\installer_sw_windows\deployment\docs\*.* 
+
+REM Try to generate the doxygen documentation. Only if doxygen is installed.
+
+if exist "%ProgramFiles%\doxygen\bin\doxygen.exe" (
+  doxygen WorkFlowMakerLib.dox
+  COPY .\resources\HTML_WorkFlowMakerLib_logo.png .\doc_html\*.*
+)

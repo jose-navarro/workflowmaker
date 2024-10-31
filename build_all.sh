@@ -7,11 +7,13 @@ QMAKE_TOOL="/lib/qt6/bin/qmake"
 # Build the libraries.
 
 cd libraries
+chmod +x build_libraries.sh
 ./build_libraries.sh "$QMAKE_TOOL"
 cd ..
 
 # Build the tools
 cd tools
+chmod +x build_tools.sh
 ./build_tools.sh "$QMAKE_TOOL"
 cd ..
 

@@ -27,3 +27,10 @@ REM Copy the executable to destination folders.
 @ECHO INSTALLER'S DEPLOYMENT FOLDERS: Copying executable.
 
 COPY "%1\%2\*.exe"          ..\..\installer\installer_sw_windows\deployment\bin\*.* 
+
+REM Try to generate the doxygen documentation. Only if doxygen is installed.
+
+if exist "%ProgramFiles%\doxygen\bin\doxygen.exe" (
+  doxygen ToolkitEditor.dox
+  COPY .\resources\HTML_ToolkitEditor_logo.png .\doc_html\*.*
+)
