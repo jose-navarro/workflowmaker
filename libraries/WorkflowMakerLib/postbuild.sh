@@ -39,5 +39,5 @@ cp $1/*.a ./binaries/
 
 # Copy the version file to the .deb folder.
 
-cp ./data_to_bin_folder/workflowmaker_version.txt ../../installer/workflowmaker_x.y-zz_amd64/usr/local/bin
+cp ./data_to_bin_folder/workflowmaker_version.txt ../../installer/installer_sw_linux/workflowmaker_x.y-zz_amd64/usr/local/bin
 

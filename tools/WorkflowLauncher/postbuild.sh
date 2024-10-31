@@ -21,14 +21,14 @@ build_deb_folder_structure "$1"
 
 # Copy the executable to destination folder
 
-cp $2/$3                   ../../installer/workflowmaker_x.y-zz_amd64/usr/local/bin/
+cp $2/$3                   ../../installer/installer_sw_linux/workflowmaker_x.y-zz_amd64/usr/local/bin/
 
 # Copy the launcher schema to the destination folder.
 
-cp ../../data/launcher.xsd ../../installer/workflowmaker_x.y-zz_amd64/usr/local/bin
+cp ../../data/launcher.xsd ../../installer/installer_sw_linux/workflowmaker_x.y-zz_amd64/usr/local/bin
 
 # Copy the icons and desktop files to the destination share folder
 
-cp ./linux_menu/*.png      ../../installer/workflowmaker_x.y-zz_amd64/usr/share/workflowmaker/
-cp ./linux_menu/*.desktop  ../../installer/workflowmaker_x.y-zz_amd64/usr/share/workflowmaker/
+cp ./linux_menu/*.png      ../../installer/installer_sw_linux/workflowmaker_x.y-zz_amd64/usr/share/workflowmaker/
+cp ./linux_menu/*.desktop  ../../installer/installer_sw_linux/workflowmaker_x.y-zz_amd64/usr/share/workflowmaker/
 
