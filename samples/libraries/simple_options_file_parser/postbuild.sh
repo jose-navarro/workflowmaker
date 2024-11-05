@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #
-# Create the shapelib library.
+# Create the simple_options_file_parser library.
 #
-# Parameter 1: Current configuration (Debug | Release)
+# Parameter 1: Build directory.
 # Parameter 2: Project directory.
 #
 
@@ -27,6 +27,6 @@ cp ./src/*.hpp   ./headers/
 
 # Copy library
 
-cp ./$1/*.a ./binaries/
+cp $1/*.a ./binaries/
 
 

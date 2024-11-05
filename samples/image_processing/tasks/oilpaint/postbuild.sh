@@ -25,3 +25,7 @@ mkdir -p ../../installer_linux/workflowmaker-image-processing-samples_x.y-zz_amd
 
 cp $2/$3  ../../installer_linux/workflowmaker-image-processing-samples_x.y-zz_amd64/usr/local/bin
 
+# Copy the control file to the DEBIAN folder.
+
+cp ../../installer_linux/control ../../installer_linux/workflowmaker-image-processing-samples_x.y-zz_amd64/DEBIAN
+

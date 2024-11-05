@@ -45,7 +45,6 @@ win32 {
 }
 
 unix:!macx {
-
     CONFIG(release, debug|release) {
       TARGET = simple_options_file_parser
     }
@@ -53,16 +52,15 @@ unix:!macx {
       TARGET = simple_options_file_parserd
     }
 }
-
 # Post build step.
 
 win32 {
 
   #
   # For windows.
-  #  - First parameter: build folder.
-  #  - Second parameter: build mode (debug, release).
-  #  - Third parameter: project folder.
+  #  - First parameter: project folder.
+  #  - Second parameter: build folder.
+  #  - Third parameter: target to build (name of the library, no extension).
   #
 
   QMAKE_POST_LINK += $${PWD}\\postbuild.bat $${PWD} $${BUILD_FOLDER} $${TARGET}
@@ -73,12 +71,11 @@ unix:!macx {
   #
   # For Linux.
   #
-  #  - First parameter:  project folder.
-  #  - Second parameter: build folder.
-  #  - Third parameter:  target (executable) name.
+  #  - First parameter:  build mode (debug, release)
+  #  - Second parameter: project folder.
   #
 
-  QMAKE_POST_LINK += $${PWD}/postbuild.sh $${PWD} $${OUT_PWD} $${TARGET}
+  QMAKE_POST_LINK += $${PWD}/postbuild.sh $${OUT_PWD} $${PWD}
 }
 
 # Sources & headers
