@@ -1,22 +1,19 @@
-REM ECHO OFF
+ECHO OFF
 
-REM Parameter 1: The name of current project platform. It should always be "x64"
-REM Parameter 2: The name of the current project configuration. It should always be "Release".
-REM Parameter 3: The base name of the primary output file for the build.
+REM Parameter 1: The project's directory.
+REM Parameter 2: The path to the build directory.
+REM Parameter 3: Name of the executable file to copy.
 
-If "%2"=="Debug" (@ECHO LEAVING POSTBUILD - Executable not copied to binary folder)
-If "%2"=="Debug" (exit 0)
+CD %1
 
 @ECHO Creating (if needed) the binaries folder.
 
 IF NOT EXIST "..\binaries" (
   MKDIR "..\binaries"
-  MKDIR "..\binaries\%1"
 )
 
 REM Copy the executable to destination folders.
 
 @ECHO Copying executable file.
 
-COPY .\%1\%2\%3.exe  ..\binaries\%1\*.* 
-
+COPY "%2\%3.exe"  ..\binaries\*.* 

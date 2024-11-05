@@ -261,15 +261,15 @@ Section "Sample text file tools for Workflowmaker"
   SetOutPath $INSTDIR\bin
 
   ; Copy the executables
-  File ${InstallFrom}\x64\blur.exe
-  File ${InstallFrom}\x64\charcoal.exe
-  File ${InstallFrom}\x64\grayscale.exe
-  File ${InstallFrom}\x64\jpg2png.exe
-  File ${InstallFrom}\x64\mirror.exe
-  File ${InstallFrom}\x64\mosaic.exe
-  File ${InstallFrom}\x64\oilpaint.exe
-  File ${InstallFrom}\x64\png2jpg.exe
-  File ${InstallFrom}\x64\rotate.exe
+  File ${InstallFrom}\blur.exe
+  File ${InstallFrom}\charcoal.exe
+  File ${InstallFrom}\grayscale.exe
+  File ${InstallFrom}\jpg2png.exe
+  File ${InstallFrom}\mirror.exe
+  File ${InstallFrom}\mosaic.exe
+  File ${InstallFrom}\oilpaint.exe
+  File ${InstallFrom}\png2jpg.exe
+  File ${InstallFrom}\rotate.exe
   
   ; Create the shortcuts folder.
 

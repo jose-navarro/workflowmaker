@@ -1,9 +1,7 @@
-REM Parameter 1: Path to the directory where THIS file is stored.
-REM Parameter 2: The name of current project platform, for example, "Win32" or "x64"
-REM Parameter 3: The name of the current project configuration, for example, "Debug".
-REM Parameter 4: The base name of the primary output file for the build.
-
 ECHO OFF
+
+REM Parameter 1: The project's directory.
+REM Parameter 2: The path to the build directory.
 
 @ECHO STARTING THE POSTBUILD STEP FOR THE SIMPLE_OPTIONS_FILE_PARSER library
 
@@ -33,4 +31,4 @@ REM Copy library
 
 @ECHO COPYING THE LIBRARY TO THE binaries FOLDER...
 
-COPY .\%2\%3\%4.lib .\binaries\*.*
+COPY "%2\*.lib" .\binaries\*.*
