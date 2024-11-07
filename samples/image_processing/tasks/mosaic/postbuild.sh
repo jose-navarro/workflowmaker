@@ -11,21 +11,15 @@
 
 cd $1
 
-# Create, if needed, the folders for the .deb package.
+# Create the deb package structure, and copy there the files that
+# must be stored in the DEBIAN FOLDER. Pass the default directory
+# as parameter, so the called script knows where to set its default
+# folder.
 
-mkdir -p ../../installer_linux
-mkdir -p ../../installer_linux/workflowmaker-image-processing-samples_x.y-zz_amd64
-mkdir -p ../../installer_linux/workflowmaker-image-processing-samples_x.y-zz_amd64/DEBIAN
-mkdir -p ../../installer_linux/workflowmaker-image-processing-samples_x.y-zz_amd64/usr
-mkdir -p ../../installer_linux/workflowmaker-image-processing-samples_x.y-zz_amd64/usr/local
-mkdir -p ../../installer_linux/workflowmaker-image-processing-samples_x.y-zz_amd64/usr/local/bin
-
+source ../../installer_linux/build_deb_folder_structure.sh
+build_deb_folder_structure "$1"
 
 # Copy the executable to destination folder
 
 cp $2/$3  ../../installer_linux/workflowmaker-image-processing-samples_x.y-zz_amd64/usr/local/bin
-
-# Copy the control file to the DEBIAN folder.
-
-cp ../../installer_linux/control ../../installer_linux/workflowmaker-image-processing-samples_x.y-zz_amd64/DEBIAN
 
