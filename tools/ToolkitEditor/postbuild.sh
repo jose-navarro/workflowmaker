@@ -19,6 +19,12 @@ cd $1
 source ../../installer/installer_sw_linux/build_deb_folder_structure.sh
 build_deb_folder_structure "$1"
 
+# Create the docs & samples folders and copy the documentation
+# and example files to these directories.
+
+source ../../installer/installer_sw_linux/build_doc_samples_folder_structure.sh
+build_doc_samples_folder_structure "$1"
+
 # Copy the executable to destination folder
 
 cp $2/$3                  ../../installer/installer_sw_linux/workflowmaker_x.y-zz_amd64/usr/local/bin/
