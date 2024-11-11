@@ -63,3 +63,7 @@ VC_redistributables/
 *.out
 *.app
 deployment
+tools/ToolkitEditor/doc_html/
+tools/WorkflowEditor/doc_html/
+tools/WorkflowLauncher/doc_html/
+libraries/WorkflowMakerLib/doc_html/

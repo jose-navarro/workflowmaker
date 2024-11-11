@@ -11,15 +11,23 @@ using namespace Magick;
 
 /// \brief Create a horizontal mosaic of two images.
 
-int main(int argc, char** argv)
+int
+main
+(int    argc,
+ char** argv)
 {
   {
     try
     {
-
+      //
       // Initialize Magick++
+      // Do this in the first place so it is possible to
+      // declare objects defined by this library.
+      //
 
       InitializeMagick(*argv);
+
+      // Declare our variables and objects.
 
       Image                      image_left;
       Image                      image_right;
@@ -32,13 +40,20 @@ int main(int argc, char** argv)
       mosaic_options_file_reader op_reader;
       mosaic_options             options;
       int                        status;
+
+      //
+      // Check that we've got our unique parameter (the
+      // name of the options file)
+      //
+
+      if (argc < 2) return 1; // No options file name in command line.
     
       // Read the options controlling our behaviour.
 
       name_options_file = argv[1];
       status = op_reader.parse_file(name_options_file, options);
 
-      if (status != 0) return 1; // Error reading the options file.
+      if (status != 0) return 2; // Error reading the options file.
 
       name_image_left  = options.left_image_file_name;
       name_image_right = options.right_image_filename;
@@ -65,12 +80,11 @@ int main(int argc, char** argv)
 
       // That's all.
 
-      return 0;
+      return 0; // This error codes says "everything went right".
     }
     catch (...)
     {
-      // Return a status code stating that an error occurred.
-      return 1;
+       return 3; // Error when processing the image(s).
     }
   }
 }

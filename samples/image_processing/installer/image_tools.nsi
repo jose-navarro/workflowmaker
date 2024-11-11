@@ -11,7 +11,7 @@ RequestExecutionLevel admin ;Require admin rights on NT6+ (When UAC is turned on
 
 !define InstallFrom        "..\tasks\binaries"
 !define defCompanyShortDir "cttc"
-!define defVersion         "1.0"
+!define defVersion         "1.1"
 !define defProductName     "WorkflowMaker_image_processing_samples"
 !define defPartNumber      "${defProductName}-${defVersion}"
 !define defPublisher       "Geomatics Research Unit, CTTC"

@@ -20,8 +20,8 @@ using namespace Magick;
 void
 filename_split
 (const string& filename,
-  string& path_and_basename,
-  string& extension)
+       string& path_and_basename,
+       string& extension)
 {
   {
     size_t found;
@@ -50,15 +50,24 @@ filename_split
 
 /// \brief Converts a jpg image into a png one.
 
-int main(int argc, char** argv)
+int
+main
+(int    argc,
+ char** argv)
 {
   {
     try
     {
 
+      //
       // Initialize Magick++
+      // Do this in the first place so it is possible to
+      // declare objects defined by this library.
+      //
 
       InitializeMagick(*argv);
+
+      // Declare our variables and objects.
 
       string                      ext;
       set<string>                 ext_jpg;
@@ -70,6 +79,13 @@ int main(int argc, char** argv)
       string                      path_and_basename;
       int                         status;
       Image                       the_image;
+
+      //
+      // Check that we've got our unique parameter (the
+      // name of the options file)
+      //
+
+      if (argc < 2) return 1; // No options file name in command line.
 
       // The valid extensions for jpg files:
 
@@ -83,7 +99,7 @@ int main(int argc, char** argv)
       name_options_file = argv[1];
       status = op_reader.parse_file(name_options_file, options);
 
-      if (status != 0) return 1; // Error reading the options file.
+      if (status != 0) return 2; // Error reading the options file.
 
       name_the_input_image  = options.input_file_name;
       name_the_output_image = options.output_filename;
@@ -96,7 +112,7 @@ int main(int argc, char** argv)
       set<string>::iterator finder;
       finder = ext_jpg.find(ext);
       if (finder == ext_jpg.end())
-        return 1; // Invalid input file type.
+        return 3; // Invalid input file type.
 
       // Check that the output file name ends in any of the valid png extensions.
 
@@ -104,7 +120,7 @@ int main(int argc, char** argv)
       filename_split(name_the_output_image, path_and_basename, ext);
 
       if ((ext != "png") && (ext != "PNG"))
-        return 1;
+        return 4; // Invalid output file type.
 
       // Everything is OK. Read input the image.
 
@@ -116,12 +132,11 @@ int main(int argc, char** argv)
 
       // That's all.
 
-      return 0;
+      return 0; // This error codes says "everything went right".
     }
     catch (...)
     {
-      // Return a status code stating that an error occurred.
-      return 1;
+       return 5; // Error when processing the image(s).
     }
   }
 }

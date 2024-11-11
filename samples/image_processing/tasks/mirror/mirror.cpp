@@ -11,15 +11,24 @@ using namespace Magick;
 
 /// \brief Mirrors an image, either horizontally or vertically.
 
-int main(int argc, char** argv)
+int
+main
+(int    argc,
+ char** argv)
 {
   {
     try
     {
 
+      //
       // Initialize Magick++
+      // Do this in the first place so it is possible to
+      // declare objects defined by this library.
+      //
 
       InitializeMagick(*argv);
+
+      // Declare our variables and objects.
 
       int                        flip_mode;
       string                     name_options_file;
@@ -29,13 +38,20 @@ int main(int argc, char** argv)
       mirror_options             options;
       int                        status;
       Image                      the_image;
+
+      //
+      // Check that we've got our unique parameter (the
+      // name of the options file)
+      //
+
+      if (argc < 2) return 1; // No options file name in command line.
     
       // Read the options controlling our behaviour.
 
       name_options_file = argv[1];
       status = op_reader.parse_file(name_options_file, options);
 
-      if (status != 0) return 1; // Error reading the options file.
+      if (status != 0) return 2; // Error reading the options file.
 
       flip_mode             = options.flip_mode;
       name_the_input_image  = options.input_file_name;
@@ -56,12 +72,11 @@ int main(int argc, char** argv)
 
       // That's all.
 
-      return 0;
+      return 0; // This error codes says "everything went right".
     }
     catch (...)
     {
-      // Return a status code stating that an error occurred.
-      return 1;
+       return 3; // Error when processing the image(s).
     }
   }
 }
