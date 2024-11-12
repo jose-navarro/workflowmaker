@@ -3464,11 +3464,13 @@ write_shell_file
 
       if (!is_windows)
       {
-        shell_file << "echo \"Running (" << seq_id << ") "<< task_id << " with options file " << task_opt_file << "\"" << endl;
+        shell_file << "WORKER=\"(" << seq_id << ") " << task_id << "\"" << endl;
+        shell_file << "echo \"Running $WORKER with options file " << task_opt_file << "\"" << endl;
       }
       else
       {
-        shell_file << "@ECHO Running (" << seq_id << ") "<< task_id << " with options file " << task_opt_file << endl;
+        shell_file << "set WORKER=(" << seq_id << ") " << task_id << endl;
+        shell_file << "@ECHO Running %WORKER% with options file " << task_opt_file << endl;
       }
 
       shell_file << task_exe << " " << task_opt_file << endl;
@@ -3506,19 +3508,74 @@ write_shell_file
 
     if (is_windows)
     {
-      shell_file << "EXIT /B" << endl;
-      shell_file << ":problems" << endl;
-      shell_file << "@ECHO An error occurred. Please check the logs for more information." << endl;
-      shell_file << "EXIT /B" << endl;
+      shell_file << "@ECHO Workflow completed."                                        << endl;
+      shell_file << "EXIT /B"                                                          << endl;
+      shell_file << ":problems"                                                        << endl;
+      shell_file << "@ECHO *** ERROR: %WORKER% reported the error code %ERRORLEVEL%."  << endl;
+      shell_file << "@ECHO            Check the documentation of said task for more"   << endl;
+      shell_file << "@ECHO            information about the reported error code." << endl;
+      shell_file << "@ECHO *** Wokflow finished with errors."                          << endl;
+      shell_file << "EXIT /B"                                                          << endl;
     }
     else
     {
+      shell_file << "echo \"Workflow completed.\"" << endl;
       shell_file << "exit" << endl;
       shell_file << "problems:" << endl;
-      shell_file << "echo \"An error occurred. Please check the log files for more information.\"" << endl;
-      shell_file << "exit" << endl;
+      shell_file << "echo \"*** ERROR: $WORKER reported the error code $retVal.\""      << endl;
+      shell_file << "echo \"           Check the documentation of said task for more\"" << endl;
+      shell_file << "echo \"           information bout the reported error code.\""     << endl;
+      shell_file << "echo \"*** Workflow finished with errors.\""                       << endl;
+      shell_file << "exit"                                                              << endl;
     }
 
+    // Close the shell file.
+
+    shell_file.close();
+
+    //
+    // The following code will be compiled only on LINUX.
+    //
+    // This is so because it only applies when this application
+    // is running on said operating system.
+    //
+    // The idea is to set the execution flag of the output
+    // file (the shell script), so users do not have to worry
+    // about changing its properties.
+    //
+    // Since said "execution flag" does not exist on Windows,
+    // then the code is valid only for Linux platforms.
+    //
+    // Moreover, in the case that although the app is being
+    // executed on a Linux box, the script is generated for
+    // Windows, then the code below will simply do nothing.
+    //
+    // In short: if we are on Linux, generating a script for
+    // Linux, the execution flag will be set. In any
+    // other case, we'll do nothing.
+    //
+
+    #ifdef Q_OS_LINUX
+
+      // Work only when the output script is written for Linux.
+
+      if (!is_windows)
+      {
+        // Check if the file exists
+
+        QFile scriptFile(QString::fromStdString(shell_file_name));
+
+        if (scriptFile.exists())
+        {
+          // Set the permissions to read, write, and execute for the owner, group, and others.
+
+          scriptFile.setPermissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner |
+                                    QFile::ReadGroup | QFile::WriteGroup | QFile::ExeGroup |
+                                    QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
+        }
+      }
+
+    #endif
 
     // That's all.
 
