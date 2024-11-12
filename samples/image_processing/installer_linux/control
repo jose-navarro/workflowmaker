@@ -1,8 +1,8 @@
 Package: workflowmaker-image-processing-samples
-Version: 1.1-0
+Version: 1.0-1
 Architecture: amd64
 Maintainer: Centre Tecnologic de Comunicacions de Catalunya - Geomatics RU <jose.navarro@cttc.es>
-Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.0), libmagick++-6.q16-8, libstdc++6 (>= 5.2)
+Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.0), libmagick++-6.q16-9t64 (>= 8:6.9.12.98+dfsg1), libmagickcore-6.q16-7t64 (>= 8:6.9.10.2), libstdc++6 (>= 13.1)
 Description: Miscellaneous image processing sample utilities for workflowmaker
  Utilities included: blur charcoal grayscale jpg2png mirror mosaic oilpaint png2jpg rotate
 
