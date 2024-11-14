@@ -248,6 +248,8 @@ struct WLRepository
 
 struct WLLauncher
 {
+  int    wfm_version;                /**< Version of the workflow loaded.*/
+
   string               id;           /**< Identifier for this particular
                                           launcher. */
 

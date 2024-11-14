@@ -34,16 +34,61 @@ parse
     string buffer((std::istreambuf_iterator<char>(file)), (std::istreambuf_iterator<char>()));
     file.close();
 
-    // Parse the XML file
+    // Try to parse the XML file. Check if there are any errors.
 
     xml_document<> doc;
-    doc.parse<0>(&buffer[0]);
 
-    // Parse the general launcher information
+    try
+    {
+      doc.parse<0>(&buffer[0]);
+    }
+    catch (...)
+    {
+      error_list_.push_back("Unable to parse the input XML launcher file '" + filename.toStdString() + "'");
+      error_list_.push_back("Check that it is a valid WorkflowMaker launcher file.");
+      return false;
+    }
 
-    lch.id =          doc.first_node("launcher")->first_node("id")->value();
-    lch.description = doc.first_node("launcher")->first_node("description")->value();
-    lch.workflow_id = doc.first_node("launcher")->first_node("workflow_id")->value();
+    //
+    // Access the wfm_type element to guarantee that we're reading
+    // a launcher file and no other kind of xml file.
+    //
+
+    xml_node<> *launcher = doc.first_node("launcher");
+    if (launcher == nullptr)
+    {
+      error_list_.push_back("Unable to parse the input XML launcher file '" + filename.toStdString() + "'");
+      error_list_.push_back("Check that it is a valid WorkflowMaker launcher file.");
+      return false;
+    }
+
+    xml_node<> *wfm_type = launcher->first_node("wfm_type");
+    if (wfm_type == nullptr)
+    {
+      error_list_.push_back("Unable to parse the input XML launcher file '" + filename.toStdString() + "'");
+      error_list_.push_back("Check that it is a valid WorkflowMaker launcher file.");
+      return false;
+    }
+
+    string wfm_type_value = wfm_type->value();
+    std::transform(wfm_type_value.begin(), wfm_type_value.end(), wfm_type_value.begin(), ::toupper);
+
+    if (wfm_type_value != "LAUNCHER")
+    {
+      error_list_.push_back("Input file '" + filename.toStdString() + "' is not a launcher but a " + wfm_type_value);
+      error_list_.push_back("Please, select a valid WorkflowMaker launcher file.");
+      return false;
+    }
+
+    //
+    // Now we know we're parsing a launcher file!
+    // Parse the general launcher information.
+    //
+
+    lch.wfm_version = stoi(launcher->first_node("wfm_version")->value());
+    lch.id          = launcher->first_node("id")->value();
+    lch.description = launcher->first_node("description")->value();
+    lch.workflow_id = launcher->first_node("workflow_id")->value();
 
     std::transform(lch.id.begin()         , lch.id.end()         , lch.id.begin(), ::toupper);
     std::transform(lch.workflow_id.begin(), lch.workflow_id.end(), lch.workflow_id.begin(), ::toupper);
@@ -52,10 +97,10 @@ parse
 
     lch.parameters.clear();
 
-    xml_node<> *parameters_node = doc.first_node("launcher")->first_node("parameters");
+    xml_node<> *parameters_node = launcher->first_node("parameters");
     if (parameters_node)
     {
-      for (xml_node<> *parameter_node = doc.first_node("launcher")->first_node("parameters")->first_node("parameter");
+      for (xml_node<> *parameter_node = launcher->first_node("parameters")->first_node("parameter");
            parameter_node;
            parameter_node = parameter_node->next_sibling())
       {
@@ -76,10 +121,10 @@ parse
 
     lch.repositories.clear();
 
-    xml_node<> *repositories_node = doc.first_node("launcher")->first_node("repositories");
+    xml_node<> *repositories_node = launcher->first_node("repositories");
     if (repositories_node)
     {
-      for (xml_node<> *repository_node = doc.first_node("launcher")->first_node("repositories")->first_node("repository"); repository_node; repository_node = repository_node->next_sibling()) {
+      for (xml_node<> *repository_node = launcher->first_node("repositories")->first_node("repository"); repository_node; repository_node = repository_node->next_sibling()) {
 
         WLRepository rep;
 
@@ -97,10 +142,10 @@ parse
 
     lch.files.clear();
 
-    xml_node<> *files_node = doc.first_node("launcher")->first_node("connections");
+    xml_node<> *files_node = launcher->first_node("connections");
     if (files_node)
     {
-      for (xml_node<> *connection_node = doc.first_node("launcher")->first_node("connections")->first_node("connection");
+      for (xml_node<> *connection_node = launcher->first_node("connections")->first_node("connection");
            connection_node;
            connection_node = connection_node->next_sibling())
       {

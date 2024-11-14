@@ -82,6 +82,8 @@ write
 
     ofile << header << endl;
     ofile << "<toolkit xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"toolkit.xsd\">" << endl;
+    ofile << "  <wfm_type>toolkit</wfm_type>"                         << endl;
+    ofile << "  <wfm_version>" << tk.wfm_version  << "</wfm_version>" << endl;
     ofile << "  <id>"          << to_upper(tk.id) << "</id>"          << endl;
     ofile << "  <description>" << tk.description  << "</description>" << endl;
 

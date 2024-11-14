@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <workflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="workflow.xsd">
+  <wfm_type>workflow</wfm_type>
+  <wfm_version>1</wfm_version>
   <id>IMAGE_PROCESSING_WORKFLOW</id>
   <description>A workflow combining several image processing tools</description>
   <toolkit_id>IMAGE_PROCESSING_TOOLKIT</toolkit_id>

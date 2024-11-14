@@ -103,6 +103,8 @@ struct toolkit_task
 
 struct toolkit
 {
+    int    wfm_version;                   /**< Version of the toolkit loaded.*/
+
     string id;                            /**< Toolkit identifier. */
 
     string description;                   /**< Description of toolkit's purpose. */

@@ -115,6 +115,8 @@ struct WFNode
 
 struct WFWorkflow
 {
+    int    wfm_version;               /**< Version of the workflow loaded.*/
+
     string id;                        /**< String identifier of the workflow. */
 
     string description;               /**< Description (preferably short) of the workflow. */

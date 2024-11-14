@@ -33,17 +33,65 @@ parse
       string buffer((std::istreambuf_iterator<char>(file)), (std::istreambuf_iterator<char>()));
       file.close();
 
-      // Parse the XML file
+      // Try to parse the XML file. Check if there are any errors.
+
       xml_document<> doc;
-      doc.parse<0>(&buffer[0]);
 
-      // Parse the general workflow information
+      try
+      {
+        doc.parse<0>(&buffer[0]);
+      }
+      catch (...)
+      {
+        error_list_.push_back("Unable to parse the input XML workflow file '" + filename.toStdString() + "'");
+        error_list_.push_back("Check that it is a valid WorkflowMaker workflow file.");
 
-      wf.id           = doc.first_node("workflow")->first_node("id")->value();
-      wf.description  = doc.first_node("workflow")->first_node("description")->value();
-      wf.toolkit_id   = doc.first_node("workflow")->first_node("toolkit_id")->value();
-      wf.last_repo_id = stoi(doc.first_node("workflow")->first_node("last_repository_id")->value());
-      wf.last_task_id = stoi(doc.first_node("workflow")->first_node("last_task_id")->value());
+        return false;
+      }
+
+      //
+      // Access the wfm_type element to guarantee that we're reading
+      // a workflow file and no other kind of xml file.
+      //
+
+      xml_node<> *workflow = doc.first_node("workflow");
+      if (workflow == nullptr)
+      {
+        error_list_.push_back("Unable to parse the input XML workflow file '" + filename.toStdString() + "'");
+        error_list_.push_back("Check that it is a valid WorkflowMaker workflow file.");
+
+        return false;
+      }
+
+      xml_node<> *wfm_type = workflow->first_node("wfm_type");
+      if (wfm_type == nullptr)
+      {
+        error_list_.push_back("Unable to parse the input XML workflow file '" + filename.toStdString() + "'");
+        error_list_.push_back("Check that it is a valid WorkflowMaker workflow file.");
+        return false;
+      }
+
+      string wfm_type_value = wfm_type->value();
+      std::transform(wfm_type_value.begin(), wfm_type_value.end(), wfm_type_value.begin(), ::toupper);
+
+      if (wfm_type_value != "WORKFLOW")
+      {
+        error_list_.push_back("Input file '" + filename.toStdString() + "' is not a workflow but a " + wfm_type_value);
+        error_list_.push_back("Please, select a valid WorkflowMaker workflow file.");
+        return false;
+      }
+
+      //
+      // Now we know we're parsing a workflow file!
+      // Parse the general workflow information.
+      //
+
+      wf.wfm_version  = stoi(workflow->first_node("wfm_version")->value());
+      wf.id           = workflow->first_node("id")->value();
+      wf.description  = workflow->first_node("description")->value();
+      wf.toolkit_id   = workflow->first_node("toolkit_id")->value();
+      wf.last_repo_id = stoi(workflow->first_node("last_repository_id")->value());
+      wf.last_task_id = stoi(workflow->first_node("last_task_id")->value());
 
       std::transform(wf.id.begin()        , wf.id.end()        , wf.id.begin()        , ::toupper);
       std::transform(wf.toolkit_id.begin(), wf.toolkit_id.end(), wf.toolkit_id.begin(), ::toupper);
@@ -52,10 +100,10 @@ parse
 
       wf.repos.clear();
 
-      xml_node<> *repositories_node = doc.first_node("workflow")->first_node("repositories");
+      xml_node<> *repositories_node = workflow->first_node("repositories");
       if (repositories_node)
       {
-        for (xml_node<> *repository_node = doc.first_node("workflow")->first_node("repositories")->first_node("repository");
+        for (xml_node<> *repository_node = workflow->first_node("repositories")->first_node("repository");
             repository_node;
             repository_node = repository_node->next_sibling())
         {
@@ -76,10 +124,10 @@ parse
 
       wf.tasks.clear();
 
-      xml_node<> *tasks_node = doc.first_node("workflow")->first_node("tasks");
+      xml_node<> *tasks_node = workflow->first_node("tasks");
       if (tasks_node)
       {
-        for (xml_node<> *task_node = doc.first_node("workflow")->first_node("tasks")->first_node("task");
+        for (xml_node<> *task_node = workflow->first_node("tasks")->first_node("task");
              task_node;
              task_node = task_node->next_sibling())
         {
@@ -101,10 +149,10 @@ parse
 
       wf.connections.clear();
 
-      xml_node<> *connections_node = doc.first_node("workflow")->first_node("connections");
+      xml_node<> *connections_node = workflow->first_node("connections");
       if (connections_node)
       {
-        for (xml_node<> *connection_node = doc.first_node("workflow")->first_node("connections")->first_node("connection");
+        for (xml_node<> *connection_node = workflow->first_node("connections")->first_node("connection");
              connection_node;
              connection_node = connection_node->next_sibling())
         {

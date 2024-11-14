@@ -82,8 +82,10 @@ write
     lchfile << "<launcher xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"" << endl;
     lchfile << "  xsi:noNamespaceSchemaLocation=\"launcher.xsd\">" << endl;
 
-    // Identifiers and description.
+    // Type, version, identifiers and description.
 
+    lchfile << "  <wfm_type>launcher</wfm_type>"                                       << endl;
+    lchfile << "  <wfm_version>1</wfm_version>"                                        << endl;
     lchfile << "  <id>"          << to_upper(launcher.id)          << "</id>"          << endl;
     lchfile << "  <description>" << launcher.description           << "</description>" << endl;
     lchfile << "  <workflow_id>" << to_upper(launcher.workflow_id) << "</workflow_id>" << endl;

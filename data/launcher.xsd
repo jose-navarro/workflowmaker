@@ -7,6 +7,15 @@
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
+				<xs:element name="wfm_type">
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="toolkit"/>
+							<xs:enumeration value="TOOLKIT"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="wfm_version" type="xs:positiveInteger"/>
 				<xs:element name="id" type="xs:token"/>
 				<xs:element name="description" type="xs:token"/>
 				<xs:element name="workflow_id" type="xs:token"/>

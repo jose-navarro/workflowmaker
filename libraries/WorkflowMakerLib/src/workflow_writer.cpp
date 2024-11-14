@@ -82,8 +82,10 @@ write
     wffile << "<workflow xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"" << endl;
     wffile << "  xsi:noNamespaceSchemaLocation=\"workflow.xsd\">" << endl;
 
-    // Identifiers and description.
+    // Type, version, Identifiers and description.
 
+    wffile << "  <wfm_type>workflow</wfm_type>" << endl;
+    wffile << "  <wfm_version>1</wfm_version>" << endl;
     wffile << "  <id>" << to_upper(wf.id) << "</id>" << endl;
     wffile << "  <description>" << wf.description << "</description>" << endl;
     wffile << "  <toolkit_id>" << to_upper(wf.toolkit_id) << "</toolkit_id>" << endl;

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <launcher xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="launcher.xsd">
+  <wfm_type>launcher</wfm_type>
+  <wfm_version>1</wfm_version>
   <id>IMAGE_PROCESSING_LAUNCHER</id>
   <description>Example launcher for the image processing workflow</description>
   <workflow_id>IMAGE_PROCESSING_WORKFLOW</workflow_id>

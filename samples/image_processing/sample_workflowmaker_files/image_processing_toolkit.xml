@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <toolkit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="toolkit.xsd">
+  <wfm_type>toolkit</wfm_type>
+  <wfm_version>1</wfm_version>
   <id>IMAGE_PROCESSING_TOOLKIT</id>
   <description>Sample toolkit with a few image processing tools</description>
   <parameters>

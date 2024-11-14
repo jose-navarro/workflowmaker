@@ -34,16 +34,63 @@ parse
     string buffer((istreambuf_iterator<char>(file)), (istreambuf_iterator<char>()));
     file.close();
 
-    // Parse the XML file
+    // Try to parse the XML file. Check if there are any errors.
 
     xml_document<> doc;
-    doc.parse<0>(&buffer[0]);
+
+    try
+    {
+      doc.parse<0>(&buffer[0]);
+    }
+    catch (...)
+    {
+      error_list_.push_back("Unable to parse the input XML toolkit file '" + filename.toStdString() + "'");
+      error_list_.push_back("Check that it is a valid WorkflowMaker toolkit file.");
+
+      return false;
+    }
 
     // Access the toolkit element
+
     xml_node<> *toolkit = doc.first_node("toolkit");
+    if (toolkit == nullptr)
+    {
+      error_list_.push_back("Unable to parse the input XML toolkit file '" + filename.toStdString() + "'");
+      error_list_.push_back("Check that it is a valid WorkflowMaker toolkit file.");
 
+      return false;
+    }
+
+    //
+    // Access the wfm_type element to guarantee that we're reading
+    // a toolkit file and no other kind of xml file.
+    //
+
+    xml_node<> *wfm_type = toolkit->first_node("wfm_type");
+    if (wfm_type == nullptr)
+    {
+      error_list_.push_back("Unable to parse the input XML toolkit file '" + filename.toStdString() + "'");
+      error_list_.push_back("Check that it is a valid WorkflowMaker toolkit file.");
+      return false;
+    }
+
+    string wfm_type_value = wfm_type->value();
+    std::transform(wfm_type_value.begin(), wfm_type_value.end(), wfm_type_value.begin(), ::toupper);
+
+    if (wfm_type_value != "TOOLKIT")
+    {
+      error_list_.push_back("Input file '" + filename.toStdString() + "' is not a toolkit but a " + wfm_type_value);
+      error_list_.push_back("Please, select a valid WorkflowMaker toolkit file.");
+      return false;
+    }
+
+    //
+    // Now we know we're parsing a toolkit file!
+    //
     // Parse the toolkit's general information
+    //
 
+    tk.wfm_version = stoi(toolkit->first_node("wfm_version")->value());
     tk.id          = toolkit->first_node("id")->value();
     tk.description = toolkit->first_node("description")->value();
 
