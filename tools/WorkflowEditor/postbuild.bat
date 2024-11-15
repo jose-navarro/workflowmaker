@@ -10,6 +10,10 @@ REM create the deployment folders.
 
 CALL "..\..\installer\installer_sw_windows\prepare_deployment.bat"    "..\..\installer\installer_sw_windows"
 
+REM Copy the samples and docs.
+
+CALL "..\..\installer\installer_sw_windows\copy_samples_and_docs.bat" "..\..\installer\installer_sw_windows\deployment"
+
 REM Copy the QT and MSVC runtimes.
 
 CALL "..\..\installer\installer_sw_windows\copy_redistributables.bat" "..\..\installer\installer_sw_windows\deployment"
@@ -31,5 +35,4 @@ REM Try to generate the doxygen documentation. Only if doxygen is installed.
 
 if exist "%ProgramFiles%\doxygen\bin\doxygen.exe" (
   doxygen WorkflowEditor.dox
-  COPY .\resources\HTML_WFMEditor_logo.png .\doc_html\*.*
 )

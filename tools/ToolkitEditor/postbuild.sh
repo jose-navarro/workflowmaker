@@ -42,6 +42,5 @@ cp ./linux_menu/*.desktop ../../installer/installer_sw_linux/workflowmaker_x.y-z
 
 if which doxygen > /dev/null; then
   doxygen ToolkitEditor.dox
-  cp ./resources/HTML_ToolkitEditor_logo.png ./doc_html/
 fi
 

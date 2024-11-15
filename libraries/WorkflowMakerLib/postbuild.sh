@@ -45,6 +45,5 @@ cp ./data_to_bin_folder/workflowmaker_version.txt ../../installer/installer_sw_l
 
 if which doxygen > /dev/null; then
   doxygen WorkFlowMakerLib.dox
-  cp ./resources/HTML_WorkFlowMakerLib_logo.png ./doc_html
 fi
 

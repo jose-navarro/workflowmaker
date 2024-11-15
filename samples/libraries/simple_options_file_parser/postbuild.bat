@@ -32,3 +32,12 @@ REM Copy library
 @ECHO COPYING THE LIBRARY TO THE binaries FOLDER...
 
 COPY "%2\*.lib" .\binaries\*.*
+
+@ECHO GENERATING THE API DOCS
+
+# Try to generate the doxygen documentation. Only if doxygen is installed.
+
+if exist "%ProgramFiles%\doxygen\bin\doxygen.exe" (
+  doxygen simple_options_file_parser_doxyfile.dox
+)
+

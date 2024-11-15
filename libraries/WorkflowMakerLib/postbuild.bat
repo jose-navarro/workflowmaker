@@ -54,5 +54,4 @@ REM Try to generate the doxygen documentation. Only if doxygen is installed.
 
 if exist "%ProgramFiles%\doxygen\bin\doxygen.exe" (
   doxygen WorkFlowMakerLib.dox
-  COPY .\resources\HTML_WorkFlowMakerLib_logo.png .\doc_html\*.*
 )

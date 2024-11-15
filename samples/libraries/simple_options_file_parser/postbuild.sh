@@ -29,4 +29,10 @@ cp ./src/*.hpp   ./headers/
 
 cp $1/*.a ./binaries/
 
+# Try to generate the doxygen documentation. Only if doxygen is installed.
+
+if which doxygen > /dev/null; then
+  doxygen simple_options_file_parser_doxyfile.dox
+fi
+
 
