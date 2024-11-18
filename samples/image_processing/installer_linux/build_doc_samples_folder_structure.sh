@@ -26,6 +26,10 @@ build_doc_samples_folder_structure() {
     cp "$file" "../../installer_linux/workflowmaker-image-processing-samples_x.y-zz_doc_and_samples/docs"
   done
 
+  for file in "../../../libraries/simple_options_file_parser/docs"/*.pdf; do
+    cp "$file" "../../installer_linux/workflowmaker-image-processing-samples_x.y-zz_doc_and_samples/docs"
+  done
+
   # Copy the samples (image processing toolkit)
 
   for file in "../../sample_workflowmaker_files"/*.xml; do

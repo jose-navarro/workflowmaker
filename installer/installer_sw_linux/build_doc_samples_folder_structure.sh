@@ -19,9 +19,22 @@ build_doc_samples_folder_structure() {
   mkdir -p ../../installer/installer_sw_linux/workflowmaker_x.y-zz_doc_and_samples/docs
   mkdir -p ../../installer/installer_sw_linux/workflowmaker_x.y-zz_doc_and_samples/samples
 
-  # Copy the complete set of user guides.
+  # Copy the complete set of user guides (WorkflowMaker only)
 
   for file in "../../docs/user guide"/*.pdf; do
+    cp "$file" "../../installer/installer_sw_linux/workflowmaker_x.y-zz_doc_and_samples/docs"
+  done
+
+  #
+  # Copy the complete set of documents related to the samples and the
+  # simple_options_file_parser_library.
+  #
+
+  for file in "../../samples/image_processing/docs"/*.pdf; do
+    cp "$file" "../../installer/installer_sw_linux/workflowmaker_x.y-zz_doc_and_samples/docs"
+  done
+
+  for file in "../../samples/libraries/simple_options_file_parser/docs"/*.pdf; do
     cp "$file" "../../installer/installer_sw_linux/workflowmaker_x.y-zz_doc_and_samples/docs"
   done
 
