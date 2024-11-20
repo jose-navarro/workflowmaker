@@ -1,5 +1,10 @@
 # WorkFlowMaker
 
+<div style="text-align: center;">
+  <img src="readme_images/cover.png" alt="WorkflowMaker" width="600">
+  </br>
+</div>
+
 ## What is it for?
 
 WorkFlowMaker allows you to design and execute workflows created from the
@@ -321,6 +326,28 @@ design and execute your own workflows.
 WorkflowMaker and the sample image processing toolkit are available for Windows
 10 / 11 as well as Ubuntu 24.10-based Linux distributions. There are installers
 available for these platforms.
+
+## Image gallery ##
+
+<figure style="text-align: center;">
+  <img src="readme_images/ToolkitEditor.png" alt="ToolkitEditor" width="700">
+  <figcaption>Figure 1: The ToolkitEditor - Defining a task.</figcaption>
+</figure>
+
+<figure style="text-align: center;">
+  <img src="readme_images/WorkflowEditor.png" alt="WorkflowEditor" width="700">
+  <figcaption>Figure 2: Drawing a workflow with WorkflowEditor.</figcaption>
+</figure>
+
+<figure style="text-align: center;">
+  <img src="readme_images/WorkflowLauncher.png" alt="WorkflowLauncher" width="700">
+  <figcaption>Figure 3: Providing data to launch a workflow with WorkflowLauncher.</figcaption>
+</figure>
+
+<figure style="text-align: center;">
+  <img src="readme_images/cover_icons.png" alt="WorkflowMaker's icons" width="200">
+  <figcaption>Figure 4: The icons of the three WorkflowMaker's applications.</figcaption>
+</figure>
 
 ## The licenses ##
 
