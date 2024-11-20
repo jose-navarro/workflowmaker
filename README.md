@@ -71,11 +71,11 @@ following restrictions:
 The options file must be a plain text file consisting of lines of labels and
 values pairs, such as
 
-<p style="text-align: center;">
+<p align="center">
 MAX_NUMBER_OF_ITERATIONS = 5
 </p>
 
-<p style="text-align: center;">
+<p align="center">
 INPUT_FILE = /home/some_user/my_data/the_input_file.dat
 </p>
 
@@ -126,7 +126,7 @@ WorkflowMaker consists all three tools:
 
 3. **WorkflowLauncher**. For **all users**. The workflows designed with
    WorkflowEditor above are just *templates*. With WorkflowLauncher any user may
-   apply use these templates to process their own datasets. 
+   use these templates to process their own datasets. 
 
 In short, if you are not a developer you just need the domain knowledge for which
 some developer(s) created a set of applications that have been made compatible
@@ -136,13 +136,13 @@ with WorkflowMaker.
 
 If your Linux box is an modern Ubuntu-based computer (running, for instance,
 Ubuntu or Linux Mint) you may use WorkflowMaker too. You do not need to use a
-Windows computer.
+Windows computer (but you can too if you want!).
 
 ## Are there any installers?
 
 **Yes**.
 
-In the Releases section you can download the WorkFlowMaker installer for Windows, the .deb package for Ubuntu based distributions.
+In the [Releases](https://github.com/jose-navarro/workflowmaker/releases) section you can download the WorkFlowMaker installer for Windows, the .deb package for Ubuntu based distributions.
 
 WorkflowMaker works on Windows 10 & 11 computers. Regarding Linux, Linux distributions based on Ubuntu 24.10 (such as Linux Mint 22 Wilma) are the only ones supported - due to limited resources availability.
 
@@ -201,13 +201,15 @@ WorkflowMaker.
 
 1. Download the WorkFlowMaker installer / deb package from the Releases section. 
 
-2. Install WorkFlowMaker on your computer (for Windows, the installer is A
+2. Install WorkFlowMaker on your computer (for Windows, the installer is a
    classic next->next process; for Linux, the deb package may be installed using
-   gkdebi or the console).
+   GDebi (double clicking on the deb file) or using the console).
 
 3. Take a look at the WorkflowMaker user guide to learn where to find the
    relevant information about the tools. All user guides are part of the
-   installation kit.
+   installation kit (either included as a subfolder in the Linux installer
+   or as a specific folder created by the installer on Windows, which may
+   be accessed via the Start menu).
 
 ### I want a quick start to learn how to use WorkflowMaker ###
 
@@ -220,10 +222,10 @@ computer, proceed as follows:
 2. Install the toolkit using the appropriate method for Windows or Linux.
 
 3. Copy the WorkflowMaker sample files listed below to some writable folder on
-   on your computer. On Windows, these are available via the Start menu; look
+   your computer. On Windows, these are available via the Start menu; look
    for the WorkflowMaker menu entry and then for a sub-entry pointing to the
    samples folder. On Linux, these files are packaged in the samples and docs
-   subfolder of the downloaded file with WorkflowMaker. The files to copy are:
+   subfolder of the WorkflowMaker installer. The files to copy are:
    
    * *image_processing_toolkit.xml*. This file includes the formal definition
       of all the tasks included in the example image processing toolkit. Such
@@ -238,20 +240,20 @@ computer, proceed as follows:
       saved. Otherwise, the launcher below will stop working.
 
    * *image_processing_launcher.xml*. As stated above, workflows are just
-      templates defining how to process some date. With a launcher, it IS
+      templates defining how to process some date. With a launcher, it is
       possible to give values to parameters, names to files and paths to
       the folders where these reside. This launcher corresponds to the
       workflow and toolkit above; it includes values for all the said items.
-      If you want to use it, make sure that you change the paths to files
-      are stored (for both input and output) and that the input files
-      stated by the laucher actually reside in the folders indicated. In
-      other words, this file must be modified using WorkflowEditor to
-      make the appropriate (folder paths) changes.
+      If you want to use it, make sure that you change the paths where files
+      are stored (that is, the paths to *repositories* for both input and
+      output files) and that the input files stated by the laucher actually reside
+      in the folders indicated. In other words, this file must be modified
+      using WorkflowLauncher to make the appropriate (folder paths) changes.
 
-4. Use WorkflowEditor to play with image_processing_workflow.xml; running
-   WorkflowLauncher to provide the appropriate values for the paths where
+4. Use WorkflowEditor to play with image_processing_workflow.xml; then, switch
+   to WorkflowLauncher to provide the appropriate values for the paths where
    your input and output folders stay and create the script to run the
-   workflow. Open a command line and run said workflow.
+   workflow. Open a command line and run said script.
 
 Of course, it is possible to design other workflows than the one included
 with the sample; and then, it is possible to create the corresponding launcher
