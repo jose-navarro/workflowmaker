@@ -156,11 +156,22 @@ The user guides for the *WorkFlowMaker suite* may be found at the following path
 
 The available documents are:
 
-* *WorkflowMaker user guide* (file: WorkflowMaker user guide.pdf). **For all users.** This is the guide to understand WorkflowMaker. It explains how to create WorkflowMaker-compatible console applications, how to define these and group them in so-called toolkits using ToolkitEditor, how to define workflows visually that rely on these toolkits and how to, finally, use them to process your own data thanks to WorkflowLauncher.
+* *WorkflowMaker user guide* (file: WorkflowMaker user guide.pdf). **For all users.**
+  This is the guide to understand WorkflowMaker. It explains how to create WorkflowMaker-compatible
+  console applications, how to define these and group them in so-called toolkits using ToolkitEditor,
+  how to define workflows visually that rely on these toolkits and how to, finally, use them to
+  process your own data thanks to WorkflowLauncher.
 
-* *Building WorkflowMaker* (file:Building WorkFlowMaker.pdf ). **For developers only:** this guide is targeted at describing how to build WorkflowMaker from source code, both for Windows and Linux platforms. It describes the tools required, the steps to build automatically the whole suite of applications and, also, how to build single applications when required.
+* *Building WorkflowMaker* (file:Building WorkFlowMaker.pdf ). **For developers only:**
+  this guide is targeted at describing how to build WorkflowMaker from source code, both for Windows
+  and Linux platforms. It describes the tools required, the steps to build automatically the whole
+  suite of applications and, also, how to build single applications when required.
 
-* *Building a WorkflowMaker-compliant console application* (file: Building a compliant console application.pdf). **For developers only:** in this case, a step by step example is provided, showing how to build a WorkflowMaker-compatible console application. The example is written in C++, but the ideas there explained are valid for any programming language. The example application is one of the tasks included in the sample image processing toolkit.
+* *Building a WorkflowMaker-compliant console application* (file: Building a compliant console application.pdf).
+   **For developers only:** in this case, a step by step example is provided, showing how to build
+  a WorkflowMaker-compatible console application. The example is written in C++, but the ideas there
+  explained are valid for any programming language. The example application is one of the tasks included
+  in the sample image processing toolkit.
 
 With regard to the *sample image processing toolkit*, there are two folder to check:
 
@@ -188,9 +199,24 @@ With regard to the *sample image processing toolkit*, there are two folder to ch
     toolkit, this document is included, which describes the format supported by
     this library.
 
+## Are there any documents describing the API? ##
+
+Yes. But these are not included in the source code repository. The API HTML documentation is
+generated whenever WorkflowMaker or the sample image processing toolkit are built.
+The documents explaining the process and where to find the API documents are:
+
+* *Building WorkflowMaker* and
+* *Building the samples*.
+
+The previous section describe where to find these documents.
+
 ## How may I build from source code?
 
-Read the guides related to building from source code included in the list of documents in the previous section.
+Read the guides related to building from source code. Again, the documents
+to read are:
+
+* *Building WorkflowMaker* and
+* *Building the samples*.
 
 ## Tell me how to get started
 
