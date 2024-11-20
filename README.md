@@ -108,7 +108,7 @@ If you are working in a workplace where someone else develops applications that
 may be made compatible with WorkflowMaker, then you are also a potential user of
 this (set of) tools.
 
-WorkflowMaker consists all three tools:
+WorkflowMaker consists of three tools:
 
 1. **ToolkitEditor**. This is the application that **developers** will use to
    formally define what their console applications do. Non-developers need not to
