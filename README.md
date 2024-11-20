@@ -1,9 +1,8 @@
 # WorkFlowMaker
 
-<div style="text-align: center;">
+<p align="center">
   <img src="readme_images/cover.png" alt="WorkflowMaker" width="600">
-  </br>
-</div>
+</p>
 
 ## What is it for?
 
@@ -329,25 +328,25 @@ available for these platforms.
 
 ## Image gallery ##
 
-<figure style="text-align: center;">
+<p align="center">
   <img src="readme_images/ToolkitEditor.png" alt="ToolkitEditor" width="700">
-  <figcaption>Figure 1: The ToolkitEditor - Defining a task.</figcaption>
-</figure>
+</p>
+<p align="center"><em>Figure 1: The ToolkitEditor - Defining a task.</em></p>
 
-<figure style="text-align: center;">
+<p align="center">
   <img src="readme_images/WorkflowEditor.png" alt="WorkflowEditor" width="700">
-  <figcaption>Figure 2: Drawing a workflow with WorkflowEditor.</figcaption>
-</figure>
+</p>
+<p align="center"><em>Figure 2: Drawing a workflow with WorkflowEditor.</em></p>
 
-<figure style="text-align: center;">
+<p align="center">
   <img src="readme_images/WorkflowLauncher.png" alt="WorkflowLauncher" width="700">
-  <figcaption>Figure 3: Providing data to launch a workflow with WorkflowLauncher.</figcaption>
-</figure>
+</p>
+<p align="center"><em>Figure 3: Providing data to launch a workflow with WorkflowLauncher.</em></p>
 
-<figure style="text-align: center;">
+<p align="center">
   <img src="readme_images/cover_icons.png" alt="WorkflowMaker's icons" width="200">
-  <figcaption>Figure 4: The icons of the three WorkflowMaker's applications.</figcaption>
-</figure>
+</p>
+<p align="center"><em>Figure 4: The icons of the three WorkflowMaker's applications.</em></p>
 
 ## The licenses ##
 
