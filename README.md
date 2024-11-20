@@ -134,8 +134,8 @@ with WorkflowMaker.
 
 ## It seems nice, but I usually work on Linux ##
 
-If your Linux box is an modern Ubuntu-based computer (running, for instance,
-Ubuntu or Linux Mint) you may use WorkflowMaker too. You do not need to use a
+If your Linux box is a modern Ubuntu-based computer (running, for instance,
+Ubuntu 24.10 or Linux Mint 22 "Wilma") you may use WorkflowMaker too. You do not need to use a
 Windows computer (but you can too if you want!).
 
 ## Are there any installers?
