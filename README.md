@@ -43,6 +43,47 @@ workflows and generate scripts to execute them. Obviously, developers who want
 to be able to integrate their console applications with WorkFlowMaker will have to
 respect these restrictions.
 
+### WorkflowMaker at a glance ###
+
+#### Target ####
+
+WorkflowMaker is a set of visual tools whose gool is making possible the
+visual design of workflows integrating self-developed console applications as
+well as the generation of the necessary scripts to run these workflows.
+
+Thanks to WorkflowMaker, there is o need to write a single line of code to
+design and execute your own workflows.
+
+#### Features ####
+
+* Design of workflows by visually combining tasks implemented as 
+  console applications.
+* Visual connection of the inputs and outputs of said tasks. 
+* Automatic generation of scripts to execute the workflows thus designed.
+* No programming knowledge required.
+* Easy to use graphical interface.
+
+#### Benefits ####
+
+* Reduce errors when manually combining tasks, either manually or by means
+  of self-written scripts.
+* Save time.
+* Users _with no programming knowledge_ may create their own workflows.
+* Workflows are self-documented.
+
+#### Use cases ####
+
+* Research.
+* Production. 
+* Education.
+* Training.
+* Any activity where self-developed console applications are implemented.
+
+#### Availability ####
+
+WorkflowMaker and the sample image processing toolkit are available for Windows
+10 / 11 as well as Ubuntu 24.10-based Linux distributions.
+
 ## I am a developer. Can any console application be integrated in a WorkflowMaker workflow?
 
 The short answer is **no**. There are many console applications that cannot be
@@ -311,48 +352,6 @@ documentation explains where to find these documents in the repository tree.
 Once that your toolkit is implemented (including its formal definition using
 ToolkitEditor) proceed as stated in the previous section; use your own toolkit
 instead of the sample one.
-
-## WorkflowMaker at a glance ##
-
-### Target ###
-
-WorkflowMaker is a set of visual tools whose gool is making possible the
-visual design of workflows integrating self-developed console applications as
-well as the generation of the necessary scripts to run these workflows.
-
-Thanks to WorkflowMaker, there is o need to write a single line of code to
-design and execute your own workflows.
-
-### Features ###
-
-* Design of workflows by visually combining tasks implemented as 
-  console applications.
-* Visual connection of the inputs and outputs of said tasks. 
-* Automatic generation of scripts to execute the workflows thus designed.
-* No programming knowledge required.
-* Easy to use graphical interface.
-
-### Benefits ###
-
-* Reduce errors when manually combining tasks, either manually or by means
-  of self-written scripts.
-* Save time.
-* Users _with no programming knowledge_ may create their own workflows.
-* Workflows are self-documented.
-
-### Use cases ###
-
-* Research.
-* Production. 
-* Education.
-* Training.
-* Any activity where self-developed console applications are implemented.
-
-### Availability ###
-
-WorkflowMaker and the sample image processing toolkit are available for Windows
-10 / 11 as well as Ubuntu 24.10-based Linux distributions. There are installers
-available for these platforms.
 
 ## Image gallery ##
 
