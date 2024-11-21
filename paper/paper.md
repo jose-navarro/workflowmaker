@@ -1,13 +1,17 @@
 ---
-title: "WorkflowMaker, a visual workflow software tool for the easy integration of self-developed applications"
+title: 'WorkflowMaker, a visual workflow software tool for the easy integration of self-developed applications'
+tags:
+  - Cross-platform application
+  - Visual tools
+  - Visual Programming
 authors:
   - name: Jose A. Navarro
     orcid: 0000-0000-0000-0000
-  - affiliation: '1'
+    affiliation: "1" 
 affiliations:
-  - index: 1
-    name: Centre Tecnologic de Telecomunicacions de Catalunya-CERCA, Av. Carl Friedrich Gauss 7, Castelldefels, 08860, Spain
-date: %e %B %Y
+ - name: Centre Tecnologic de Telecomunicacions de Catalunya-CERCA, Av. Carl Friedrich Gauss 7, Castelldefels, 08860, Spain
+   index: 1
+date: 20 December 2024
 bibliography: paper.bib
 ---
 
