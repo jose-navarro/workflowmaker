@@ -5,11 +5,11 @@ tags:
   - Visual tools
   - Visual Programming
 authors:
-  - name: Jose A. Navarro
+  - name: José A. Navarro
     orcid: 0000-0000-0000-0000
     affiliation: "1" 
 affiliations:
- - name: Centre Tecnologic de Telecomunicacions de Catalunya-CERCA, Av. Carl Friedrich Gauss 7, Castelldefels, 08860, Spain
+ - name: Centre Tecnològic de Telecomunicacions de Catalunya-CERCA, Av. Carl Friedrich Gauss 7, Castelldefels, 08860, Spain
    index: 1
 date: 20 December 2024
 bibliography: paper.bib
