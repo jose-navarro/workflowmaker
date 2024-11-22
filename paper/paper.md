@@ -91,8 +91,44 @@ applications.
 
 # Description
 
-Figure \ref{fig_workflow} depicts bla bla bla.
+WorkflowMaker consists of three applications:
 
-![A simple image processing workflow (a), the two input images (b) and the result (c)[]{label="fig_workflow"}](figure_workflow.png)
+*ToolkitEditor* – This tool allows developers to *formally characterize* their console
+applications by specifying (1) their keyboard parameters and (2) their input and output files.
+In this context, *keyboard parameter* stands for these values that users provide using the
+keyboard when the console application is run. To be integrable with WorkflowMAker applications
+must comply with certain constraints:
+
+  * They accept a single command-line parameter: this parameter is the name of a plain text file
+    containing the values of the command-line parameters as well as the names of the input /
+    output files. The format of this file is standardized.
+
+  * It must return a value indicating whether the execution completed successfully (zero) or not
+    (non-zero) so that automatically generated scripts can manage the execution flow.
+
+Figures \ref{fig_toolkit1} and \ref{fig_toolkit2} show some screenshots of this application.
+
+![ToolkitEditor: the list of tasks already defined\label{fig_toolkit1}](figure_toolkit1.png)
+
+![ToolkitEditor: the OIL_PAINT task in detail\label{fig_toolkit2}](figure_toolkit2.png)
+
+*WorkflowEditor* – This is a graphical editor that allows users to design workflows by combining
+the tasks defined with ToolkitEditor. It relies on three pillars: (1) repositories, which are
+locations where input and output files reside, (2) tasks, the formally defined applications, and
+(3) connections, which indicate how data flows between repositories and tasks.
+
+**WorkflowLauncher** – The workflows created with WorkflowEditor are simply templates that
+outline how to perform a certain process, but these templates do not fix the values of the data
+to be processed. WorkflowLauncher is used to specify the names of the input files for those workflows, as well as the values of the required command-line parameters. From this, a script
+(Windows or Linux) is generated that can be executed.
+
+# A very simple example
+
+Figure \ref{fig_workflow}(a) show a very simple image processing workflow drawn with WorkflowEditor; there, two images stored in some repository (REPO_1) are rotated (tasks (1) ROTATE and (2) ROTATE). Then, their outputs are used by a third task ((3) MOSAIC) to mosaic these images producing a new one, which is used by the last task ((4) OILPAINT) to apply an
+artistic image effect known as "oil painting". The result of this process is stored in
+a new repository, (REPO_2). In Figure \ref{fig_workflow}(b) the two input images used to
+run this workflow are shown; \ref{fig_workflow}(c) depicts the result.
+
+![A simple image processing workflow (a), the two input images (b) and the result (c)\label{fig_workflow}](figure_workflow.png)
 
 # References
