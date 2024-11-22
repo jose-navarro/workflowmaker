@@ -91,7 +91,8 @@ applications.
 
 # Description
 
+Figure \ref{fig_workflow} depicts bla bla bla.
 
-![A simple image processing workflow (a), the two input images (b) and the result (c)](figure_workflow.png)
+![A simple image processing workflow (a), the two input images (b) and the result (c)[]{label="fig_workflow"}](figure_workflow.png)
 
 # References
