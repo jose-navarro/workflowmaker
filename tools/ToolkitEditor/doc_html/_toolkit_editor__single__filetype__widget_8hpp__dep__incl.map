@@ -1,0 +1,19 @@
+<map id="src/ToolkitEditor_single_filetype_widget.hpp" name="src/ToolkitEditor_single_filetype_widget.hpp">
+<area shape="rect" id="Node000001" title="Implementation file for ToolkitEditor_single_filetype_widget.cpp." alt="" coords="197,5,354,48"/>
+<area shape="rect" id="Node000002" href="$_toolkit_editor__filetype__list__widget_8hpp.html" title="Implementation file for ToolkitEditor_filetype_list_widget.cpp." alt="" coords="101,96,266,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,61,207,98,203,94,242,57"/>
+<area shape="rect" id="Node000009" href="$_toolkit_editor__single__filetype__widget_8cpp.html" title="Dialog to enter the data related to a file type." alt="" coords="289,96,446,139"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="309,57,348,94,344,98,306,61"/>
+<area shape="rect" id="Node000003" href="$_toolkit_editor__filetype__list__widget_8cpp.html" title="Table&#45;based widget to show, add and remove file types." alt="" coords="5,187,170,229"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="152,151,111,188,108,184,148,147"/>
+<area shape="rect" id="Node000004" href="$_toolkit_editor__filetypes__widget_8hpp.html" title="File types tab in the main application&#39;s widget." alt="" coords="194,187,365,229"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="219,147,259,184,256,188,215,151"/>
+<area shape="rect" id="Node000005" href="$_toolkit_editor__filetypes__widget_8cpp.html" title="Implementation file for ToolkitEditor_filetypes_widget.hpp." alt="" coords="92,277,264,320"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="246,242,204,279,200,275,243,238"/>
+<area shape="rect" id="Node000006" href="$_toolkit_editor__widget_8hpp.html" title="Main application&#39;s widget (application GUI)." alt="" coords="288,285,474,312"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="316,237,368,283,365,287,312,242"/>
+<area shape="rect" id="Node000007" href="$_toolkit_editor__widget_8cpp.html" title="Implementation file for ToolkitEditor_widget.hpp." alt="" coords="206,368,391,395"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="359,325,313,370,309,366,355,321"/>
+<area shape="rect" id="Node000008" href="$main_8cpp.html" title="Main entry point for the ToolkitEditor application." alt="" coords="415,368,512,395"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="406,321,453,366,449,370,403,325"/>
+</map>

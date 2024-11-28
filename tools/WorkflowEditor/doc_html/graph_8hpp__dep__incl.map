@@ -1,0 +1,11 @@
+<map id="src/graph.hpp" name="src/graph.hpp">
+<area shape="rect" id="Node000001" title="Minimalistic implementation of a directed graph." alt="" coords="188,5,289,32"/>
+<area shape="rect" id="Node000002" href="$diagramscene_8hpp.html" title="The scene where the graphic items will be included." alt="" coords="89,80,239,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,45,179,82,175,78,213,41"/>
+<area shape="rect" id="Node000005" href="$graph_8cpp.html" title="Implementation file for graph.hpp." alt="" coords="263,80,364,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="264,41,302,78,299,82,261,45"/>
+<area shape="rect" id="Node000003" href="$diagramscene_8cpp.html" title="Implementation file for diagramscene.hpp." alt="" coords="5,155,155,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="139,119,96,156,93,152,136,115"/>
+<area shape="rect" id="Node000004" href="$mainwindow_8cpp.html" title="Implementation file for mainwindow.hpp." alt="" coords="178,155,318,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="192,115,235,152,232,156,189,119"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="task_list_widget" name="task_list_widget">
+<area shape="rect" id="Node000001" title="Table&#45;based widget to show a list of tasks." alt="" coords="105,172,220,199"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,78,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,115,147,169,144,174,69,119"/>
+<area shape="rect" id="Node000003" href="$classtask__table__model.html" title="Table view model for lists of tasks." alt="" coords="101,81,224,108"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="166,124,166,171,160,171,160,124"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="90,5,236,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="166,47,166,81,160,81,160,47"/>
+<area shape="rect" id="Node000005" href="$classtask__table__view.html" title="Table view for lists of tasks." alt="" coords="249,81,364,108"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="275,119,185,174,182,169,272,114"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="261,5,352,32"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="310,47,310,81,304,81,304,47"/>
+</map>

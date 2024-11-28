@@ -1,0 +1,19 @@
+<map id="src/connection.hpp" name="src/connection.hpp">
+<area shape="rect" id="Node000001" title="Class modeling a connection between two items." alt="" coords="221,5,352,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,139,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,35,125,77,123,72,248,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="162,80,235,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="273,35,227,72,224,68,270,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="260,80,314,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="289,33,289,64,284,64,284,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="338,80,403,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="303,31,346,68,343,72,300,35"/>
+<area shape="rect" id="Node000006" href="$_w_f_m_editor__structures_8hpp.html" title="Defines several structures and enumerations for the use of the WorkflowEditor." alt="" coords="427,80,605,107"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="327,30,462,72,460,77,326,35"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="349,155,419,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="494,110,421,149,419,145,492,105"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="443,155,589,181"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="519,107,519,139,513,139,513,107"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="613,155,670,181"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="539,105,608,144,605,149,537,110"/>
+</map>

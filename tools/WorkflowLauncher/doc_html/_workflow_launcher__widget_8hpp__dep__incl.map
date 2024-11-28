@@ -1,0 +1,7 @@
+<map id="src/WorkflowLauncher_widget.hpp" name="src/WorkflowLauncher_widget.hpp">
+<area shape="rect" id="Node000001" title="Main application&#39;s widget (application GUI)." alt="" coords="79,5,229,48"/>
+<area shape="rect" id="Node000002" href="$_workflow_launcher__widget_8cpp.html" title="Implementation file for WorkflowLauncher_widget.hpp." alt="" coords="5,96,156,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,62,99,97,95,94,125,58"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html" title="Main entry point for the WorkflowLauncher application." alt="" coords="180,104,277,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="183,58,220,102,216,105,179,62"/>
+</map>

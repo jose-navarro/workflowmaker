@@ -1,0 +1,5 @@
+<map id="WFNode" name="WFNode">
+<area shape="rect" id="Node000001" title="Defines a task or repository." alt="" coords="21,96,95,123"/>
+<area shape="rect" id="Node000002" href="$struct_w_f_coordinate.html" title="Coordinates (in the scene space) of the center of a task or repository." alt="" coords="5,5,111,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,48,61,95,55,95,55,48"/>
+</map>

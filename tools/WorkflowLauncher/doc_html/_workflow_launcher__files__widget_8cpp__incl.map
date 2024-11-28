@@ -1,0 +1,36 @@
+<map id="src/WorkflowLauncher_files_widget.cpp" name="src/WorkflowLauncher_files_widget.cpp">
+<area shape="rect" id="Node000001" title="Implementation file for WorkflowLauncher_files_widget.hpp." alt="" coords="303,5,453,48"/>
+<area shape="rect" id="Node000002" href="$_workflow_launcher__files__widget_8hpp.html" title="Files tab in the main application&#39;s widget." alt="" coords="298,96,458,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="380,48,380,81,375,81,375,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,187,68,213"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="299,139,83,189,82,184,298,133"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="92,187,184,213"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="317,142,191,184,189,179,315,137"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="100,261,165,288"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="347,141,166,255,164,251,344,137"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="532,187,634,213"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="432,137,538,178,536,183,430,142"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="658,187,727,213"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="458,136,644,183,643,189,457,141"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="190,261,262,288"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="360,141,251,252,247,248,356,137"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="286,261,446,288"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="368,140,358,163,350,187,349,218,357,246,352,248,344,218,345,186,353,161,363,138"/>
+<area shape="rect" id="Node000010" href="$single__file__widget_8hpp.html" title="Dialog to show / collect the data related to a single file." alt="" coords="359,187,508,213"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="394,138,419,172,414,175,390,141"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="750,187,808,213"/>
+<area shape="poly" id="edge17_Node000002_Node000015" title=" " alt="" coords="458,129,585,151,736,183,735,189,584,156,458,134"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="832,187,886,213"/>
+<area shape="poly" id="edge18_Node000002_Node000016" title=" " alt="" coords="458,125,621,147,817,184,817,189,620,152,458,130"/>
+<area shape="poly" id="edge14_Node000010_Node000005" title=" " alt="" coords="378,217,181,263,180,258,377,211"/>
+<area shape="poly" id="edge15_Node000010_Node000008" title=" " alt="" coords="398,216,277,258,276,253,397,211"/>
+<area shape="poly" id="edge16_Node000010_Node000009" title=" " alt="" coords="424,216,390,252,386,248,420,212"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="757,261,852,288"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="500,211,742,258,741,263,499,217"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="471,261,533,288"/>
+<area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="448,212,482,248,478,252,444,216"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="557,261,636,288"/>
+<area shape="poly" id="edge12_Node000010_Node000013" title=" " alt="" coords="463,211,555,252,553,257,461,216"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="660,261,733,288"/>
+<area shape="poly" id="edge13_Node000010_Node000014" title=" " alt="" coords="480,211,646,257,644,262,479,216"/>
+</map>

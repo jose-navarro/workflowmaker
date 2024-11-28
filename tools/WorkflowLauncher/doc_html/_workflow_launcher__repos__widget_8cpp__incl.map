@@ -1,0 +1,40 @@
+<map id="src/WorkflowLauncher_repos_widget.cpp" name="src/WorkflowLauncher_repos_widget.cpp">
+<area shape="rect" id="Node000001" title="Implementation file for WorkflowLauncher_repos_widget.hpp." alt="" coords="312,5,462,48"/>
+<area shape="rect" id="Node000002" href="$_workflow_launcher__repos__widget_8hpp.html" title="Repositories tab in the main application&#39;s widget." alt="" coords="304,96,471,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="390,48,390,81,384,81,384,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,187,68,213"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="304,139,84,189,82,184,302,134"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="92,187,184,213"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="324,142,193,184,191,179,322,137"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="49,261,114,288"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="348,142,121,256,119,252,345,137"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="572,187,674,213"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="449,137,572,179,571,184,447,142"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="698,187,767,213"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="472,134,684,183,682,189,470,140"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="139,261,211,288"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="361,141,206,254,203,250,357,137"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="235,261,395,288"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="376,140,350,188,326,248,321,246,345,186,372,138"/>
+<area shape="rect" id="Node000010" href="$single__repository__widget_8hpp.html" title="Dialog to show / collect the data related to a single repository." alt="" coords="359,187,548,213"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="406,138,436,173,432,176,402,141"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="790,187,848,213"/>
+<area shape="poly" id="edge19_Node000002_Node000017" title=" " alt="" coords="472,128,611,150,776,183,775,189,610,155,471,133"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="872,187,926,213"/>
+<area shape="poly" id="edge20_Node000002_Node000018" title=" " alt="" coords="472,124,646,146,750,163,858,184,857,189,750,168,645,151,471,129"/>
+<area shape="poly" id="edge16_Node000010_Node000005" title=" " alt="" coords="376,217,264,236,130,264,129,258,263,231,375,211"/>
+<area shape="poly" id="edge17_Node000010_Node000008" title=" " alt="" coords="406,216,227,263,225,258,405,211"/>
+<area shape="poly" id="edge18_Node000010_Node000009" title=" " alt="" coords="431,216,354,256,352,251,428,212"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="742,261,832,288"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="513,211,728,258,727,263,512,217"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="856,261,950,288"/>
+<area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="545,211,841,258,840,263,544,217"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="975,261,1037,288"/>
+<area shape="poly" id="edge12_Node000010_Node000013" title=" " alt="" coords="549,210,960,259,959,264,548,215"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="420,261,498,288"/>
+<area shape="poly" id="edge13_Node000010_Node000014" title=" " alt="" coords="457,214,460,245,454,246,452,214"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="523,261,595,288"/>
+<area shape="poly" id="edge14_Node000010_Node000015" title=" " alt="" coords="474,212,530,250,527,254,471,216"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="619,261,718,288"/>
+<area shape="poly" id="edge15_Node000010_Node000016" title=" " alt="" coords="492,211,618,253,616,258,490,216"/>
+</map>

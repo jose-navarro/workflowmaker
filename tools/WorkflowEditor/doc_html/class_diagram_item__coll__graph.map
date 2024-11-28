@@ -1,0 +1,11 @@
+<map id="DiagramItem" name="DiagramItem">
+<area shape="rect" id="Node000001" title="The tasks and repository graphic items that will be part of workflows." alt="" coords="57,187,153,213"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,162,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,137,104,185,99,187,87,138"/>
+<area shape="rect" id="Node000003" href="$structwfme__node__data.html" title="Node (step / repository) that may be inserted in a workflow." alt="" coords="186,96,306,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,134,126,188,124,184,212,129"/>
+<area shape="rect" id="Node000004" href="$structwfme__node__dimensions.html" title="Defines the dimensions of a node." alt="" coords="76,5,238,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="182,41,235,94,232,97,178,45"/>
+<area shape="rect" id="Node000005" href="$structwfme__node__positions.html" title="Defines the positions of the several elements making a node." alt="" coords="262,5,409,32"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="314,45,261,97,257,94,310,41"/>
+</map>

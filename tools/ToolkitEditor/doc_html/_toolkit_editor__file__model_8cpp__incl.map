@@ -1,0 +1,13 @@
+<map id="src/ToolkitEditor_file_model.cpp" name="src/ToolkitEditor_file_model.cpp">
+<area shape="rect" id="Node000001" title="Table view model for lists of files." alt="" coords="180,5,319,48"/>
+<area shape="rect" id="Node000002" href="$_toolkit_editor__file__model_8hpp.html" title="Implementation file for ToolkitEditor_file_model.cpp." alt="" coords="190,96,308,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="252,48,252,81,246,81,246,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,187,152,213"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="206,142,120,182,118,177,204,137"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="176,187,229,213"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="239,141,220,174,215,172,235,138"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="253,187,339,213"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="263,138,283,172,279,174,259,141"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="363,187,509,213"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="298,137,394,178,391,183,296,142"/>
+</map>

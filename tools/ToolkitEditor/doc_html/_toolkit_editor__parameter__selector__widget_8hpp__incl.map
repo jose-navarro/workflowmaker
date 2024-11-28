@@ -1,0 +1,32 @@
+<map id="src/ToolkitEditor_parameter_selector_widget.hpp" name="src/ToolkitEditor_parameter_selector_widget.hpp">
+<area shape="rect" id="Node000001" title="Implementation file for ToolkitEditor_parameter_selector_widget.cpp." alt="" coords="383,5,563,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,104,74,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="382,40,241,62,163,78,86,99,80,100,78,95,84,93,161,73,240,57,382,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="97,104,166,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="383,47,284,69,179,99,173,100,172,95,177,93,283,64,381,42"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="190,104,292,131"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="419,51,289,101,287,96,417,46"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="316,104,379,131"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="445,51,379,97,376,93,442,46"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="543,187,595,213"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="460,50,449,70,440,92,438,116,444,137,461,156,482,171,529,189,527,194,480,175,457,160,440,140,432,116,435,91,444,67,456,47"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="454,104,607,131"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="488,47,516,89,512,92,484,50"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="631,104,706,131"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="520,46,628,95,626,100,518,51"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="731,104,833,131"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="551,46,719,93,729,96,727,102,717,99,549,51"/>
+<area shape="rect" id="Node000010" href="$_toolkit_editor__parameter__model_8hpp.html" title="Implementation file for ToolkitEditor_parameter_model.cpp." alt="" coords="858,96,1016,139"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="564,41,843,93,842,98,563,46"/>
+<area shape="rect" id="Node000014" href="$_toolkit_editor__parameter__table__view_8hpp.html" title="Implementation file for ToolkitEditor_parameter_table_view.cpp." alt="" coords="1090,96,1248,139"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="564,36,1028,93,1075,100,1074,105,1027,99,563,41"/>
+<area shape="poly" id="edge11_Node000010_Node000006" title=" " alt="" coords="858,139,611,192,609,187,857,133"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="698,187,845,213"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="895,142,812,182,810,177,893,137"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="868,187,955,213"/>
+<area shape="poly" id="edge12_Node000010_Node000012" title=" " alt="" coords="933,140,923,172,918,171,928,138"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="978,187,1125,213"/>
+<area shape="poly" id="edge13_Node000010_Node000013" title=" " alt="" coords="968,137,1022,175,1019,180,965,141"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="1148,187,1240,213"/>
+<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="1178,138,1188,171,1183,172,1173,140"/>
+</map>

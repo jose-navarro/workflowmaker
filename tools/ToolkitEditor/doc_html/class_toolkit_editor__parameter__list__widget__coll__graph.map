@@ -1,0 +1,25 @@
+<map id="ToolkitEditor_parameter_list_widget" name="ToolkitEditor_parameter_list_widget">
+<area shape="rect" id="Node000001" title="Table&#45;based widget to show, add and remove parameters." alt="" coords="1138,167,1296,209"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="228,172,300,199"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="316,182,1021,180,1114,180,1137,181,1137,186,1114,185,1021,185,316,188"/>
+<area shape="rect" id="Node000007" href="$class_toolkit_editor__tasks__widget.html" title="Tasks tab in the main application&#39;s widget (application GUI)." alt="" coords="864,201,997,244"/>
+<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="315,193,351,199,494,211,636,218,864,221,864,226,636,223,493,216,350,204,314,199"/>
+<area shape="rect" id="Node000008" href="$class_toolkit_editor__task__list__widget.html" title="Table&#45;based widget to show, add, edit and remove tasks." alt="" coords="533,87,658,129"/>
+<area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="314,171,532,120,533,125,315,176"/>
+<area shape="rect" id="Node000003" href="$class_toolkit_editor__parameter__model.html" title="Table view model for lists of parameters." alt="" coords="682,16,840,59"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="857,61,980,98,1115,143,1167,164,1165,169,1113,148,978,103,855,66"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,5,152,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="167,18,682,33,682,38,167,24"/>
+<area shape="rect" id="Node000009" href="$class_toolkit_editor__task__model.html" title="Table view model for lists of tasks." alt="" coords="201,39,326,81"/>
+<area shape="poly" id="edge11_Node000009_Node000004" title=" " alt="" coords="157,33,201,43,200,49,156,39"/>
+<area shape="rect" id="Node000005" href="$class_toolkit_editor__parameter__table__view.html" title="Table view for lists of parameters." alt="" coords="350,248,509,291"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="524,272,623,275,741,275,869,268,996,253,1083,233,1159,207,1161,212,1084,238,997,259,870,274,741,280,623,281,524,278"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="33,195,124,221"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="140,216,350,253,350,258,139,221"/>
+<area shape="rect" id="Node000010" href="$class_toolkit_editor__task__table__view.html" title="Table view for lists of tasks." alt="" coords="201,105,326,148"/>
+<area shape="poly" id="edge13_Node000010_Node000006" title=" " alt="" coords="124,185,212,146,214,151,126,190"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1012,210,1137,195,1138,200,1013,215"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="674,132,866,198,865,203,672,137"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="342,66,509,89,533,93,532,99,508,95,341,72"/>
+<area shape="poly" id="edge12_Node000008_Node000010" title=" " alt="" coords="342,120,532,109,533,114,342,125"/>
+</map>

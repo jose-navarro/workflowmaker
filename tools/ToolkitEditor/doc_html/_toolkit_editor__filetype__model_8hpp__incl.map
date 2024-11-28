@@ -1,0 +1,13 @@
+<map id="src/ToolkitEditor_filetype_model.hpp" name="src/ToolkitEditor_filetype_model.hpp">
+<area shape="rect" id="Node000001" title="Implementation file for ToolkitEditor_filetype_model.cpp." alt="" coords="240,5,405,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,152,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="260,51,132,93,131,88,259,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="175,96,262,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="297,51,248,88,245,84,294,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="285,96,360,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="325,49,325,80,320,80,320,49"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="384,96,437,123"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="347,47,387,83,384,87,343,51"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="461,96,608,123"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="378,46,488,88,486,93,376,51"/>
+</map>

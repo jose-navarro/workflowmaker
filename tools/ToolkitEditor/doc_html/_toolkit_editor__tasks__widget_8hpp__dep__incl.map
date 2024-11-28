@@ -1,0 +1,32 @@
+<map id="src/ToolkitEditor_tasks_widget.hpp" name="src/ToolkitEditor_tasks_widget.hpp">
+<area shape="rect" id="Node000001" title="Tasks tab in the main application&#39;s widget." alt="" coords="325,5,479,48"/>
+<area shape="rect" id="Node000002" href="$_toolkit_editor__filetype__list__widget_8hpp.html" title="Implementation file for ToolkitEditor_filetype_list_widget.cpp." alt="" coords="149,96,314,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="350,58,272,98,270,93,348,53"/>
+<area shape="rect" id="Node000004" href="$_toolkit_editor__filetypes__widget_8hpp.html" title="File types tab in the main application&#39;s widget." alt="" coords="194,187,365,229"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="382,62,296,188,291,185,377,59"/>
+<area shape="rect" id="Node000006" href="$_toolkit_editor__widget_8hpp.html" title="Main application&#39;s widget (application GUI)." alt="" coords="350,285,535,312"/>
+<area shape="poly" id="edge16_Node000001_Node000006" title=" " alt="" coords="408,63,430,229,442,284,437,285,425,230,403,64"/>
+<area shape="rect" id="Node000009" href="$_toolkit_editor__parameter__list__widget_8hpp.html" title="Implementation file for ToolkitEditor_parameter_list_widget.cpp." alt="" coords="440,96,620,139"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="446,55,502,93,499,98,443,59"/>
+<area shape="rect" id="Node000014" href="$_toolkit_editor__tasks__widget_8cpp.html" title="Implementation file for ToolkitEditor_tasks_widget.hpp." alt="" coords="645,96,799,139"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="493,50,648,93,646,98,491,55"/>
+<area shape="rect" id="Node000003" href="$_toolkit_editor__filetype__list__widget_8cpp.html" title="Table&#45;based widget to show, add and remove file types." alt="" coords="5,187,170,229"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="186,150,122,188,120,184,183,145"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="252,151,271,185,266,188,248,154"/>
+<area shape="rect" id="Node000005" href="$_toolkit_editor__filetypes__widget_8cpp.html" title="Implementation file for ToolkitEditor_filetypes_widget.hpp." alt="" coords="154,277,325,320"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="266,244,251,278,246,276,262,242"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="332,235,420,282,418,287,330,240"/>
+<area shape="rect" id="Node000007" href="$_toolkit_editor__widget_8cpp.html" title="Implementation file for ToolkitEditor_widget.hpp." alt="" coords="267,368,452,395"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="420,325,374,370,370,366,417,321"/>
+<area shape="rect" id="Node000008" href="$main_8cpp.html" title="Main entry point for the ToolkitEditor application." alt="" coords="477,368,573,395"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="468,321,514,366,510,370,464,325"/>
+<area shape="rect" id="Node000010" href="$_toolkit_editor__parameter__list__widget_8cpp.html" title="Table&#45;based widget to show, add and remove parameters." alt="" coords="440,187,620,229"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="533,154,533,186,528,186,528,154"/>
+<area shape="rect" id="Node000011" href="$_toolkit_editor__parameters__widget_8hpp.html" title="Parameters tab in the main application&#39;s widget." alt="" coords="644,187,832,229"/>
+<area shape="poly" id="edge11_Node000009_Node000011" title=" " alt="" coords="594,143,690,184,688,188,592,148"/>
+<area shape="rect" id="Node000013" href="$_toolkit_editor__single__task__widget_8cpp.html" title="Dialog to enter the data related to a task." alt="" coords="856,187,1012,229"/>
+<area shape="poly" id="edge14_Node000009_Node000013" title=" " alt="" coords="636,139,844,184,856,187,855,192,843,189,635,144"/>
+<area shape="poly" id="edge13_Node000011_Node000006" title=" " alt="" coords="655,237,485,287,484,282,654,232"/>
+<area shape="rect" id="Node000012" href="$_toolkit_editor__parameters__widget_8cpp.html" title="Implementation file for ToolkitEditor_parameters_widget.hpp." alt="" coords="644,277,832,320"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="741,245,741,277,736,277,736,245"/>
+</map>

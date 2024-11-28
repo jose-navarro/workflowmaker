@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,113,97,140"/>
+<area shape="rect" id="Node000001" href="$class_toolkit_editor__file__table__view.html" title="Table view for lists of files." alt="" coords="165,5,282,48"/>
+<area shape="poly" id="edge11_Node000000_Node000001" title=" " alt="" coords="80,101,143,58,166,46,169,51,146,62,83,106"/>
+<area shape="rect" id="Node000002" href="$class_toolkit_editor__filetype__table__view.html" title="Table view for lists of file types." alt="" coords="153,72,295,115"/>
+<area shape="poly" id="edge12_Node000000_Node000002" title=" " alt="" coords="111,112,152,104,153,110,112,118"/>
+<area shape="rect" id="Node000003" href="$class_toolkit_editor__parameter__table__view.html" title="Table view for lists of parameters." alt="" coords="145,139,303,181"/>
+<area shape="poly" id="edge13_Node000000_Node000003" title=" " alt="" coords="112,136,145,142,144,147,111,141"/>
+<area shape="rect" id="Node000004" href="$class_toolkit_editor__task__table__view.html" title="Table view for lists of tasks." alt="" coords="161,205,286,248"/>
+<area shape="poly" id="edge14_Node000000_Node000004" title=" " alt="" coords="83,148,146,191,169,202,166,207,143,196,80,152"/>
+</map>

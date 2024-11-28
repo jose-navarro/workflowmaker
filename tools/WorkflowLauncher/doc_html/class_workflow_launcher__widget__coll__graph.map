@@ -1,0 +1,17 @@
+<map id="WorkflowLauncher_widget" name="WorkflowLauncher_widget">
+<area shape="rect" id="Node000001" title="Main application&#39;s widget (application GUI)." alt="" coords="478,106,652,133"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,106,78,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="58,92,86,59,105,44,126,33,173,16,215,6,254,3,290,5,365,24,455,57,504,79,545,103,542,108,502,84,453,62,363,29,289,11,254,8,216,11,175,21,128,38,108,49,90,63,62,96"/>
+<area shape="rect" id="Node000003" href="$classlauncher__data__widget.html" title="Dialog to collect the lineage data for a new launcher." alt="" coords="154,47,301,74"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="89,97,126,83,166,72,167,77,128,88,90,102"/>
+<area shape="rect" id="Node000004" href="$class_workflow_launcher__files__widget.html" title="Files tab in the main application&#39;s widget." alt="" coords="148,98,307,141"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="93,117,147,117,147,122,93,122"/>
+<area shape="rect" id="Node000005" href="$class_workflow_launcher__parameters__widget.html" title="Parameters tab in the main application&#39;s widget (application GUI)." alt="" coords="127,165,327,207"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="92,136,128,150,160,162,158,167,126,155,90,141"/>
+<area shape="rect" id="Node000006" href="$class_workflow_launcher__repos__widget.html" title="Repositories tab in the main application&#39;s widget (application GUI)." alt="" coords="144,231,311,274"/>
+<area shape="poly" id="edge9_Node000006_Node000002" title=" " alt="" coords="61,144,90,182,129,217,149,228,146,233,125,221,86,185,57,147"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="317,72,455,95,494,103,493,108,454,101,316,77"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="322,117,478,117,478,122,322,122"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="342,161,493,131,494,136,343,166"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="325,225,389,204,453,180,501,155,541,131,544,135,504,160,455,184,391,209,326,230"/>
+</map>

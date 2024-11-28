@@ -1,0 +1,11 @@
+<map id="src/workflow_data_widget.hpp" name="src/workflow_data_widget.hpp">
+<area shape="rect" id="Node000001" title="Dialog to collect the lineage data for a new workflow." alt="" coords="122,5,319,32"/>
+<area shape="rect" id="Node000002" href="$mainwindow_8hpp.html" title="Interface of the application, including menus, toolboxes and the view." alt="" coords="54,80,194,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,44,142,82,139,77,190,39"/>
+<area shape="rect" id="Node000005" href="$workflow__data__widget_8cpp.html" title="Implementation file for workflow_data_widget.hpp." alt="" coords="218,80,415,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="250,39,301,77,298,82,247,44"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html" title="Application&#39;s entry point." alt="" coords="5,155,102,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="103,120,68,156,64,152,99,116"/>
+<area shape="rect" id="Node000004" href="$mainwindow_8cpp.html" title="Implementation file for mainwindow.hpp." alt="" coords="125,155,264,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="149,116,185,152,181,156,145,120"/>
+</map>

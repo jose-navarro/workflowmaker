@@ -1,0 +1,23 @@
+<map id="src/ToolkitEditor_single_filetype_widget.cpp" name="src/ToolkitEditor_single_filetype_widget.cpp">
+<area shape="rect" id="Node000001" title="Dialog to enter the data related to a file type." alt="" coords="391,5,547,48"/>
+<area shape="rect" id="Node000002" href="$_toolkit_editor__single__filetype__widget_8hpp.html" title="Implementation file for ToolkitEditor_single_filetype_widget.cpp." alt="" coords="399,96,539,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="472,48,472,81,466,81,466,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,187,74,213"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="399,132,260,156,89,189,88,184,259,150,398,127"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="98,187,192,213"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="399,139,208,186,206,181,397,134"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="216,187,319,213"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="418,142,314,183,312,178,416,137"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="343,187,405,213"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="446,141,402,178,399,174,443,137"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="430,187,508,213"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="472,139,472,171,466,171,466,139"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="532,187,632,213"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="500,137,554,175,550,180,496,141"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="656,187,722,213"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="526,137,642,179,640,184,525,142"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="746,187,848,213"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="540,133,731,180,730,185,539,139"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="872,187,1018,213"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="540,128,857,181,856,186,539,133"/>
+</map>

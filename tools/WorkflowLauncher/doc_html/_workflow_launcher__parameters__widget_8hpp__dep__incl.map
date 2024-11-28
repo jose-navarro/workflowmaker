@@ -1,0 +1,11 @@
+<map id="src/WorkflowLauncher_parameters_widget.hpp" name="src/WorkflowLauncher_parameters_widget.hpp">
+<area shape="rect" id="Node000001" title="Parameters tab in the main application&#39;s widget." alt="" coords="96,5,259,48"/>
+<area shape="rect" id="Node000002" href="$_workflow_launcher__parameters__widget_8cpp.html" title="Implementation file for WorkflowLauncher_parameters_widget.hpp." alt="" coords="5,96,169,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,61,110,98,106,94,144,57"/>
+<area shape="rect" id="Node000003" href="$_workflow_launcher__widget_8hpp.html" title="Main application&#39;s widget (application GUI)." alt="" coords="193,96,344,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="212,57,249,94,246,98,208,61"/>
+<area shape="rect" id="Node000004" href="$_workflow_launcher__widget_8cpp.html" title="Implementation file for WorkflowLauncher_widget.hpp." alt="" coords="118,187,269,229"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="243,152,213,188,209,185,239,149"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html" title="Main entry point for the WorkflowLauncher application." alt="" coords="294,195,390,221"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="297,149,333,193,329,196,293,152"/>
+</map>

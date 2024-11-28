@@ -1,0 +1,21 @@
+<map id="src/workflow_structures.hpp" name="src/workflow_structures.hpp">
+<area shape="rect" id="Node000001" title="Defines some structures required by WorkFlowEditor." alt="" coords="366,5,552,32"/>
+<area shape="rect" id="Node000002" href="$launcher__structures_8hpp.html" title="Defines several structures for the use of WorkflowLauncher." alt="" coords="170,80,353,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="411,40,297,82,295,77,409,35"/>
+<area shape="rect" id="Node000007" href="$workflow__parser_8hpp.html" title="Parse workflow XML files." alt="" coords="377,80,540,107"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="462,48,462,80,456,80,456,48"/>
+<area shape="rect" id="Node000009" href="$workflow__writer_8hpp.html" title="Write workflow XML files." alt="" coords="564,80,724,107"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="506,35,613,77,611,82,504,40"/>
+<area shape="rect" id="Node000003" href="$launcher__parser_8hpp.html" title="Parse launcher XML files." alt="" coords="5,155,166,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="218,115,117,156,115,152,216,111"/>
+<area shape="rect" id="Node000005" href="$launcher__writer_8hpp.html" title="Write launcher XML files." alt="" coords="190,155,346,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="267,122,270,154,264,155,261,123"/>
+<area shape="rect" id="Node000004" href="$launcher__parser_8cpp.html" title="Implementation file for launcher_parser.hpp." alt="" coords="5,229,166,256"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="88,197,88,229,83,229,83,197"/>
+<area shape="rect" id="Node000006" href="$launcher__writer_8cpp.html" title="Implementation file for launcher_writer.hpp." alt="" coords="190,229,346,256"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="271,197,271,229,266,229,266,197"/>
+<area shape="rect" id="Node000008" href="$workflow__parser_8cpp.html" title="Implementation file for workflow_parser.hpp." alt="" coords="377,155,540,181"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="462,122,462,154,456,154,456,122"/>
+<area shape="rect" id="Node000010" href="$workflow__writer_8cpp.html" title="Implementation file for workflow_writer.hpp." alt="" coords="564,155,724,181"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="647,122,647,154,642,154,642,122"/>
+</map>

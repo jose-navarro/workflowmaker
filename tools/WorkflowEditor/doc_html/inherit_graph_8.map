@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,81,78,108"/>
+<area shape="rect" id="Node000001" href="$classfile__list__widget.html" title="Table&#45;based widget to show a list of files." alt="" coords="147,5,254,32"/>
+<area shape="poly" id="edge10_Node000000_Node000001" title=" " alt="" coords="74,70,125,42,153,30,155,35,127,46,77,75"/>
+<area shape="rect" id="Node000002" href="$classtask__info__panel.html" title="Widget showing a list of tasks and, for each of these, their input and output files." alt="" coords="145,56,257,83"/>
+<area shape="poly" id="edge11_Node000000_Node000002" title=" " alt="" coords="93,84,144,76,145,81,93,89"/>
+<area shape="rect" id="Node000003" href="$classtask__list__widget.html" title="Table&#45;based widget to show a list of tasks." alt="" coords="143,107,258,133"/>
+<area shape="poly" id="edge12_Node000000_Node000003" title=" " alt="" coords="93,100,143,108,143,113,92,105"/>
+<area shape="rect" id="Node000004" href="$classworkflow__data__widget.html" title="Dialog to collect the lineage data for a new workflow." alt="" coords="126,157,276,184"/>
+<area shape="poly" id="edge13_Node000000_Node000004" title=" " alt="" coords="77,115,127,143,155,154,153,159,125,148,74,119"/>
+</map>

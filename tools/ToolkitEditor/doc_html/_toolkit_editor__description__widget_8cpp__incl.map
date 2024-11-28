@@ -1,0 +1,27 @@
+<map id="src/ToolkitEditor_description_widget.cpp" name="src/ToolkitEditor_description_widget.cpp">
+<area shape="rect" id="Node000001" title="Implementation file for ToolkitEditor_description_widget.hpp." alt="" coords="490,5,675,48"/>
+<area shape="rect" id="Node000002" href="$_toolkit_editor__description__widget_8hpp.html" title="General description tab in the main application&#39;s widget." alt="" coords="500,96,664,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="585,48,585,81,580,81,580,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,187,74,213"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="500,130,316,152,89,189,88,184,315,147,500,124"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="98,187,192,213"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="501,135,207,189,206,183,500,130"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="216,187,319,213"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="502,142,333,185,331,180,500,137"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="343,187,405,213"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="530,142,420,184,419,179,528,137"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="430,187,508,213"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="555,141,501,180,497,175,551,137"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="532,187,632,213"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="585,139,585,171,580,171,580,139"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="656,187,722,213"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="611,137,662,175,658,179,608,141"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="746,187,848,213"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="638,137,750,178,748,183,637,142"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="872,187,940,213"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="665,136,858,183,856,189,664,141"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="965,187,1111,213"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="665,130,952,181,951,186,664,136"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="1136,187,1189,213"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="664,122,868,143,993,160,1121,184,1120,189,992,166,868,148,664,127"/>
+</map>

@@ -1,0 +1,38 @@
+<map id="src/WorkflowLauncher_repos_widget.hpp" name="src/WorkflowLauncher_repos_widget.hpp">
+<area shape="rect" id="Node000001" title="Repositories tab in the main application&#39;s widget." alt="" coords="312,5,462,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,68,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="313,46,83,98,82,93,311,41"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="92,96,184,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="324,51,193,93,191,88,322,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="49,171,114,197"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="348,51,121,166,119,161,345,46"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="572,96,674,123"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="449,46,572,88,571,93,447,51"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="698,96,767,123"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="463,42,684,93,682,98,462,47"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="139,171,211,197"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="361,51,206,164,203,159,357,46"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="235,171,395,197"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="376,50,350,97,326,157,321,155,345,95,372,47"/>
+<area shape="rect" id="Node000009" href="$single__repository__widget_8hpp.html" title="Dialog to show / collect the data related to a single repository." alt="" coords="359,96,548,123"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="406,47,436,82,432,86,402,50"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="790,96,848,123"/>
+<area shape="poly" id="edge18_Node000001_Node000016" title=" " alt="" coords="463,36,605,58,776,93,775,98,604,64,462,41"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="872,96,926,123"/>
+<area shape="poly" id="edge19_Node000001_Node000017" title=" " alt="" coords="463,32,640,54,747,71,858,93,857,98,746,77,639,59,463,38"/>
+<area shape="poly" id="edge15_Node000009_Node000004" title=" " alt="" coords="376,126,264,146,130,173,129,168,263,141,375,121"/>
+<area shape="poly" id="edge16_Node000009_Node000007" title=" " alt="" coords="406,126,227,172,225,167,405,121"/>
+<area shape="poly" id="edge17_Node000009_Node000008" title=" " alt="" coords="431,126,354,165,352,161,428,121"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="742,171,832,197"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="513,121,728,167,727,172,512,126"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="856,171,950,197"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="545,121,841,167,840,173,544,126"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="975,171,1037,197"/>
+<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="549,119,960,168,959,174,548,124"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="420,171,498,197"/>
+<area shape="poly" id="edge12_Node000009_Node000013" title=" " alt="" coords="457,123,460,155,454,155,452,123"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="523,171,595,197"/>
+<area shape="poly" id="edge13_Node000009_Node000014" title=" " alt="" coords="474,121,530,159,527,164,471,125"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="619,171,718,197"/>
+<area shape="poly" id="edge14_Node000009_Node000015" title=" " alt="" coords="492,121,618,163,616,168,490,126"/>
+</map>

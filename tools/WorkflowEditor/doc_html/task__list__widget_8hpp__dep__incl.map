@@ -1,0 +1,15 @@
+<map id="src/task_list_widget.hpp" name="src/task_list_widget.hpp">
+<area shape="rect" id="Node000001" title="Table&#45;based widget to show a list of tasks." alt="" coords="222,5,384,32"/>
+<area shape="rect" id="Node000002" href="$task__info__panel_8hpp.html" title="Widget showing a list of tasks and, for each of these, their input and output files." alt="" coords="131,80,290,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="277,44,228,82,225,78,273,40"/>
+<area shape="rect" id="Node000007" href="$task__list__widget_8cpp.html" title="Implementation file for task_list_widget.hpp." alt="" coords="315,80,477,107"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="333,40,382,77,378,82,329,44"/>
+<area shape="rect" id="Node000003" href="$mainwindow_8hpp.html" title="Interface of the application, including menus, toolboxes and the view." alt="" coords="54,155,194,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="186,119,141,156,137,152,182,115"/>
+<area shape="rect" id="Node000006" href="$task__info__panel_8cpp.html" title="Implementation file for task_info_panel.hpp." alt="" coords="218,155,377,181"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="239,115,284,152,281,156,236,119"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html" title="Application&#39;s entry point." alt="" coords="5,229,102,256"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="103,194,68,231,64,227,99,191"/>
+<area shape="rect" id="Node000005" href="$mainwindow_8cpp.html" title="Implementation file for mainwindow.hpp." alt="" coords="125,229,264,256"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="149,191,185,227,181,231,145,194"/>
+</map>

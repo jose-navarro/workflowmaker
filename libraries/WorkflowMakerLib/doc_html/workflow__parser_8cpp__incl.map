@@ -1,0 +1,24 @@
+<map id="src/workflow_parser.cpp" name="src/workflow_parser.cpp">
+<area shape="rect" id="Node000001" title="Implementation file for workflow_parser.hpp." alt="" coords="271,5,435,32"/>
+<area shape="rect" id="Node000002" href="$workflow__parser_8hpp.html" title="Parse workflow XML files." alt="" coords="282,80,424,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="356,33,356,64,350,64,350,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,101,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="301,110,116,154,115,149,300,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="124,155,190,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="320,110,205,152,204,147,318,105"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="213,155,288,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="337,109,282,147,279,143,334,105"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="439,229,496,256"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="351,107,345,142,346,162,353,180,367,197,385,211,425,229,423,234,382,215,363,201,348,183,341,163,340,142,346,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="363,155,402,181"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="361,106,374,139,369,141,356,108"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="426,155,494,181"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="373,105,430,143,427,148,370,109"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="518,155,583,181"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="388,105,504,147,502,152,386,110"/>
+<area shape="rect" id="Node000010" href="$workflow__structures_8hpp.html" title="Defines some structures required by WorkFlowEditor." alt="" coords="607,155,771,181"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="412,105,616,148,615,153,411,110"/>
+<area shape="poly" id="edge10_Node000010_Node000006" title=" " alt="" coords="651,184,512,230,510,225,650,179"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="662,229,716,256"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="692,182,692,214,686,214,686,182"/>
+</map>

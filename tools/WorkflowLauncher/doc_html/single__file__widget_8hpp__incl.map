@@ -1,0 +1,17 @@
+<map id="src/single_file_widget.hpp" name="src/single_file_widget.hpp">
+<area shape="rect" id="Node000001" title="Dialog to show / collect the data related to a single file." alt="" coords="264,5,436,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,100,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="298,35,115,80,114,74,297,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="124,80,186,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="317,35,202,78,200,73,315,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="211,80,289,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="334,35,281,73,278,68,331,30"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="314,80,386,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="352,33,352,64,347,64,347,33"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="410,80,476,107"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="368,30,417,68,414,73,364,35"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="500,80,573,107"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="383,30,491,71,489,76,381,35"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="596,80,757,107"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="408,30,605,73,604,79,407,35"/>
+</map>
