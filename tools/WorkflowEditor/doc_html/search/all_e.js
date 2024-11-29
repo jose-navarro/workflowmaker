@@ -6,10 +6,10 @@ var searchData=
   ['remove_5fconnection_3',['remove_connection',['../class_diagram_item.html#ae54f9a7d1fdff12ab3b205ed28df97f7',1,'DiagramItem']]],
   ['remove_5fconnections_4',['remove_connections',['../class_diagram_item.html#a77b8ee8d10188674a023f07852072ee7',1,'DiagramItem']]],
   ['remove_5flast_5fedge_5',['remove_last_edge',['../class_graph.html#ad639d58b662ca6a7c04c2764c5195e19',1,'Graph']]],
-  ['removerow_6',['removeRow',['../classfile__table__model.html#a74802252cc741baa1c8b9b0c57422a6d',1,'file_table_model::removeRow()'],['../classtask__table__model.html#ae3018dc5dc4832b7b155e067e811a095',1,'task_table_model::removeRow()']]],
+  ['removerow_6',['removerow',['../classfile__table__model.html#a74802252cc741baa1c8b9b0c57422a6d',1,'file_table_model::removeRow()'],['../classtask__table__model.html#ae3018dc5dc4832b7b155e067e811a095',1,'task_table_model::removeRow()']]],
   ['repo_5fcounter_5f_7',['repo_counter_',['../class_diagram_scene.html#a89ff0db672fca1c48c08698d8d66d640',1,'DiagramScene']]],
   ['repository_8',['Repository',['../class_diagram_item.html#aeda67bf28fac9b4de77086c2bf81407ba1bb36d5453d0e5485f5f38ded1a9e267',1,'DiagramItem']]],
   ['reset_5fhighlights_9',['reset_highlights',['../class_diagram_item.html#ad2146d239a9cf1ff805c7229ef5a1674',1,'DiagramItem::reset_highlights()'],['../class_diagram_scene.html#a14f3b5c6771205bdd38d6179cc7045e3',1,'DiagramScene::reset_highlights()']]],
   ['row_5fselected_10',['row_selected',['../classfile__table__view.html#aa5f02a116cc0332b29d37e2bb36f2a5b',1,'file_table_view::row_selected()'],['../classtask__info__panel.html#a26b50b6b8f7efd47da7a55ad13bf37d3',1,'task_info_panel::row_selected()'],['../classtask__list__widget.html#a9ba96989a6619808718a56d1d5fa3a7a',1,'task_list_widget::row_selected()'],['../classtask__table__view.html#a2d9f42207f326bda5c9aeb28c09c6c65',1,'task_table_view::row_selected()']]],
-  ['rowcount_11',['rowCount',['../classfile__table__model.html#aa00322ebbee902405067afe8f1061963',1,'file_table_model::rowCount()'],['../classtask__table__model.html#a1c5d96878e474ee50151ed4bda5b21a4',1,'task_table_model::rowCount()']]]
+  ['rowcount_11',['rowcount',['../classfile__table__model.html#aa00322ebbee902405067afe8f1061963',1,'file_table_model::rowCount()'],['../classtask__table__model.html#a1c5d96878e474ee50151ed4bda5b21a4',1,'task_table_model::rowCount()']]]
 ];

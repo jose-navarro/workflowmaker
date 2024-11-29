@@ -8,7 +8,7 @@ var searchData=
   ['get_5fseq_5fid_5',['get_seq_id',['../class_diagram_item.html#aa856b424bd6e6086623a51593f18e3a8',1,'DiagramItem']]],
   ['get_5ftotal_5fconnections_6',['get_total_connections',['../class_diagram_item.html#acf5d874d0945ba9194b622cb9be2796e',1,'DiagramItem']]],
   ['got_5ftoolkit_5f_7',['got_toolkit_',['../class_diagram_scene.html#a4bd383f13f6d67318bea422885b3cc43',1,'DiagramScene']]],
-  ['graph_8',['Graph',['../class_graph.html',1,'Graph'],['../class_graph.html#af3ff6b295df8bf3bee0bafd7c7d56915',1,'Graph::Graph()']]],
+  ['graph_8',['graph',['../class_graph.html',1,'Graph'],['../class_graph.html#af3ff6b295df8bf3bee0bafd7c7d56915',1,'Graph::Graph()']]],
   ['graph_2ecpp_9',['graph.cpp',['../graph_8cpp.html',1,'']]],
   ['graph_2ehpp_10',['graph.hpp',['../graph_8hpp.html',1,'']]]
 ];

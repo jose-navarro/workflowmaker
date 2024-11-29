@@ -21,12 +21,11 @@ var searchData=
   ['task_5ftable_5fview_2ehpp_18',['task_table_view.hpp',['../task__table__view_8hpp.html',1,'']]],
   ['tasks_5f_19',['tasks_',['../classtask__info__panel.html#abf250529a5a5897c827180d7463bbaab',1,'task_info_panel::tasks_'],['../classtask__list__widget.html#a2b18186dc4dc508908ad43de8ac9cdd9',1,'task_list_widget::tasks_'],['../classtask__table__model.html#ad9117782c9cbb637c3f5ba04f6ec10ac',1,'task_table_model::tasks_']]],
   ['taskstatus_20',['TaskStatus',['../_w_f_m_editor__structures_8hpp.html#aacda182df7dba8ce63a50654d7232ba8',1,'WFMEditor_structures.hpp']]],
-  ['tk_5f_21',['tk_',['../class_diagram_scene.html#a10a08e1e8e3eb381ce2293d61d45f90b',1,'DiagramScene::tk_'],['../classtask__info__panel.html#ad9789c41ce4126b18752ec4eed91bbbb',1,'task_info_panel::tk_']]],
+  ['tk_5f_21',['tk_',['../classtask__info__panel.html#ad9789c41ce4126b18752ec4eed91bbbb',1,'task_info_panel::tk_'],['../class_diagram_scene.html#a10a08e1e8e3eb381ce2293d61d45f90b',1,'DiagramScene::tk_']]],
   ['tofrontaction_22',['toFrontAction',['../class_main_window.html#a765ed49c15b201289c46db7cb6864619',1,'MainWindow']]],
   ['toolbox_23',['toolBox',['../class_main_window.html#a82a53e7c565bff816a83f4da64a3a638',1,'MainWindow']]],
   ['toolkit_5ffilename_5ftext_5f_24',['toolkit_filename_text_',['../classworkflow__data__widget.html#a65bcaf84575b21baa78ee955cdc3da10',1,'workflow_data_widget']]],
   ['topological_5fsort_25',['topological_sort',['../class_graph.html#afe171bd27495bb8ec91dc3beb64451d5',1,'Graph']]],
   ['topological_5fsort_5futil_26',['topological_sort_util',['../class_graph.html#a6d71c025ad5a9fd55936feec872173fc',1,'Graph']]],
-  ['type_27',['Type',['../classconnection.html#a73be799c1ca19234b30e96e2f06caa16a0276abd9fff4e4c241579804675d95c5',1,'connection::Type'],['../class_diagram_item.html#a7089372ea2f1de7d55fe38db017214dfa87b5f8f28bda1b1f78244c68b603a570',1,'DiagramItem::Type']]],
-  ['type_28',['type',['../structwfme__node__data.html#ae88343ee59095e55d7314a3638bc0ba7',1,'wfme_node_data::type'],['../classconnection.html#ab66abd6036617bed79723cc54f95d4c8',1,'connection::type()'],['../class_diagram_item.html#abc0568265de5900bb1502d0a2cf79a4e',1,'DiagramItem::type()']]]
+  ['type_27',['type',['../structwfme__node__data.html#ae88343ee59095e55d7314a3638bc0ba7',1,'wfme_node_data::type'],['../classconnection.html#ab66abd6036617bed79723cc54f95d4c8',1,'connection::type()'],['../class_diagram_item.html#abc0568265de5900bb1502d0a2cf79a4e',1,'DiagramItem::type()'],['../classconnection.html#a73be799c1ca19234b30e96e2f06caa16a0276abd9fff4e4c241579804675d95c5',1,'connection::Type'],['../class_diagram_item.html#a7089372ea2f1de7d55fe38db017214dfa87b5f8f28bda1b1f78244c68b603a570',1,'DiagramItem::Type']]]
 ];
