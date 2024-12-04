@@ -482,13 +482,16 @@ A copy of the ImageMagick license may be found in */docs/licenses/ImageMagick_li
 
 ### Images ###
 
-The icons for the three applications included in WorkflowMaker were created by combining
-images downloaded from [freepik.com](https://www.freepik.com/){:target="_blank"}.
-These images are
-[adaptation_5266710.png](https://www.freepik.es/icono/adaptacion_5266710){:target="_blank"},
-[camera_13420774.png](https://www.freepik.com/icon/camera_13420774){:target="_blank"},
-[filter_3126489.png](https://www.freepik.es/icono/filtrar_3126489){:target="_blank"},
-[gear_937458.png](https://www.freepik.es/icono/engranaje_937458){:target="_blank"},
-[pencil_10183063.png](https://www.freepik.com/icon/pencil_10183063){:target="_blank"},
-[rocket_8661082.png](https://www.freepik.com/icon/rocket_8661082){:target="_blank"},
-and [settings_4411853.png](https://www.freepik.es/icono/ajustes_4411853){:target="_blank"}.
+The icons for the three applications included in WorkflowMaker have been created by combining
+images downloaded from [freepik.com](https://www.freepik.com/). These images are
+[adaptation_5266710.png](https://www.freepik.es/icono/adaptacion_5266710),
+[filter_3126489.png](https://www.freepik.es/icono/filtrar_3126489),
+[gear_937458.png](https://www.freepik.es/icono/engranaje_937458),
+[pencil_10183063.png](https://www.freepik.com/icon/pencil_10183063), and
+[rocket_8661082.png](https://www.freepik.com/icon/rocket_8661082).
+Other images, also
+downloaded from [freepik.com](https://www.freepik.com/) have been used for different
+purposes when building the example image processing toolkit and the example library
+provided to parse label / value options files. These images are
+[camera_13420774.png](https://www.freepik.com/icon/camera_13420774)
+and [settings_4411853.png](https://www.freepik.es/icono/ajustes_4411853).
