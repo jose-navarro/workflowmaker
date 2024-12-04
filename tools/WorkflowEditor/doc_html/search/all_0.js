@@ -3,7 +3,7 @@ var searchData=
   ['about_0',['about',['../class_main_window.html#a858ab2fabf7cf2c38a7a1a8f51f4686a',1,'MainWindow']]],
   ['about_5fbox_5f_1',['about_box_',['../class_main_window.html#a87e1d2a1ae55721737ceb4dc9773a083',1,'MainWindow']]],
   ['aboutaction_2',['aboutAction',['../class_main_window.html#a4bc4ae131d91d1eece03c36fd0c2d3fa',1,'MainWindow']]],
-  ['aboutbox_3',['aboutbox',['../class_about_box.html',1,'AboutBox'],['../class_about_box.html#a5749263104070c0e915b285ed9788977',1,'AboutBox::AboutBox()']]],
+  ['aboutbox_3',['AboutBox',['../class_about_box.html',1,'AboutBox'],['../class_about_box.html#a5749263104070c0e915b285ed9788977',1,'AboutBox::AboutBox()']]],
   ['aboutbox_2ecpp_4',['AboutBox.cpp',['../_about_box_8cpp.html',1,'']]],
   ['aboutbox_2ehpp_5',['AboutBox.hpp',['../_about_box_8hpp.html',1,'']]],
   ['aboutmenu_6',['aboutMenu',['../class_main_window.html#a0a94812e78960650b33ea84d2a4220b6',1,'MainWindow']]],

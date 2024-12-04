@@ -445,22 +445,50 @@ SPDX short identifier: MIT
 
 Copyright 2024 Centre Tecnològic de Telecomunicacions de Catalunya-CERCA
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+and associated documentation files (the "Software"), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge, publish, distribute,
+sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+* The above copyright notice and this permission notice shall be included in all copies or
+substantial portions of the Software.
 
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ### The rapidxml library ###
 
 WorkflowMaker uses the rapidxml library, which is available under the Boost 
-Software License. For more information, visit https://www.boost.org/LICENSE_1_0.txt. A copy of this license may be found in */doc/licenses/Boost_Software_License_1_0.txt*.
+Software License. For more information, visit https://www.boost.org/LICENSE_1_0.txt. A copy of
+this license may be found in */doc/licenses/Boost_Software_License_1_0.txt*.
 
 ### The Qt 6 framework ###
 
 This application uses the Qt 6 framework, which is available under the LGPL v3
-license. For more information, visit https://www.qt.io/licensing and https://www.gnu.org/licenses/lgpl-3.0.html. A copy of the LGPL v3 license may be found in  */doc/licenses/LGPL_v3_License.txt*.
+license. For more information, visit https://www.qt.io/licensing and
+https://www.gnu.org/licenses/lgpl-3.0.html. A copy of the LGPL v3 license may be found in 
+*/doc/licenses/LGPL_v3_License.txt*.
 
 ### The ImageMagick library ###
 
-All the tasks included in the sample image processing toolkit rely on the libraries above. In their case they also make use of on the ImageMagick library, which is available under ImageMagick license. For more information, visit https://imagemagick.org/script/license.php. A copy of the ImageMagick license may be found in */docs/licenses/ImageMagick_license.txt*.
+All the tasks included in the sample image processing toolkit rely on the libraries above.
+In their case they also make use of on the ImageMagick library, which is available under
+ImageMagick license. For more information, visit https://imagemagick.org/script/license.php.
+A copy of the ImageMagick license may be found in */docs/licenses/ImageMagick_license.txt*.
+
+### Images ###
+
+The icons for the three applications included in WorkflowMaker were created by combining
+images downloaded from [freepik.com](https://www.freepik.com/){:target="_blank"}.
+These images are
+[adaptation_5266710.png](https://www.freepik.es/icono/adaptacion_5266710){:target="_blank"},
+[camera_13420774.png](https://www.freepik.com/icon/camera_13420774){:target="_blank"},
+[filter_3126489.png](https://www.freepik.es/icono/filtrar_3126489){:target="_blank"},
+[gear_937458.png](https://www.freepik.es/icono/engranaje_937458){:target="_blank"},
+[pencil_10183063.png](https://www.freepik.com/icon/pencil_10183063){:target="_blank"},
+[rocket_8661082.png](https://www.freepik.com/icon/rocket_8661082){:target="_blank"},
+and [settings_4411853.png](https://www.freepik.es/icono/ajustes_4411853){:target="_blank"}.

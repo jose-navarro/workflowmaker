@@ -4,7 +4,7 @@ var searchData=
   ['check_5ffor_5fcycles_1',['check_for_cycles',['../class_diagram_scene.html#a52b09a8df089955e7996824713d6fa2d',1,'DiagramScene']]],
   ['check_5fwf_5fstatus_2',['check_wf_status',['../class_diagram_scene.html#a1bcb5f87c96b5952c410c5c9bb0aadb2',1,'DiagramScene']]],
   ['clicked_5fslot_3',['clicked_slot',['../classfile__table__view.html#a627e263a1dfd544a1462530024d56a49',1,'file_table_view::clicked_slot()'],['../classtask__table__view.html#a3d74739c7b14b40e95156d1ca19c24dd',1,'task_table_view::clicked_slot()']]],
-  ['columncount_4',['columncount',['../classfile__table__model.html#aff105c0413472370d2df9a2ba8e38f2f',1,'file_table_model::columnCount()'],['../classtask__table__model.html#a9dc7530161f5e24caa4e0460e61fe86e',1,'task_table_model::columnCount()']]],
+  ['columncount_4',['columnCount',['../classfile__table__model.html#aff105c0413472370d2df9a2ba8e38f2f',1,'file_table_model::columnCount()'],['../classtask__table__model.html#a9dc7530161f5e24caa4e0460e61fe86e',1,'task_table_model::columnCount()']]],
   ['compute_5fendpoints_5',['compute_endpoints',['../classconnection.html#ad44e3027f14c89e8c9b075c1a3738d22',1,'connection']]],
   ['connection_6',['connection',['../classconnection.html#a538a83ddfc169a56cb7fdf4b8199fe8d',1,'connection']]],
   ['contextmenuevent_7',['contextMenuEvent',['../class_diagram_item.html#af4769579f0cf1e17f5fc0d5efb039c83',1,'DiagramItem']]],

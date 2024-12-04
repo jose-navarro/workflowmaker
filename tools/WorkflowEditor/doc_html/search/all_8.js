@@ -17,7 +17,7 @@ var searchData=
   ['item_5fmenu_5f_14',['item_menu_',['../class_diagram_scene.html#afb570ea559cec42644b11d3acc345384',1,'DiagramScene']]],
   ['item_5ftype_5f_15',['item_type_',['../class_diagram_scene.html#a45280a5e88ac2aab337139a0a4efda9e',1,'DiagramScene']]],
   ['itemchange_16',['itemChange',['../class_diagram_item.html#aa4ab427eaa6fe6c967a054f57de94bab',1,'DiagramItem']]],
-  ['iteminserted_17',['iteminserted',['../class_diagram_scene.html#af831d659c3c3b3427a1376a738d27df1',1,'DiagramScene::itemInserted()'],['../class_main_window.html#aaac286bef7871e7b424af88e04e4e3be',1,'MainWindow::itemInserted(DiagramItem *item)']]],
+  ['iteminserted_17',['itemInserted',['../class_diagram_scene.html#af831d659c3c3b3427a1376a738d27df1',1,'DiagramScene::itemInserted()'],['../class_main_window.html#aaac286bef7871e7b424af88e04e4e3be',1,'MainWindow::itemInserted(DiagramItem *item)']]],
   ['itemmenu_18',['itemMenu',['../class_main_window.html#a723b9e6e09139a5568741da34509d8ea',1,'MainWindow']]],
   ['itemselected_19',['itemSelected',['../class_diagram_scene.html#aa0f1ec983181d9513829d99c0666e415',1,'DiagramScene']]]
 ];
