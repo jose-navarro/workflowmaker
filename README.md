@@ -190,10 +190,10 @@ supported nowadays due to the limited amount of human resources available.
 
 **Yes.**
 
-There are also installers (Windows, Ubuntu-based) for a pre-built *example image
-processing toolkit* that may be used to start practising without having to create a toolkit on
-your own. It is also available in the [Releases](https://github.com/jose-navarro/workflowmaker/releases)
-section.
+There is an also installer (Windows) or a compressed package (Ubuntu-based) for a pre-built
+*example image processing toolkit* that may be used to start practising without having to create
+a toolkit on your own. It is also available in the
+[Releases](https://github.com/jose-navarro/workflowmaker/releases) section.
 
 ## Where is the documentation?
 
@@ -301,7 +301,7 @@ image processing toolkit are given.
 
 **First**, install the suite of WorkflowMaker applications:
 
-1. Download the WorkFlowMaker installer / deb package from the
+1. Download the WorkFlowMaker installer / compressed package from the
 [Releases](https://github.com/jose-navarro/workflowmaker/releases) section. 
 
 2. Install WorkFlowMaker on your computer (for Windows, the installer is a
@@ -310,7 +310,7 @@ image processing toolkit are given.
 
 3. Take a look at the WorkflowMaker user guide to learn where to find the
    relevant information about the tools. All user guides are part of the
-   installation kit (either included as a subfolder in the Linux installer
+   installation kit (either included as a subfolder in the Linux package
    or as a specific folder created by the installer on Windows, which may
    be accessed via the Start menu).
 
@@ -320,7 +320,7 @@ image processing tasks, such as rotation, format conversion, effects of several
 kinds, etc. The installer (Windows) appends their path to the system's
 path, so they may be executed directly: there's no need to prepend the
 path to the folder where they stay. On Linux boxes the applications are stored
-in /usr/local/bin, so they become immediately accessible.
+in */usr/local/bin*, so they become immediately accessible.
 
 Furthermore, these applications have been characterized using ToolkitEditor so they
 are ready to be used: it is possible to draw workflows and then execute them.
@@ -402,9 +402,9 @@ sample image toolkit is implemented. The documents to read are:
 
 * *The image processing sample toolkit*
 
-All these documents are included with the installers. If you do not plan to
-install WorkflowMaker yet, the section *Where is the documentation?* above
-explains where to find these documents in the repository tree.
+All these documents are included with the installer / comnpressed package.
+If you do not plan to install WorkflowMaker yet, the section *Where is the documentation?*
+above explains where to find these documents in the repository tree.
 
 
 ## Image gallery ##
