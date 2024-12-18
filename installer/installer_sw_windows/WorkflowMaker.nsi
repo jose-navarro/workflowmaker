@@ -10,7 +10,7 @@ RequestExecutionLevel admin ;Require admin rights on NT6+ (When UAC is turned on
 
 !define InstallFrom        ".\deployment\bin"
 !define defCompanyShortDir "cttc"
-!define defVersion         "1.1.0"
+!define defVersion         "1.1.1"
 !define defProductName     "WorkflowMaker"
 !define defPartNumber      "${defProductName}-${defVersion}"
 !define defPublisher       "Geomatics RU, CTTC"

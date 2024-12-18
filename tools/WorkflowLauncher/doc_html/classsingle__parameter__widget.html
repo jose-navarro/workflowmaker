@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>WorkflowLauncher (1.1.0)</title>
+<title>WorkflowLauncher (1.1.1)</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
         <td id="projectlogo" style="padding-bottom: 8px; padding-top: 8px;padding-left: 10px;"><img alt="WorkflowLauncher" src="HTML_WorkflowLauncher_logo.png"/></td>
 		<td id="projectlogospacing" style="padding-bottom: 8px; padding-left: 10px;"></td>
         <td id="projectalign" style="font-size: x-small">
-          <div id="projectname">  WorkflowLauncher 1.1.0</span>
+          <div id="projectname">  WorkflowLauncher 1.1.1</span>
           </div>
         </td>
       </tr>
@@ -125,9 +125,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad11e87b92bfdc9271169ce558862fb38" id="r_ad11e87b92bfdc9271169ce558862fb38"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad11e87b92bfdc9271169ce558862fb38">get_value</a> (void)</td></tr>
 <tr class="memdesc:ad11e87b92bfdc9271169ce558862fb38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the value for the parameter.  <br /></td></tr>
 <tr class="separator:ad11e87b92bfdc9271169ce558862fb38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad131b676904ea720a463cc4b16e2abf8" id="r_ad131b676904ea720a463cc4b16e2abf8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad131b676904ea720a463cc4b16e2abf8">single_parameter_widget</a> (QColor &amp;bg_color, WLParameter &amp;value, QWidget *parent=nullptr)</td></tr>
-<tr class="memdesc:ad131b676904ea720a463cc4b16e2abf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
-<tr class="separator:ad131b676904ea720a463cc4b16e2abf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3993ea2a8143f0f54b29bb7abe939292" id="r_a3993ea2a8143f0f54b29bb7abe939292"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3993ea2a8143f0f54b29bb7abe939292">single_parameter_widget</a> (QColor &amp;txt_color, QColor &amp;bg_color, WLParameter &amp;value, QWidget *parent=nullptr)</td></tr>
+<tr class="memdesc:a3993ea2a8143f0f54b29bb7abe939292"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="separator:a3993ea2a8143f0f54b29bb7abe939292"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -153,8 +153,8 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Dialog to show / collect the data related to a single parameter. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad131b676904ea720a463cc4b16e2abf8" name="ad131b676904ea720a463cc4b16e2abf8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad131b676904ea720a463cc4b16e2abf8">&#9670;&#160;</a></span>single_parameter_widget()</h2>
+<a id="a3993ea2a8143f0f54b29bb7abe939292" name="a3993ea2a8143f0f54b29bb7abe939292"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3993ea2a8143f0f54b29bb7abe939292">&#9670;&#160;</a></span>single_parameter_widget()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,6 +162,11 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">single_parameter_widget::single_parameter_widget </td>
           <td>(</td>
+          <td class="paramtype">QColor &amp;</td>          <td class="paramname"><span class="paramname"><em>txt_color</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">QColor &amp;</td>          <td class="paramname"><span class="paramname"><em>bg_color</em></span>, </td>
         </tr>
         <tr>
@@ -180,6 +185,7 @@ Protected Attributes</h2></td></tr>
 <p>Constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">txt_color</td><td>Color to use for the text of the widget. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">bg_color</td><td>Color to use for the background of the widget. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The actual value of the parameter to handle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">parent</td><td>This widget's parent. </td></tr>
@@ -404,7 +410,7 @@ Protected Attributes</h2></td></tr>
 <table width = "100%" border="0">
  <tr valign="middle">
    <td>
-     <font size="-1"><i>WorkflowLauncher (1.1.0). Documentation generated on Tue Dec 3 2024 13:45:50 </i></font>
+     <font size="-1"><i>WorkflowLauncher (1.1.1). Documentation generated on Wed Dec 18 2024 12:29:29 </i></font>
    </td>
    <td  style="padding-right: 10px;">
      <div align="right">

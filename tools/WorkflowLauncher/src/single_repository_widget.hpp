@@ -51,12 +51,14 @@ class single_repository_widget : public QWidget
 
     /// \brief Constructor.
     /**
+      \param[in] txt_color Color to use for the text of the widget.
       \param[in] bg_color Color to use for the background of the widget.
       \param[in] value The actual value of the repository to handle.
       \param[in] parent This widget's parent.
      */
 
-            single_repository_widget (QColor&       bg_color,
+            single_repository_widget (QColor&       txt_color,
+                                      QColor&       bg_color,
                                       WLRepository& value,
                                       QWidget*      parent = nullptr);
 

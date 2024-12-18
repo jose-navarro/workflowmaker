@@ -31,7 +31,8 @@ get_value
 
 single_file_widget::
 single_file_widget
-(QColor&  bg_color,
+(QColor&  txt_color,
+ QColor&  bg_color,
  WLFile&  value,
  QWidget* parent)
     : QWidget(parent)
@@ -138,10 +139,11 @@ single_file_widget
 
     setMinimumWidth(700);
 
-    // Background color.
+    // Background and text colors.
 
     QPalette pal = QPalette();
     pal.setColor(QPalette::Window, bg_color);
+    pal.setColor(QPalette::WindowText, txt_color);
     setAutoFillBackground(true);
     setPalette(pal);
 

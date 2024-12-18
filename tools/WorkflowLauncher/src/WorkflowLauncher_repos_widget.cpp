@@ -81,19 +81,24 @@ set_values
 
     repos_ = repos;
 
-    //
-    // Add the new data. Alternate the colors for each parameter to
-    // increase visibility.
-    //
+    // Add the new data.
 
-    vector<QColor> colors;
-    colors.push_back(Qt::white);
-    colors.push_back(Qt::lightGray);
+    //vector<QColor> colors;
+    //colors.push_back(Qt::white);
+    //colors.push_back(Qt::lightGray);
 
     for (size_t i = 0; i < repos_.size(); i++)
     {
-      QColor bc = colors[i%2];
-      single_repository_widget* rw = new single_repository_widget(bc, repos_[i]);
+      QColor tc;
+      QColor bc;
+
+      // Alternate the colors for each parameter to increase visibility.
+
+      palette_utils::text_and_bg_colors(i, tc, bc);
+
+      // Create the new repository widget.
+
+      single_repository_widget* rw = new single_repository_widget(tc, bc, repos_[i]);
       container_layout_->addWidget(rw);
 
       wrepos_.push_back(rw);

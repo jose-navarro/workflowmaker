@@ -18,6 +18,7 @@
 #include "toolkit_structures.hpp"
 #include "toolkit_parser.hpp"
 #include "diagramitem.hpp"
+#include "palette_utils.hpp"
 #include "task_info_panel.hpp"
 #include "workflow_parser.hpp"
 #include "workflow_writer.hpp"

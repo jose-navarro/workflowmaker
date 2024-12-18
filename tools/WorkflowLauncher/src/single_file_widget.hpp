@@ -42,12 +42,14 @@ class single_file_widget : public QWidget
 
     /// \brief Constructor.
     /**
+      \param[in] txt_color Color to use for the text of the widget.
       \param[in] bg_color Color to use for the background of the widget.
       \param[in] value The actual file data to handle.
       \param[in] parent This widget's parent.
      */
 
-            single_file_widget (QColor&  bg_color,
+            single_file_widget (QColor&  txt_color,
+                                QColor&  bg_color,
                                 WLFile&  value,
                                 QWidget* parent = nullptr);
   protected:

@@ -80,19 +80,24 @@ set_values
 
     params_ = params;
 
-    //
-    // Add the new data. Alternate the colors for each parameter to
-    // increase visibility.
-    //
+    // Add the new data.
 
-    vector<QColor> colors;
-    colors.push_back(Qt::white);
-    colors.push_back(Qt::lightGray);
+    //vector<QColor> colors;
+    //colors.push_back(Qt::white);
+    //colors.push_back(Qt::lightGray);
 
     for (size_t i = 0; i < params_.size(); i++)
     {
-      QColor bc = colors[i%2];
-      single_parameter_widget* pw = new single_parameter_widget(bc, params_[i]);
+      QColor tc;
+      QColor bc;
+
+      // Alternate the colors for each parameter to increase visibility.
+
+      palette_utils::text_and_bg_colors(i, tc, bc);
+
+      // Create the new parameter widget.
+
+      single_parameter_widget* pw = new single_parameter_widget(tc, bc, params_[i]);
       container_layout_->addWidget(pw);
 
       wparams_.push_back(pw);

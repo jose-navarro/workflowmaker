@@ -80,19 +80,24 @@ set_values
 
     files_ = files;
 
-    //
-    // Add the new data. Alternate the colors for each parameter to
-    // increase visibility.
-    //
+    // Add the new data.
 
-    vector<QColor> colors;
-    colors.push_back(Qt::white);
-    colors.push_back(Qt::lightGray);
+    //vector<QColor> colors;
+    //colors.push_back(Qt::white);
+    //colors.push_back(Qt::lightGray);
 
     for (size_t i = 0; i < files_.size(); i++)
     {
-      QColor bc = colors[i%2];
-      single_file_widget* rw = new single_file_widget(bc, files_[i]);
+      QColor tc;
+      QColor bc;
+
+      // Alternate the colors for each parameter to increase visibility.
+
+      palette_utils::text_and_bg_colors(i, tc, bc);
+
+      // Create the new file widget.
+
+      single_file_widget* rw = new single_file_widget(tc, bc, files_[i]);
       container_layout_->addWidget(rw);
 
       wfiles_.push_back(rw);

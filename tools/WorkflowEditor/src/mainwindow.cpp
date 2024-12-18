@@ -826,6 +826,21 @@ MainWindow
     scene = new DiagramScene(itemMenu, this);
     scene->setSceneRect(QRectF(0, 0, 5000, 5000));
 
+    //
+    // Make sure that the background color of the scene is white
+    // when the desktop theme is light and light grey when it
+    // is dark.
+    //
+
+    if (palette_utils::is_dark_palette())
+    {
+      scene->setBackgroundBrush(QBrush(QColor(Qt::lightGray)));
+    }
+    else
+    {
+      scene->setBackgroundBrush(QBrush(QColor(Qt::white)));
+    }
+
     connect(scene, &DiagramScene::itemInserted,
             this,  &MainWindow::itemInserted);
 

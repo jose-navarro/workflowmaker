@@ -14,6 +14,7 @@
 
 #include "launcher_structures.hpp"
 #include "single_parameter_widget.hpp"
+#include "palette_utils.hpp"
 
 #include <vector>
 #include <string>

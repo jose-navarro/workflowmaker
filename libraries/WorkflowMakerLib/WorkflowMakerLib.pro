@@ -73,6 +73,7 @@ unix:!macx {
 SOURCES += \
     src/launcher_parser.cpp \
     src/launcher_writer.cpp \
+    src/palette_utils.cpp \
     src/toolkit_parser.cpp \
     src/toolkit_writer.cpp \
     src/workflow_parser.cpp \
@@ -82,6 +83,7 @@ HEADERS += \
     src/launcher_parser.hpp \
     src/launcher_structures.hpp \
     src/launcher_writer.hpp \
+    src/palette_utils.hpp \
     src/toolkit_parser.hpp \
     src/toolkit_structures.hpp \
     src/toolkit_writer.hpp \

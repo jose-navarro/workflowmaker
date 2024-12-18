@@ -66,7 +66,8 @@ on_browse_path
 
 single_repository_widget::
 single_repository_widget
-(QColor&       bg_color,
+(QColor&       txt_color,
+ QColor&       bg_color,
  WLRepository& value,
  QWidget*      parent)
     : QWidget(parent)
@@ -126,6 +127,7 @@ single_repository_widget
 
     QPalette pal = QPalette();
     pal.setColor(QPalette::Window, bg_color);
+    pal.setColor(QPalette::WindowText, txt_color);
     setAutoFillBackground(true);
     setPalette(pal);
 

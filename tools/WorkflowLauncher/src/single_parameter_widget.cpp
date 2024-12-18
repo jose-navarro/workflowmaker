@@ -61,7 +61,8 @@ get_value
 
 single_parameter_widget::
 single_parameter_widget
-(QColor&      bg_color,
+(QColor&      txt_color,
+ QColor&      bg_color,
  WLParameter& value,
  QWidget*     parent)
     : QWidget(parent)
@@ -187,6 +188,7 @@ single_parameter_widget
 
     QPalette pal = QPalette();
     pal.setColor(QPalette::Window, bg_color);
+    pal.setColor(QPalette::WindowText, txt_color);
     setAutoFillBackground(true);
     setPalette(pal);
 

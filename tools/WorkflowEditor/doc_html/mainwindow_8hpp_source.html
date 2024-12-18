@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>WorkflowEditor (1.1.0)</title>
+<title>WorkflowEditor (1.1.1)</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
         <td id="projectlogo" style="padding-bottom: 8px; padding-top: 8px;padding-left: 10px;"><img alt="WorkflowEditor" src="HTML_WFMEditor_logo.png"/></td>
 		<td id="projectlogospacing" style="padding-bottom: 8px; padding-left: 10px;"></td>
         <td id="projectalign" style="font-size: x-small">
-          <div id="projectname">  WorkflowEditor 1.1.0</span>
+          <div id="projectname">  WorkflowEditor 1.1.1</span>
           </div>
         </td>
       </tr>
@@ -104,280 +104,281 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;toolkit_structures.hpp&quot;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;toolkit_parser.hpp&quot;</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="diagramitem_8hpp.html">diagramitem.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="task__info__panel_8hpp.html">task_info_panel.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;workflow_parser.hpp&quot;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;workflow_writer.hpp&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;workflow_structures.hpp&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;QDragEnterEvent&gt;</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;QDropEvent&gt;</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;QFileInfo&gt;</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;QMimeData&gt;</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;<a class="code" href="workflow__data__widget_8hpp.html">workflow_data_widget.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">class </span><a class="code hl_class" href="class_diagram_scene.html">DiagramScene</a>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>QT_BEGIN_NAMESPACE</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">class </span>QAction;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">class </span>QToolBox;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">class </span>QComboBox;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">class </span>QButtonGroup;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">class </span>QLineEdit;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">class </span>QToolButton;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">class </span>QAbstractButton;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">class </span>QGraphicsView;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>QT_END_NAMESPACE</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">using namespace </span>std;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="foldopen" id="foldopen00055" data-start="{" data-end="};">
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_main_window.html">   55</a></span><span class="keyword">class </span><a class="code hl_class" href="class_main_window.html">MainWindow</a> : <span class="keyword">public</span> QMainWindow</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>{</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    Q_OBJECT</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>             <a class="code hl_function" href="class_main_window.html#af6f974a5c593a740f32ffb9e53acd694">MainWindow</a>            (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <span class="keyword">private</span> slots:</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a858ab2fabf7cf2c38a7a1a8f51f4686a">about</a>                 (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a61cd3ea1af8d8dcae20f733e0e21f469">bringToFront</a>          (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a5ac1ad5e3c553e50a1ac39b8ecaee2e6">buttonGroupClicked</a>    (QAbstractButton* button);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a13c535ed0fe88e2cfb9813babb5f4680">deleteItem</a>            (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#aaac286bef7871e7b424af88e04e4e3be">itemInserted</a>          (<a class="code hl_class" href="class_diagram_item.html">DiagramItem</a>* item);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#adfd5a6c6322cad8cd53d244b056d2ff5">newWorkflow</a>           (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a25c6d7069105b5921d791a7f7713233f">new_wf_data_ready</a>     (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a805857f70913ac89782c69eb5a56785b">openWorkflow</a>          (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a9e6014ea84c8b0ea192a164e6e7008ae">pointerGroupClicked</a>   (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a9d463b10e655669b632c991eae834846">saveWorkflow</a>          (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#ad17ac0e360294d0ff6807cb0cfd49736">sceneScaleChanged</a>     (<span class="keyword">const</span> QString&amp; scale);</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a9b5a375061edbfa9e9e20a1e53c2687c">sendToBack</a>            (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a5132043f3f038826b0350b7dd9fb2c12">task_selected</a>         (<span class="keywordtype">int</span> task_number);</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordtype">bool</span>     <a class="code hl_function" href="class_main_window.html#a7dd4c87ce0638d945d00979e6ba57cb4">build_wf_status_msg</a>   (<span class="keywordtype">int</span>      missing_inputs,</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                                    <span class="keywordtype">int</span>      missing_some_outputs,</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                                    <span class="keywordtype">int</span>      missing_all_outputs,</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                                    <span class="keywordtype">int</span>      disconnected_repos,</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                                    QString&amp; status_msg);</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keywordtype">void</span>     <a class="code hl_function" href="class_main_window.html#afade4992374de58d816d1e6d2bea4497">createActions</a>         (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    QWidget* <a class="code hl_function" href="class_main_window.html#aedfc646114a7f4e72c327db508b82ac7">createCellWidget</a>      (<span class="keyword">const</span> QString&amp;                 text,</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>                                          <a class="code hl_enumeration" href="class_diagram_item.html#aeda67bf28fac9b4de77086c2bf81407b">DiagramItem::DiagramType</a> type);</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordtype">void</span>     <a class="code hl_function" href="class_main_window.html#a9afb2902d57c97e12ceeb05a28944d54">createMenus</a>           (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keywordtype">void</span>     <a class="code hl_function" href="class_main_window.html#a044db1279b6f45e836523d5530435257">createToolbars</a>        (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordtype">void</span>     <a class="code hl_function" href="class_main_window.html#a9dc7caa4b3c18aa46949a9a9c1d384f7">createToolBox</a>         (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="keywordtype">void</span>   <a class="code hl_function" href="class_main_window.html#a505572442d73419f3cab4afc8158621c">dragEnterEvent</a>          (QDragEnterEvent *event) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="keywordtype">void</span>   <a class="code hl_function" href="class_main_window.html#af809c2679376142b241371e36aedc279">dropEvent</a>               (QDropEvent *event) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <span class="keywordtype">string</span>   <a class="code hl_function" href="class_main_window.html#a14e8f18963ac7396866372125c3fe339">get_executable_path</a>   (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordtype">bool</span>     <a class="code hl_function" href="class_main_window.html#adecbd33933d67d22a9208ef0b919d58f">load_toolkit</a>          (QString&amp; tk_path, toolkit&amp; tk);</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="keywordtype">bool</span>     <a class="code hl_function" href="class_main_window.html#a58437a78f9227719fb9f53903630fb46">load_workflow</a>         (QString&amp; wf_path, WFWorkflow&amp; wf);</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keywordtype">void</span>   <a class="code hl_function" href="class_main_window.html#a90eaaf5e6994a92ba6fe9c3296d4da73">load_workflow_chain</a>       (QString&amp; wf_path);</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    <span class="keywordtype">bool</span>     <a class="code hl_function" href="class_main_window.html#a651b621e3770cf338fa8506ad5bcb7e0">selectAndOpenToolkit</a>  (QString&amp; banner, toolkit&amp; tk);</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    <span class="keywordtype">bool</span>     <a class="code hl_function" href="class_main_window.html#a8266cbce1fba6aac982e2b53e0936a46">selectWorkflow</a>        (QString&amp; wf_path);</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    <span class="keywordtype">string</span>   <a class="code hl_function" href="class_main_window.html#a7de0d29bcd616a2f50c4cdcbe11883c3">version_string</a>        (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno"><a class="line" href="class_main_window.html#a4bc4ae131d91d1eece03c36fd0c2d3fa">  295</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#a4bc4ae131d91d1eece03c36fd0c2d3fa">aboutAction</a>;</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno"><a class="line" href="class_main_window.html#a87e1d2a1ae55721737ceb4dc9773a083">  299</a></span>    <a class="code hl_class" href="class_about_box.html">AboutBox</a>*            <a class="code hl_variable" href="class_main_window.html#a87e1d2a1ae55721737ceb4dc9773a083">about_box_</a>;</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno"><a class="line" href="class_main_window.html#a0a94812e78960650b33ea84d2a4220b6">  303</a></span>    QMenu*               <a class="code hl_variable" href="class_main_window.html#a0a94812e78960650b33ea84d2a4220b6">aboutMenu</a>;</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno"><a class="line" href="class_main_window.html#a8321cfb1de4169baddb4a0b36aa7d57a">  308</a></span>    QButtonGroup*        <a class="code hl_variable" href="class_main_window.html#a8321cfb1de4169baddb4a0b36aa7d57a">buttonGroup</a>;</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno"><a class="line" href="class_main_window.html#acda4f1b59ac5e55f37e98e35bf5dc9b6">  312</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#acda4f1b59ac5e55f37e98e35bf5dc9b6">deleteAction</a>;</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno"><a class="line" href="class_main_window.html#a58acbb5fd760cdd016969a446abb83ca">  317</a></span>    QToolBar*            <a class="code hl_variable" href="class_main_window.html#a58acbb5fd760cdd016969a446abb83ca">editToolBar</a>;</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno"><a class="line" href="class_main_window.html#a480862e5bff02a85e6de35513eceff2c">  321</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#a480862e5bff02a85e6de35513eceff2c">exitAction</a>;</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno"><a class="line" href="class_main_window.html#a426da48f6e2f865b07a28533c07c4f7a">  325</a></span>    QMenu*               <a class="code hl_variable" href="class_main_window.html#a426da48f6e2f865b07a28533c07c4f7a">fileMenu</a>;</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno"><a class="line" href="class_main_window.html#a723b9e6e09139a5568741da34509d8ea">  329</a></span>    QMenu*               <a class="code hl_variable" href="class_main_window.html#a723b9e6e09139a5568741da34509d8ea">itemMenu</a>;</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno"><a class="line" href="class_main_window.html#a5b287d5f9155f8299a2cae9e418e9773">  333</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#a5b287d5f9155f8299a2cae9e418e9773">newWorkflowAction</a>;</div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno"><a class="line" href="class_main_window.html#af4726de1712df141731729ae844fd4a6">  337</a></span>    <span class="keywordtype">bool</span>                 <a class="code hl_variable" href="class_main_window.html#af4726de1712df141731729ae844fd4a6">open_document_</a>;</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno"><a class="line" href="class_main_window.html#a8b294f73faa850c026cfe4e987338d61">  341</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#a8b294f73faa850c026cfe4e987338d61">openWorkflowAction</a>;</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno"><a class="line" href="class_main_window.html#ae134656261b4eb2ecd1945ead684124c">  345</a></span>    QToolBar*            <a class="code hl_variable" href="class_main_window.html#ae134656261b4eb2ecd1945ead684124c">pointerToolbar</a>;</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno"><a class="line" href="class_main_window.html#a78f0bc349e0a6cff30851ae986deee24">  349</a></span>    QButtonGroup*        <a class="code hl_variable" href="class_main_window.html#a78f0bc349e0a6cff30851ae986deee24">pointerTypeGroup</a>;</div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span> </div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno"><a class="line" href="class_main_window.html#ae6056d3db3efb51c1982aa65db8bdbaa">  353</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#ae6056d3db3efb51c1982aa65db8bdbaa">saveWorkflowAction</a>;</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span> </div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> </div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno"><a class="line" href="class_main_window.html#a8b9e9f0d6bf0fa11ab6a21cfddff152f">  357</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#a8b9e9f0d6bf0fa11ab6a21cfddff152f">sendBackAction</a>;</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span> </div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno"><a class="line" href="class_main_window.html#af3d9ed6b43e00c20212d25c7fbc6f0e5">  361</a></span>    <a class="code hl_class" href="class_diagram_scene.html">DiagramScene</a>*        <a class="code hl_variable" href="class_main_window.html#af3d9ed6b43e00c20212d25c7fbc6f0e5">scene</a>;</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno"><a class="line" href="class_main_window.html#a01b90235dc5aab0787e009763d8ab873">  365</a></span>    QComboBox*           <a class="code hl_variable" href="class_main_window.html#a01b90235dc5aab0787e009763d8ab873">sceneScaleCombo</a>;</div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> </div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno"><a class="line" href="class_main_window.html#aeab562c1eeb985789f233b27cbd1ea6f">  370</a></span>    <a class="code hl_class" href="classtask__info__panel.html">task_info_panel</a>*     <a class="code hl_variable" href="class_main_window.html#aeab562c1eeb985789f233b27cbd1ea6f">task_panel_</a>;</div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span> </div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span> </div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno"><a class="line" href="class_main_window.html#a765ed49c15b201289c46db7cb6864619">  374</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#a765ed49c15b201289c46db7cb6864619">toFrontAction</a>;</div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span> </div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span> </div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno"><a class="line" href="class_main_window.html#a82a53e7c565bff816a83f4da64a3a638">  379</a></span>    QToolBox*            <a class="code hl_variable" href="class_main_window.html#a82a53e7c565bff816a83f4da64a3a638">toolBox</a>;</div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span> </div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno"><a class="line" href="class_main_window.html#a6e33bc418ea3e6d93b3021933bfa3baa">  383</a></span>    QGraphicsView*       <a class="code hl_variable" href="class_main_window.html#a6e33bc418ea3e6d93b3021933bfa3baa">view</a>;</div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span> </div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span> </div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno"><a class="line" href="class_main_window.html#ab26bf724c2beb883dded8cbf21ba836d">  388</a></span>    <a class="code hl_class" href="classworkflow__data__widget.html">workflow_data_widget</a> <a class="code hl_variable" href="class_main_window.html#ab26bf724c2beb883dded8cbf21ba836d">wf_data_widget</a>;</div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span> </div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span> </div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno"><a class="line" href="class_main_window.html#a1a59cd169b4b0de0e5f75f235d93e0a9">  392</a></span>    <span class="keywordtype">string</span>               <a class="code hl_variable" href="class_main_window.html#a1a59cd169b4b0de0e5f75f235d93e0a9">wf_description_</a>;</div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span> </div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span> </div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno"><a class="line" href="class_main_window.html#ae898106cd43035fdb3db0449f62c3257">  396</a></span>    <span class="keywordtype">string</span>               <a class="code hl_variable" href="class_main_window.html#ae898106cd43035fdb3db0449f62c3257">wf_id_</a>;</div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span> </div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>};</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;palette_utils.hpp&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="task__info__panel_8hpp.html">task_info_panel.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;workflow_parser.hpp&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;workflow_writer.hpp&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;workflow_structures.hpp&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;QDragEnterEvent&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;QDropEvent&gt;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &lt;QFileInfo&gt;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &lt;QMimeData&gt;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;<a class="code" href="workflow__data__widget_8hpp.html">workflow_data_widget.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">class </span><a class="code hl_class" href="class_diagram_scene.html">DiagramScene</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>QT_BEGIN_NAMESPACE</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">class </span>QAction;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">class </span>QToolBox;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">class </span>QComboBox;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">class </span>QButtonGroup;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">class </span>QLineEdit;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">class </span>QToolButton;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">class </span>QAbstractButton;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">class </span>QGraphicsView;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>QT_END_NAMESPACE</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="};">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_main_window.html">   56</a></span><span class="keyword">class </span><a class="code hl_class" href="class_main_window.html">MainWindow</a> : <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>{</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    Q_OBJECT</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>             <a class="code hl_function" href="class_main_window.html#af6f974a5c593a740f32ffb9e53acd694">MainWindow</a>            (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a858ab2fabf7cf2c38a7a1a8f51f4686a">about</a>                 (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a61cd3ea1af8d8dcae20f733e0e21f469">bringToFront</a>          (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a5ac1ad5e3c553e50a1ac39b8ecaee2e6">buttonGroupClicked</a>    (QAbstractButton* button);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a13c535ed0fe88e2cfb9813babb5f4680">deleteItem</a>            (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#aaac286bef7871e7b424af88e04e4e3be">itemInserted</a>          (<a class="code hl_class" href="class_diagram_item.html">DiagramItem</a>* item);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#adfd5a6c6322cad8cd53d244b056d2ff5">newWorkflow</a>           (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a25c6d7069105b5921d791a7f7713233f">new_wf_data_ready</a>     (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a805857f70913ac89782c69eb5a56785b">openWorkflow</a>          (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a9e6014ea84c8b0ea192a164e6e7008ae">pointerGroupClicked</a>   (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a9d463b10e655669b632c991eae834846">saveWorkflow</a>          (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#ad17ac0e360294d0ff6807cb0cfd49736">sceneScaleChanged</a>     (<span class="keyword">const</span> QString&amp; scale);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a9b5a375061edbfa9e9e20a1e53c2687c">sendToBack</a>            (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordtype">void</span>     <a class="code hl_slot" href="class_main_window.html#a5132043f3f038826b0350b7dd9fb2c12">task_selected</a>         (<span class="keywordtype">int</span> task_number);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordtype">bool</span>     <a class="code hl_function" href="class_main_window.html#a7dd4c87ce0638d945d00979e6ba57cb4">build_wf_status_msg</a>   (<span class="keywordtype">int</span>      missing_inputs,</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                                    <span class="keywordtype">int</span>      missing_some_outputs,</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                                    <span class="keywordtype">int</span>      missing_all_outputs,</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                                    <span class="keywordtype">int</span>      disconnected_repos,</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                                    QString&amp; status_msg);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordtype">void</span>     <a class="code hl_function" href="class_main_window.html#afade4992374de58d816d1e6d2bea4497">createActions</a>         (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    QWidget* <a class="code hl_function" href="class_main_window.html#aedfc646114a7f4e72c327db508b82ac7">createCellWidget</a>      (<span class="keyword">const</span> QString&amp;                 text,</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>                                          <a class="code hl_enumeration" href="class_diagram_item.html#aeda67bf28fac9b4de77086c2bf81407b">DiagramItem::DiagramType</a> type);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordtype">void</span>     <a class="code hl_function" href="class_main_window.html#a9afb2902d57c97e12ceeb05a28944d54">createMenus</a>           (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordtype">void</span>     <a class="code hl_function" href="class_main_window.html#a044db1279b6f45e836523d5530435257">createToolbars</a>        (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordtype">void</span>     <a class="code hl_function" href="class_main_window.html#a9dc7caa4b3c18aa46949a9a9c1d384f7">createToolBox</a>         (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keywordtype">void</span>   <a class="code hl_function" href="class_main_window.html#a505572442d73419f3cab4afc8158621c">dragEnterEvent</a>          (QDragEnterEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keywordtype">void</span>   <a class="code hl_function" href="class_main_window.html#af809c2679376142b241371e36aedc279">dropEvent</a>               (QDropEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keywordtype">string</span>   <a class="code hl_function" href="class_main_window.html#a14e8f18963ac7396866372125c3fe339">get_executable_path</a>   (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordtype">bool</span>     <a class="code hl_function" href="class_main_window.html#adecbd33933d67d22a9208ef0b919d58f">load_toolkit</a>          (QString&amp; tk_path, toolkit&amp; tk);</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="keywordtype">bool</span>     <a class="code hl_function" href="class_main_window.html#a58437a78f9227719fb9f53903630fb46">load_workflow</a>         (QString&amp; wf_path, WFWorkflow&amp; wf);</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="keywordtype">void</span>   <a class="code hl_function" href="class_main_window.html#a90eaaf5e6994a92ba6fe9c3296d4da73">load_workflow_chain</a>       (QString&amp; wf_path);</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="keywordtype">bool</span>     <a class="code hl_function" href="class_main_window.html#a651b621e3770cf338fa8506ad5bcb7e0">selectAndOpenToolkit</a>  (QString&amp; banner, toolkit&amp; tk);</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <span class="keywordtype">bool</span>     <a class="code hl_function" href="class_main_window.html#a8266cbce1fba6aac982e2b53e0936a46">selectWorkflow</a>        (QString&amp; wf_path);</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    <span class="keywordtype">string</span>   <a class="code hl_function" href="class_main_window.html#a7de0d29bcd616a2f50c4cdcbe11883c3">version_string</a>        (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno"><a class="line" href="class_main_window.html#a4bc4ae131d91d1eece03c36fd0c2d3fa">  296</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#a4bc4ae131d91d1eece03c36fd0c2d3fa">aboutAction</a>;</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span> </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="class_main_window.html#a87e1d2a1ae55721737ceb4dc9773a083">  300</a></span>    <a class="code hl_class" href="class_about_box.html">AboutBox</a>*            <a class="code hl_variable" href="class_main_window.html#a87e1d2a1ae55721737ceb4dc9773a083">about_box_</a>;</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno"><a class="line" href="class_main_window.html#a0a94812e78960650b33ea84d2a4220b6">  304</a></span>    QMenu*               <a class="code hl_variable" href="class_main_window.html#a0a94812e78960650b33ea84d2a4220b6">aboutMenu</a>;</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno"><a class="line" href="class_main_window.html#a8321cfb1de4169baddb4a0b36aa7d57a">  309</a></span>    QButtonGroup*        <a class="code hl_variable" href="class_main_window.html#a8321cfb1de4169baddb4a0b36aa7d57a">buttonGroup</a>;</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno"><a class="line" href="class_main_window.html#acda4f1b59ac5e55f37e98e35bf5dc9b6">  313</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#acda4f1b59ac5e55f37e98e35bf5dc9b6">deleteAction</a>;</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno"><a class="line" href="class_main_window.html#a58acbb5fd760cdd016969a446abb83ca">  318</a></span>    QToolBar*            <a class="code hl_variable" href="class_main_window.html#a58acbb5fd760cdd016969a446abb83ca">editToolBar</a>;</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno"><a class="line" href="class_main_window.html#a480862e5bff02a85e6de35513eceff2c">  322</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#a480862e5bff02a85e6de35513eceff2c">exitAction</a>;</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno"><a class="line" href="class_main_window.html#a426da48f6e2f865b07a28533c07c4f7a">  326</a></span>    QMenu*               <a class="code hl_variable" href="class_main_window.html#a426da48f6e2f865b07a28533c07c4f7a">fileMenu</a>;</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span> </div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno"><a class="line" href="class_main_window.html#a723b9e6e09139a5568741da34509d8ea">  330</a></span>    QMenu*               <a class="code hl_variable" href="class_main_window.html#a723b9e6e09139a5568741da34509d8ea">itemMenu</a>;</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span> </div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno"><a class="line" href="class_main_window.html#a5b287d5f9155f8299a2cae9e418e9773">  334</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#a5b287d5f9155f8299a2cae9e418e9773">newWorkflowAction</a>;</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span> </div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span> </div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno"><a class="line" href="class_main_window.html#af4726de1712df141731729ae844fd4a6">  338</a></span>    <span class="keywordtype">bool</span>                 <a class="code hl_variable" href="class_main_window.html#af4726de1712df141731729ae844fd4a6">open_document_</a>;</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno"><a class="line" href="class_main_window.html#a8b294f73faa850c026cfe4e987338d61">  342</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#a8b294f73faa850c026cfe4e987338d61">openWorkflowAction</a>;</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno"><a class="line" href="class_main_window.html#ae134656261b4eb2ecd1945ead684124c">  346</a></span>    QToolBar*            <a class="code hl_variable" href="class_main_window.html#ae134656261b4eb2ecd1945ead684124c">pointerToolbar</a>;</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno"><a class="line" href="class_main_window.html#a78f0bc349e0a6cff30851ae986deee24">  350</a></span>    QButtonGroup*        <a class="code hl_variable" href="class_main_window.html#a78f0bc349e0a6cff30851ae986deee24">pointerTypeGroup</a>;</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span> </div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno"><a class="line" href="class_main_window.html#ae6056d3db3efb51c1982aa65db8bdbaa">  354</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#ae6056d3db3efb51c1982aa65db8bdbaa">saveWorkflowAction</a>;</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span> </div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno"><a class="line" href="class_main_window.html#a8b9e9f0d6bf0fa11ab6a21cfddff152f">  358</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#a8b9e9f0d6bf0fa11ab6a21cfddff152f">sendBackAction</a>;</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span> </div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno"><a class="line" href="class_main_window.html#af3d9ed6b43e00c20212d25c7fbc6f0e5">  362</a></span>    <a class="code hl_class" href="class_diagram_scene.html">DiagramScene</a>*        <a class="code hl_variable" href="class_main_window.html#af3d9ed6b43e00c20212d25c7fbc6f0e5">scene</a>;</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span> </div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span> </div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno"><a class="line" href="class_main_window.html#a01b90235dc5aab0787e009763d8ab873">  366</a></span>    QComboBox*           <a class="code hl_variable" href="class_main_window.html#a01b90235dc5aab0787e009763d8ab873">sceneScaleCombo</a>;</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span> </div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span> </div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno"><a class="line" href="class_main_window.html#aeab562c1eeb985789f233b27cbd1ea6f">  371</a></span>    <a class="code hl_class" href="classtask__info__panel.html">task_info_panel</a>*     <a class="code hl_variable" href="class_main_window.html#aeab562c1eeb985789f233b27cbd1ea6f">task_panel_</a>;</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span> </div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span> </div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno"><a class="line" href="class_main_window.html#a765ed49c15b201289c46db7cb6864619">  375</a></span>    QAction*             <a class="code hl_variable" href="class_main_window.html#a765ed49c15b201289c46db7cb6864619">toFrontAction</a>;</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span> </div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span> </div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno"><a class="line" href="class_main_window.html#a82a53e7c565bff816a83f4da64a3a638">  380</a></span>    QToolBox*            <a class="code hl_variable" href="class_main_window.html#a82a53e7c565bff816a83f4da64a3a638">toolBox</a>;</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span> </div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span> </div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno"><a class="line" href="class_main_window.html#a6e33bc418ea3e6d93b3021933bfa3baa">  384</a></span>    QGraphicsView*       <a class="code hl_variable" href="class_main_window.html#a6e33bc418ea3e6d93b3021933bfa3baa">view</a>;</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span> </div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span> </div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno"><a class="line" href="class_main_window.html#ab26bf724c2beb883dded8cbf21ba836d">  389</a></span>    <a class="code hl_class" href="classworkflow__data__widget.html">workflow_data_widget</a> <a class="code hl_variable" href="class_main_window.html#ab26bf724c2beb883dded8cbf21ba836d">wf_data_widget</a>;</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span> </div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span> </div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno"><a class="line" href="class_main_window.html#a1a59cd169b4b0de0e5f75f235d93e0a9">  393</a></span>    <span class="keywordtype">string</span>               <a class="code hl_variable" href="class_main_window.html#a1a59cd169b4b0de0e5f75f235d93e0a9">wf_description_</a>;</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span> </div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span> </div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno"><a class="line" href="class_main_window.html#ae898106cd43035fdb3db0449f62c3257">  397</a></span>    <span class="keywordtype">string</span>               <a class="code hl_variable" href="class_main_window.html#ae898106cd43035fdb3db0449f62c3257">wf_id_</a>;</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span> </div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>};</div>
 </div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span> </div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span><span class="preprocessor">#endif </span><span class="comment">// MAINWINDOW_HPP</span></div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span> </div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span><span class="preprocessor">#endif </span><span class="comment">// MAINWINDOW_HPP</span></div>
 <div class="ttc" id="a_about_box_8hpp_html"><div class="ttname"><a href="_about_box_8hpp.html">AboutBox.hpp</a></div><div class="ttdoc">About box displaying information about the application.</div></div>
 <div class="ttc" id="aclass_about_box_html"><div class="ttname"><a href="class_about_box.html">AboutBox</a></div><div class="ttdoc">About box displaying information about the application.</div><div class="ttdef"><b>Definition</b> AboutBox.hpp:27</div></div>
 <div class="ttc" id="aclass_diagram_item_html"><div class="ttname"><a href="class_diagram_item.html">DiagramItem</a></div><div class="ttdoc">The tasks and repository graphic items that will be part of workflows.</div><div class="ttdef"><b>Definition</b> diagramitem.hpp:32</div></div>
 <div class="ttc" id="aclass_diagram_item_html_aeda67bf28fac9b4de77086c2bf81407b"><div class="ttname"><a href="class_diagram_item.html#aeda67bf28fac9b4de77086c2bf81407b">DiagramItem::DiagramType</a></div><div class="ttdeci">DiagramType</div><div class="ttdef"><b>Definition</b> diagramitem.hpp:42</div></div>
 <div class="ttc" id="aclass_diagram_scene_html"><div class="ttname"><a href="class_diagram_scene.html">DiagramScene</a></div><div class="ttdoc">The scene where the graphic items will be included.</div><div class="ttdef"><b>Definition</b> diagramscene.hpp:33</div></div>
-<div class="ttc" id="aclass_main_window_html"><div class="ttname"><a href="class_main_window.html">MainWindow</a></div><div class="ttdoc">Interface of the application, including menus, toolboxes and the view.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:56</div></div>
-<div class="ttc" id="aclass_main_window_html_a01b90235dc5aab0787e009763d8ab873"><div class="ttname"><a href="class_main_window.html#a01b90235dc5aab0787e009763d8ab873">MainWindow::sceneScaleCombo</a></div><div class="ttdeci">QComboBox * sceneScaleCombo</div><div class="ttdoc">Combo to select different zoom levels.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:365</div></div>
+<div class="ttc" id="aclass_main_window_html"><div class="ttname"><a href="class_main_window.html">MainWindow</a></div><div class="ttdoc">Interface of the application, including menus, toolboxes and the view.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:57</div></div>
+<div class="ttc" id="aclass_main_window_html_a01b90235dc5aab0787e009763d8ab873"><div class="ttname"><a href="class_main_window.html#a01b90235dc5aab0787e009763d8ab873">MainWindow::sceneScaleCombo</a></div><div class="ttdeci">QComboBox * sceneScaleCombo</div><div class="ttdoc">Combo to select different zoom levels.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:366</div></div>
 <div class="ttc" id="aclass_main_window_html_a044db1279b6f45e836523d5530435257"><div class="ttname"><a href="class_main_window.html#a044db1279b6f45e836523d5530435257">MainWindow::createToolbars</a></div><div class="ttdeci">void createToolbars(void)</div><div class="ttdoc">Instantitate the set of toolbars used by the application.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:244</div></div>
-<div class="ttc" id="aclass_main_window_html_a0a94812e78960650b33ea84d2a4220b6"><div class="ttname"><a href="class_main_window.html#a0a94812e78960650b33ea84d2a4220b6">MainWindow::aboutMenu</a></div><div class="ttdeci">QMenu * aboutMenu</div><div class="ttdoc">The about menu.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:303</div></div>
+<div class="ttc" id="aclass_main_window_html_a0a94812e78960650b33ea84d2a4220b6"><div class="ttname"><a href="class_main_window.html#a0a94812e78960650b33ea84d2a4220b6">MainWindow::aboutMenu</a></div><div class="ttdeci">QMenu * aboutMenu</div><div class="ttdoc">The about menu.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:304</div></div>
 <div class="ttc" id="aclass_main_window_html_a13c535ed0fe88e2cfb9813babb5f4680"><div class="ttname"><a href="class_main_window.html#a13c535ed0fe88e2cfb9813babb5f4680">MainWindow::deleteItem</a></div><div class="ttdeci">void deleteItem(void)</div><div class="ttdoc">Delete the currently selected item.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:313</div></div>
 <div class="ttc" id="aclass_main_window_html_a14e8f18963ac7396866372125c3fe339"><div class="ttname"><a href="class_main_window.html#a14e8f18963ac7396866372125c3fe339">MainWindow::get_executable_path</a></div><div class="ttdeci">string get_executable_path(void)</div><div class="ttdoc">Retrieve the path or the executable.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:474</div></div>
-<div class="ttc" id="aclass_main_window_html_a1a59cd169b4b0de0e5f75f235d93e0a9"><div class="ttname"><a href="class_main_window.html#a1a59cd169b4b0de0e5f75f235d93e0a9">MainWindow::wf_description_</a></div><div class="ttdeci">string wf_description_</div><div class="ttdoc">Description of the current workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:392</div></div>
-<div class="ttc" id="aclass_main_window_html_a25c6d7069105b5921d791a7f7713233f"><div class="ttname"><a href="class_main_window.html#a25c6d7069105b5921d791a7f7713233f">MainWindow::new_wf_data_ready</a></div><div class="ttdeci">void new_wf_data_ready(void)</div><div class="ttdoc">Complete the creation of a new workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:913</div></div>
-<div class="ttc" id="aclass_main_window_html_a426da48f6e2f865b07a28533c07c4f7a"><div class="ttname"><a href="class_main_window.html#a426da48f6e2f865b07a28533c07c4f7a">MainWindow::fileMenu</a></div><div class="ttdeci">QMenu * fileMenu</div><div class="ttdoc">The file menu.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:325</div></div>
-<div class="ttc" id="aclass_main_window_html_a480862e5bff02a85e6de35513eceff2c"><div class="ttname"><a href="class_main_window.html#a480862e5bff02a85e6de35513eceff2c">MainWindow::exitAction</a></div><div class="ttdeci">QAction * exitAction</div><div class="ttdoc">The action to quit the applicatin.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:321</div></div>
-<div class="ttc" id="aclass_main_window_html_a4bc4ae131d91d1eece03c36fd0c2d3fa"><div class="ttname"><a href="class_main_window.html#a4bc4ae131d91d1eece03c36fd0c2d3fa">MainWindow::aboutAction</a></div><div class="ttdeci">QAction * aboutAction</div><div class="ttdoc">The action to launch the about box.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:295</div></div>
+<div class="ttc" id="aclass_main_window_html_a1a59cd169b4b0de0e5f75f235d93e0a9"><div class="ttname"><a href="class_main_window.html#a1a59cd169b4b0de0e5f75f235d93e0a9">MainWindow::wf_description_</a></div><div class="ttdeci">string wf_description_</div><div class="ttdoc">Description of the current workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:393</div></div>
+<div class="ttc" id="aclass_main_window_html_a25c6d7069105b5921d791a7f7713233f"><div class="ttname"><a href="class_main_window.html#a25c6d7069105b5921d791a7f7713233f">MainWindow::new_wf_data_ready</a></div><div class="ttdeci">void new_wf_data_ready(void)</div><div class="ttdoc">Complete the creation of a new workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:928</div></div>
+<div class="ttc" id="aclass_main_window_html_a426da48f6e2f865b07a28533c07c4f7a"><div class="ttname"><a href="class_main_window.html#a426da48f6e2f865b07a28533c07c4f7a">MainWindow::fileMenu</a></div><div class="ttdeci">QMenu * fileMenu</div><div class="ttdoc">The file menu.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:326</div></div>
+<div class="ttc" id="aclass_main_window_html_a480862e5bff02a85e6de35513eceff2c"><div class="ttname"><a href="class_main_window.html#a480862e5bff02a85e6de35513eceff2c">MainWindow::exitAction</a></div><div class="ttdeci">QAction * exitAction</div><div class="ttdoc">The action to quit the applicatin.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:322</div></div>
+<div class="ttc" id="aclass_main_window_html_a4bc4ae131d91d1eece03c36fd0c2d3fa"><div class="ttname"><a href="class_main_window.html#a4bc4ae131d91d1eece03c36fd0c2d3fa">MainWindow::aboutAction</a></div><div class="ttdeci">QAction * aboutAction</div><div class="ttdoc">The action to launch the about box.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:296</div></div>
 <div class="ttc" id="aclass_main_window_html_a505572442d73419f3cab4afc8158621c"><div class="ttname"><a href="class_main_window.html#a505572442d73419f3cab4afc8158621c">MainWindow::dragEnterEvent</a></div><div class="ttdeci">void dragEnterEvent(QDragEnterEvent *event) override</div><div class="ttdoc">Re-implementation of the inherited method to accept dragging xml workflow files over the application.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:368</div></div>
-<div class="ttc" id="aclass_main_window_html_a5132043f3f038826b0350b7dd9fb2c12"><div class="ttname"><a href="class_main_window.html#a5132043f3f038826b0350b7dd9fb2c12">MainWindow::task_selected</a></div><div class="ttdeci">void task_selected(int task_number)</div><div class="ttdoc">Keep track of the task selected in the task panel.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1244</div></div>
+<div class="ttc" id="aclass_main_window_html_a5132043f3f038826b0350b7dd9fb2c12"><div class="ttname"><a href="class_main_window.html#a5132043f3f038826b0350b7dd9fb2c12">MainWindow::task_selected</a></div><div class="ttdeci">void task_selected(int task_number)</div><div class="ttdoc">Keep track of the task selected in the task panel.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1259</div></div>
 <div class="ttc" id="aclass_main_window_html_a58437a78f9227719fb9f53903630fb46"><div class="ttname"><a href="class_main_window.html#a58437a78f9227719fb9f53903630fb46">MainWindow::load_workflow</a></div><div class="ttdeci">bool load_workflow(QString &amp;wf_path, WFWorkflow &amp;wf)</div><div class="ttdoc">Load an existing workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:590</div></div>
-<div class="ttc" id="aclass_main_window_html_a58acbb5fd760cdd016969a446abb83ca"><div class="ttname"><a href="class_main_window.html#a58acbb5fd760cdd016969a446abb83ca">MainWindow::editToolBar</a></div><div class="ttdeci">QToolBar * editToolBar</div><div class="ttdoc">The toolbar with the buttons to edit items (delete, send to back / front).</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:317</div></div>
+<div class="ttc" id="aclass_main_window_html_a58acbb5fd760cdd016969a446abb83ca"><div class="ttname"><a href="class_main_window.html#a58acbb5fd760cdd016969a446abb83ca">MainWindow::editToolBar</a></div><div class="ttdeci">QToolBar * editToolBar</div><div class="ttdoc">The toolbar with the buttons to edit items (delete, send to back / front).</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:318</div></div>
 <div class="ttc" id="aclass_main_window_html_a5ac1ad5e3c553e50a1ac39b8ecaee2e6"><div class="ttname"><a href="class_main_window.html#a5ac1ad5e3c553e50a1ac39b8ecaee2e6">MainWindow::buttonGroupClicked</a></div><div class="ttdeci">void buttonGroupClicked(QAbstractButton *button)</div><div class="ttdoc">Take care of a click on any of the insertion buttons.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:124</div></div>
-<div class="ttc" id="aclass_main_window_html_a5b287d5f9155f8299a2cae9e418e9773"><div class="ttname"><a href="class_main_window.html#a5b287d5f9155f8299a2cae9e418e9773">MainWindow::newWorkflowAction</a></div><div class="ttdeci">QAction * newWorkflowAction</div><div class="ttdoc">Action to create a new workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:333</div></div>
+<div class="ttc" id="aclass_main_window_html_a5b287d5f9155f8299a2cae9e418e9773"><div class="ttname"><a href="class_main_window.html#a5b287d5f9155f8299a2cae9e418e9773">MainWindow::newWorkflowAction</a></div><div class="ttdeci">QAction * newWorkflowAction</div><div class="ttdoc">Action to create a new workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:334</div></div>
 <div class="ttc" id="aclass_main_window_html_a61cd3ea1af8d8dcae20f733e0e21f469"><div class="ttname"><a href="class_main_window.html#a61cd3ea1af8d8dcae20f733e0e21f469">MainWindow::bringToFront</a></div><div class="ttdeci">void bringToFront(void)</div><div class="ttdoc">Bring the currently selected item to the front.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:26</div></div>
-<div class="ttc" id="aclass_main_window_html_a651b621e3770cf338fa8506ad5bcb7e0"><div class="ttname"><a href="class_main_window.html#a651b621e3770cf338fa8506ad5bcb7e0">MainWindow::selectAndOpenToolkit</a></div><div class="ttdeci">bool selectAndOpenToolkit(QString &amp;banner, toolkit &amp;tk)</div><div class="ttdoc">Search for an existing toolkit to load it.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1161</div></div>
-<div class="ttc" id="aclass_main_window_html_a6e33bc418ea3e6d93b3021933bfa3baa"><div class="ttname"><a href="class_main_window.html#a6e33bc418ea3e6d93b3021933bfa3baa">MainWindow::view</a></div><div class="ttdeci">QGraphicsView * view</div><div class="ttdoc">The view handling our scene.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:383</div></div>
-<div class="ttc" id="aclass_main_window_html_a723b9e6e09139a5568741da34509d8ea"><div class="ttname"><a href="class_main_window.html#a723b9e6e09139a5568741da34509d8ea">MainWindow::itemMenu</a></div><div class="ttdeci">QMenu * itemMenu</div><div class="ttdoc">The item menu (equivalent to the editToolBar).</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:329</div></div>
-<div class="ttc" id="aclass_main_window_html_a765ed49c15b201289c46db7cb6864619"><div class="ttname"><a href="class_main_window.html#a765ed49c15b201289c46db7cb6864619">MainWindow::toFrontAction</a></div><div class="ttdeci">QAction * toFrontAction</div><div class="ttdoc">Action to bring an item to the front.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:374</div></div>
-<div class="ttc" id="aclass_main_window_html_a78f0bc349e0a6cff30851ae986deee24"><div class="ttname"><a href="class_main_window.html#a78f0bc349e0a6cff30851ae986deee24">MainWindow::pointerTypeGroup</a></div><div class="ttdeci">QButtonGroup * pointerTypeGroup</div><div class="ttdoc">The group of buttons to select the pointer mode.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:349</div></div>
+<div class="ttc" id="aclass_main_window_html_a651b621e3770cf338fa8506ad5bcb7e0"><div class="ttname"><a href="class_main_window.html#a651b621e3770cf338fa8506ad5bcb7e0">MainWindow::selectAndOpenToolkit</a></div><div class="ttdeci">bool selectAndOpenToolkit(QString &amp;banner, toolkit &amp;tk)</div><div class="ttdoc">Search for an existing toolkit to load it.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1176</div></div>
+<div class="ttc" id="aclass_main_window_html_a6e33bc418ea3e6d93b3021933bfa3baa"><div class="ttname"><a href="class_main_window.html#a6e33bc418ea3e6d93b3021933bfa3baa">MainWindow::view</a></div><div class="ttdeci">QGraphicsView * view</div><div class="ttdoc">The view handling our scene.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:384</div></div>
+<div class="ttc" id="aclass_main_window_html_a723b9e6e09139a5568741da34509d8ea"><div class="ttname"><a href="class_main_window.html#a723b9e6e09139a5568741da34509d8ea">MainWindow::itemMenu</a></div><div class="ttdeci">QMenu * itemMenu</div><div class="ttdoc">The item menu (equivalent to the editToolBar).</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:330</div></div>
+<div class="ttc" id="aclass_main_window_html_a765ed49c15b201289c46db7cb6864619"><div class="ttname"><a href="class_main_window.html#a765ed49c15b201289c46db7cb6864619">MainWindow::toFrontAction</a></div><div class="ttdeci">QAction * toFrontAction</div><div class="ttdoc">Action to bring an item to the front.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:375</div></div>
+<div class="ttc" id="aclass_main_window_html_a78f0bc349e0a6cff30851ae986deee24"><div class="ttname"><a href="class_main_window.html#a78f0bc349e0a6cff30851ae986deee24">MainWindow::pointerTypeGroup</a></div><div class="ttdeci">QButtonGroup * pointerTypeGroup</div><div class="ttdoc">The group of buttons to select the pointer mode.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:350</div></div>
 <div class="ttc" id="aclass_main_window_html_a7dd4c87ce0638d945d00979e6ba57cb4"><div class="ttname"><a href="class_main_window.html#a7dd4c87ce0638d945d00979e6ba57cb4">MainWindow::build_wf_status_msg</a></div><div class="ttdeci">bool build_wf_status_msg(int missing_inputs, int missing_some_outputs, int missing_all_outputs, int disconnected_repos, QString &amp;status_msg)</div><div class="ttdoc">Build a warning message stating the status of the workflow, including the number of tasks and reposit...</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:48</div></div>
-<div class="ttc" id="aclass_main_window_html_a7de0d29bcd616a2f50c4cdcbe11883c3"><div class="ttname"><a href="class_main_window.html#a7de0d29bcd616a2f50c4cdcbe11883c3">MainWindow::version_string</a></div><div class="ttdeci">string version_string(void)</div><div class="ttdoc">Read the file containing the version string and return it as a string.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1254</div></div>
-<div class="ttc" id="aclass_main_window_html_a805857f70913ac89782c69eb5a56785b"><div class="ttname"><a href="class_main_window.html#a805857f70913ac89782c69eb5a56785b">MainWindow::openWorkflow</a></div><div class="ttdeci">void openWorkflow(void)</div><div class="ttdoc">Open an existing workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:959</div></div>
-<div class="ttc" id="aclass_main_window_html_a8266cbce1fba6aac982e2b53e0936a46"><div class="ttname"><a href="class_main_window.html#a8266cbce1fba6aac982e2b53e0936a46">MainWindow::selectWorkflow</a></div><div class="ttdeci">bool selectWorkflow(QString &amp;wf_path)</div><div class="ttdoc">Search for an existing workflow, and retrieve its path.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1195</div></div>
-<div class="ttc" id="aclass_main_window_html_a82a53e7c565bff816a83f4da64a3a638"><div class="ttname"><a href="class_main_window.html#a82a53e7c565bff816a83f4da64a3a638">MainWindow::toolBox</a></div><div class="ttdeci">QToolBox * toolBox</div><div class="ttdoc">The toolbox to include the buttons to insert repositories and tasks.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:379</div></div>
-<div class="ttc" id="aclass_main_window_html_a8321cfb1de4169baddb4a0b36aa7d57a"><div class="ttname"><a href="class_main_window.html#a8321cfb1de4169baddb4a0b36aa7d57a">MainWindow::buttonGroup</a></div><div class="ttdeci">QButtonGroup * buttonGroup</div><div class="ttdoc">The group of buttons including those to insert tasks or repositories.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:308</div></div>
+<div class="ttc" id="aclass_main_window_html_a7de0d29bcd616a2f50c4cdcbe11883c3"><div class="ttname"><a href="class_main_window.html#a7de0d29bcd616a2f50c4cdcbe11883c3">MainWindow::version_string</a></div><div class="ttdeci">string version_string(void)</div><div class="ttdoc">Read the file containing the version string and return it as a string.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1269</div></div>
+<div class="ttc" id="aclass_main_window_html_a805857f70913ac89782c69eb5a56785b"><div class="ttname"><a href="class_main_window.html#a805857f70913ac89782c69eb5a56785b">MainWindow::openWorkflow</a></div><div class="ttdeci">void openWorkflow(void)</div><div class="ttdoc">Open an existing workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:974</div></div>
+<div class="ttc" id="aclass_main_window_html_a8266cbce1fba6aac982e2b53e0936a46"><div class="ttname"><a href="class_main_window.html#a8266cbce1fba6aac982e2b53e0936a46">MainWindow::selectWorkflow</a></div><div class="ttdeci">bool selectWorkflow(QString &amp;wf_path)</div><div class="ttdoc">Search for an existing workflow, and retrieve its path.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1210</div></div>
+<div class="ttc" id="aclass_main_window_html_a82a53e7c565bff816a83f4da64a3a638"><div class="ttname"><a href="class_main_window.html#a82a53e7c565bff816a83f4da64a3a638">MainWindow::toolBox</a></div><div class="ttdeci">QToolBox * toolBox</div><div class="ttdoc">The toolbox to include the buttons to insert repositories and tasks.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:380</div></div>
+<div class="ttc" id="aclass_main_window_html_a8321cfb1de4169baddb4a0b36aa7d57a"><div class="ttname"><a href="class_main_window.html#a8321cfb1de4169baddb4a0b36aa7d57a">MainWindow::buttonGroup</a></div><div class="ttdeci">QButtonGroup * buttonGroup</div><div class="ttdoc">The group of buttons including those to insert tasks or repositories.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:309</div></div>
 <div class="ttc" id="aclass_main_window_html_a858ab2fabf7cf2c38a7a1a8f51f4686a"><div class="ttname"><a href="class_main_window.html#a858ab2fabf7cf2c38a7a1a8f51f4686a">MainWindow::about</a></div><div class="ttdeci">void about(void)</div><div class="ttdoc">Show the about dialog.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:16</div></div>
-<div class="ttc" id="aclass_main_window_html_a87e1d2a1ae55721737ceb4dc9773a083"><div class="ttname"><a href="class_main_window.html#a87e1d2a1ae55721737ceb4dc9773a083">MainWindow::about_box_</a></div><div class="ttdeci">AboutBox * about_box_</div><div class="ttdoc">The about box.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:299</div></div>
-<div class="ttc" id="aclass_main_window_html_a8b294f73faa850c026cfe4e987338d61"><div class="ttname"><a href="class_main_window.html#a8b294f73faa850c026cfe4e987338d61">MainWindow::openWorkflowAction</a></div><div class="ttdeci">QAction * openWorkflowAction</div><div class="ttdoc">Action to open an existing workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:341</div></div>
-<div class="ttc" id="aclass_main_window_html_a8b9e9f0d6bf0fa11ab6a21cfddff152f"><div class="ttname"><a href="class_main_window.html#a8b9e9f0d6bf0fa11ab6a21cfddff152f">MainWindow::sendBackAction</a></div><div class="ttdeci">QAction * sendBackAction</div><div class="ttdoc">Actino to send an item back.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:357</div></div>
+<div class="ttc" id="aclass_main_window_html_a87e1d2a1ae55721737ceb4dc9773a083"><div class="ttname"><a href="class_main_window.html#a87e1d2a1ae55721737ceb4dc9773a083">MainWindow::about_box_</a></div><div class="ttdeci">AboutBox * about_box_</div><div class="ttdoc">The about box.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:300</div></div>
+<div class="ttc" id="aclass_main_window_html_a8b294f73faa850c026cfe4e987338d61"><div class="ttname"><a href="class_main_window.html#a8b294f73faa850c026cfe4e987338d61">MainWindow::openWorkflowAction</a></div><div class="ttdeci">QAction * openWorkflowAction</div><div class="ttdoc">Action to open an existing workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:342</div></div>
+<div class="ttc" id="aclass_main_window_html_a8b9e9f0d6bf0fa11ab6a21cfddff152f"><div class="ttname"><a href="class_main_window.html#a8b9e9f0d6bf0fa11ab6a21cfddff152f">MainWindow::sendBackAction</a></div><div class="ttdeci">QAction * sendBackAction</div><div class="ttdoc">Actino to send an item back.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:358</div></div>
 <div class="ttc" id="aclass_main_window_html_a90eaaf5e6994a92ba6fe9c3296d4da73"><div class="ttname"><a href="class_main_window.html#a90eaaf5e6994a92ba6fe9c3296d4da73">MainWindow::load_workflow_chain</a></div><div class="ttdeci">void load_workflow_chain(QString &amp;wf_path)</div><div class="ttdoc">Load a workflow as well as the toolkit on which it relies.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:678</div></div>
 <div class="ttc" id="aclass_main_window_html_a9afb2902d57c97e12ceeb05a28944d54"><div class="ttname"><a href="class_main_window.html#a9afb2902d57c97e12ceeb05a28944d54">MainWindow::createMenus</a></div><div class="ttdeci">void createMenus(void)</div><div class="ttdoc">Instantiate the set of menus used by the application.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:221</div></div>
-<div class="ttc" id="aclass_main_window_html_a9b5a375061edbfa9e9e20a1e53c2687c"><div class="ttname"><a href="class_main_window.html#a9b5a375061edbfa9e9e20a1e53c2687c">MainWindow::sendToBack</a></div><div class="ttdeci">void sendToBack(void)</div><div class="ttdoc">Send back the currently selected item.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1222</div></div>
-<div class="ttc" id="aclass_main_window_html_a9d463b10e655669b632c991eae834846"><div class="ttname"><a href="class_main_window.html#a9d463b10e655669b632c991eae834846">MainWindow::saveWorkflow</a></div><div class="ttdeci">void saveWorkflow(void)</div><div class="ttdoc">Save the current workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1021</div></div>
+<div class="ttc" id="aclass_main_window_html_a9b5a375061edbfa9e9e20a1e53c2687c"><div class="ttname"><a href="class_main_window.html#a9b5a375061edbfa9e9e20a1e53c2687c">MainWindow::sendToBack</a></div><div class="ttdeci">void sendToBack(void)</div><div class="ttdoc">Send back the currently selected item.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1237</div></div>
+<div class="ttc" id="aclass_main_window_html_a9d463b10e655669b632c991eae834846"><div class="ttname"><a href="class_main_window.html#a9d463b10e655669b632c991eae834846">MainWindow::saveWorkflow</a></div><div class="ttdeci">void saveWorkflow(void)</div><div class="ttdoc">Save the current workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1036</div></div>
 <div class="ttc" id="aclass_main_window_html_a9dc7caa4b3c18aa46949a9a9c1d384f7"><div class="ttname"><a href="class_main_window.html#a9dc7caa4b3c18aa46949a9a9c1d384f7">MainWindow::createToolBox</a></div><div class="ttdeci">void createToolBox(void)</div><div class="ttdoc">Create the toolbox used by the application.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:284</div></div>
-<div class="ttc" id="aclass_main_window_html_a9e6014ea84c8b0ea192a164e6e7008ae"><div class="ttname"><a href="class_main_window.html#a9e6014ea84c8b0ea192a164e6e7008ae">MainWindow::pointerGroupClicked</a></div><div class="ttdeci">void pointerGroupClicked(void)</div><div class="ttdoc">Update the interface when a button in the pointer toolbar has been clicked.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1011</div></div>
+<div class="ttc" id="aclass_main_window_html_a9e6014ea84c8b0ea192a164e6e7008ae"><div class="ttname"><a href="class_main_window.html#a9e6014ea84c8b0ea192a164e6e7008ae">MainWindow::pointerGroupClicked</a></div><div class="ttdeci">void pointerGroupClicked(void)</div><div class="ttdoc">Update the interface when a button in the pointer toolbar has been clicked.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1026</div></div>
 <div class="ttc" id="aclass_main_window_html_aaac286bef7871e7b424af88e04e4e3be"><div class="ttname"><a href="class_main_window.html#aaac286bef7871e7b424af88e04e4e3be">MainWindow::itemInserted</a></div><div class="ttdeci">void itemInserted(DiagramItem *item)</div><div class="ttdoc">Update the interface when a new item has been inserted.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:490</div></div>
-<div class="ttc" id="aclass_main_window_html_ab26bf724c2beb883dded8cbf21ba836d"><div class="ttname"><a href="class_main_window.html#ab26bf724c2beb883dded8cbf21ba836d">MainWindow::wf_data_widget</a></div><div class="ttdeci">workflow_data_widget wf_data_widget</div><div class="ttdoc">Dialog to collect the lineage information when creating a new workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:388</div></div>
-<div class="ttc" id="aclass_main_window_html_acda4f1b59ac5e55f37e98e35bf5dc9b6"><div class="ttname"><a href="class_main_window.html#acda4f1b59ac5e55f37e98e35bf5dc9b6">MainWindow::deleteAction</a></div><div class="ttdeci">QAction * deleteAction</div><div class="ttdoc">Action to delete an item.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:312</div></div>
-<div class="ttc" id="aclass_main_window_html_ad17ac0e360294d0ff6807cb0cfd49736"><div class="ttname"><a href="class_main_window.html#ad17ac0e360294d0ff6807cb0cfd49736">MainWindow::sceneScaleChanged</a></div><div class="ttdeci">void sceneScaleChanged(const QString &amp;scale)</div><div class="ttdoc">Update the interface when the zoom level is changed.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1147</div></div>
+<div class="ttc" id="aclass_main_window_html_ab26bf724c2beb883dded8cbf21ba836d"><div class="ttname"><a href="class_main_window.html#ab26bf724c2beb883dded8cbf21ba836d">MainWindow::wf_data_widget</a></div><div class="ttdeci">workflow_data_widget wf_data_widget</div><div class="ttdoc">Dialog to collect the lineage information when creating a new workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:389</div></div>
+<div class="ttc" id="aclass_main_window_html_acda4f1b59ac5e55f37e98e35bf5dc9b6"><div class="ttname"><a href="class_main_window.html#acda4f1b59ac5e55f37e98e35bf5dc9b6">MainWindow::deleteAction</a></div><div class="ttdeci">QAction * deleteAction</div><div class="ttdoc">Action to delete an item.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:313</div></div>
+<div class="ttc" id="aclass_main_window_html_ad17ac0e360294d0ff6807cb0cfd49736"><div class="ttname"><a href="class_main_window.html#ad17ac0e360294d0ff6807cb0cfd49736">MainWindow::sceneScaleChanged</a></div><div class="ttdeci">void sceneScaleChanged(const QString &amp;scale)</div><div class="ttdoc">Update the interface when the zoom level is changed.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:1162</div></div>
 <div class="ttc" id="aclass_main_window_html_adecbd33933d67d22a9208ef0b919d58f"><div class="ttname"><a href="class_main_window.html#adecbd33933d67d22a9208ef0b919d58f">MainWindow::load_toolkit</a></div><div class="ttdeci">bool load_toolkit(QString &amp;tk_path, toolkit &amp;tk)</div><div class="ttdoc">Load an existing toolkit.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:502</div></div>
-<div class="ttc" id="aclass_main_window_html_adfd5a6c6322cad8cd53d244b056d2ff5"><div class="ttname"><a href="class_main_window.html#adfd5a6c6322cad8cd53d244b056d2ff5">MainWindow::newWorkflow</a></div><div class="ttdeci">void newWorkflow(void)</div><div class="ttdoc">Start the creation of a new workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:878</div></div>
-<div class="ttc" id="aclass_main_window_html_ae134656261b4eb2ecd1945ead684124c"><div class="ttname"><a href="class_main_window.html#ae134656261b4eb2ecd1945ead684124c">MainWindow::pointerToolbar</a></div><div class="ttdeci">QToolBar * pointerToolbar</div><div class="ttdoc">The toolbar showing the different pointer modes.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:345</div></div>
-<div class="ttc" id="aclass_main_window_html_ae6056d3db3efb51c1982aa65db8bdbaa"><div class="ttname"><a href="class_main_window.html#ae6056d3db3efb51c1982aa65db8bdbaa">MainWindow::saveWorkflowAction</a></div><div class="ttdeci">QAction * saveWorkflowAction</div><div class="ttdoc">Action to save the current workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:353</div></div>
-<div class="ttc" id="aclass_main_window_html_ae898106cd43035fdb3db0449f62c3257"><div class="ttname"><a href="class_main_window.html#ae898106cd43035fdb3db0449f62c3257">MainWindow::wf_id_</a></div><div class="ttdeci">string wf_id_</div><div class="ttdoc">Identifier of the current workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:396</div></div>
-<div class="ttc" id="aclass_main_window_html_aeab562c1eeb985789f233b27cbd1ea6f"><div class="ttname"><a href="class_main_window.html#aeab562c1eeb985789f233b27cbd1ea6f">MainWindow::task_panel_</a></div><div class="ttdeci">task_info_panel * task_panel_</div><div class="ttdoc">The panel where the information about the avaialbe tasks and their input and output files will be sho...</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:370</div></div>
+<div class="ttc" id="aclass_main_window_html_adfd5a6c6322cad8cd53d244b056d2ff5"><div class="ttname"><a href="class_main_window.html#adfd5a6c6322cad8cd53d244b056d2ff5">MainWindow::newWorkflow</a></div><div class="ttdeci">void newWorkflow(void)</div><div class="ttdoc">Start the creation of a new workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:893</div></div>
+<div class="ttc" id="aclass_main_window_html_ae134656261b4eb2ecd1945ead684124c"><div class="ttname"><a href="class_main_window.html#ae134656261b4eb2ecd1945ead684124c">MainWindow::pointerToolbar</a></div><div class="ttdeci">QToolBar * pointerToolbar</div><div class="ttdoc">The toolbar showing the different pointer modes.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:346</div></div>
+<div class="ttc" id="aclass_main_window_html_ae6056d3db3efb51c1982aa65db8bdbaa"><div class="ttname"><a href="class_main_window.html#ae6056d3db3efb51c1982aa65db8bdbaa">MainWindow::saveWorkflowAction</a></div><div class="ttdeci">QAction * saveWorkflowAction</div><div class="ttdoc">Action to save the current workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:354</div></div>
+<div class="ttc" id="aclass_main_window_html_ae898106cd43035fdb3db0449f62c3257"><div class="ttname"><a href="class_main_window.html#ae898106cd43035fdb3db0449f62c3257">MainWindow::wf_id_</a></div><div class="ttdeci">string wf_id_</div><div class="ttdoc">Identifier of the current workflow.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:397</div></div>
+<div class="ttc" id="aclass_main_window_html_aeab562c1eeb985789f233b27cbd1ea6f"><div class="ttname"><a href="class_main_window.html#aeab562c1eeb985789f233b27cbd1ea6f">MainWindow::task_panel_</a></div><div class="ttdeci">task_info_panel * task_panel_</div><div class="ttdoc">The panel where the information about the avaialbe tasks and their input and output files will be sho...</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:371</div></div>
 <div class="ttc" id="aclass_main_window_html_aedfc646114a7f4e72c327db508b82ac7"><div class="ttname"><a href="class_main_window.html#aedfc646114a7f4e72c327db508b82ac7">MainWindow::createCellWidget</a></div><div class="ttdeci">QWidget * createCellWidget(const QString &amp;text, DiagramItem::DiagramType type)</div><div class="ttdoc">Create a button for the toolbox.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:192</div></div>
-<div class="ttc" id="aclass_main_window_html_af3d9ed6b43e00c20212d25c7fbc6f0e5"><div class="ttname"><a href="class_main_window.html#af3d9ed6b43e00c20212d25c7fbc6f0e5">MainWindow::scene</a></div><div class="ttdeci">DiagramScene * scene</div><div class="ttdoc">The scene where all the items will be drawn.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:361</div></div>
-<div class="ttc" id="aclass_main_window_html_af4726de1712df141731729ae844fd4a6"><div class="ttname"><a href="class_main_window.html#af4726de1712df141731729ae844fd4a6">MainWindow::open_document_</a></div><div class="ttdeci">bool open_document_</div><div class="ttdoc">Flag stating whether a workflow is already open.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:337</div></div>
+<div class="ttc" id="aclass_main_window_html_af3d9ed6b43e00c20212d25c7fbc6f0e5"><div class="ttname"><a href="class_main_window.html#af3d9ed6b43e00c20212d25c7fbc6f0e5">MainWindow::scene</a></div><div class="ttdeci">DiagramScene * scene</div><div class="ttdoc">The scene where all the items will be drawn.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:362</div></div>
+<div class="ttc" id="aclass_main_window_html_af4726de1712df141731729ae844fd4a6"><div class="ttname"><a href="class_main_window.html#af4726de1712df141731729ae844fd4a6">MainWindow::open_document_</a></div><div class="ttdeci">bool open_document_</div><div class="ttdoc">Flag stating whether a workflow is already open.</div><div class="ttdef"><b>Definition</b> mainwindow.hpp:338</div></div>
 <div class="ttc" id="aclass_main_window_html_af6f974a5c593a740f32ffb9e53acd694"><div class="ttname"><a href="class_main_window.html#af6f974a5c593a740f32ffb9e53acd694">MainWindow::MainWindow</a></div><div class="ttdeci">MainWindow(void)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:791</div></div>
 <div class="ttc" id="aclass_main_window_html_af809c2679376142b241371e36aedc279"><div class="ttname"><a href="class_main_window.html#af809c2679376142b241371e36aedc279">MainWindow::dropEvent</a></div><div class="ttdeci">void dropEvent(QDropEvent *event) override</div><div class="ttdoc">Re-implementation of the inherited method handling the drop of an xml workflow file over the applicat...</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:425</div></div>
 <div class="ttc" id="aclass_main_window_html_afade4992374de58d816d1e6d2bea4497"><div class="ttname"><a href="class_main_window.html#afade4992374de58d816d1e6d2bea4497">MainWindow::createActions</a></div><div class="ttdeci">void createActions(void)</div><div class="ttdoc">Instantiate the set of actions used by the application.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:144</div></div>
@@ -391,7 +392,7 @@ $(function(){ initResizable(false); });
 <table width = "100%" border="0">
  <tr valign="middle">
    <td>
-     <font size="-1"><i>WorkflowEditor (1.1.0). Documentation generated on Tue Dec 3 2024 13:45:11 </i></font>
+     <font size="-1"><i>WorkflowEditor (1.1.1). Documentation generated on Wed Dec 18 2024 12:28:35 </i></font>
    </td>
    <td  style="padding-right: 10px;">
      <div align="right">

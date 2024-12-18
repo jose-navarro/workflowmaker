@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>WorkflowLauncher (1.1.0)</title>
+<title>WorkflowLauncher (1.1.1)</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
         <td id="projectlogo" style="padding-bottom: 8px; padding-top: 8px;padding-left: 10px;"><img alt="WorkflowLauncher" src="HTML_WorkflowLauncher_logo.png"/></td>
 		<td id="projectlogospacing" style="padding-bottom: 8px; padding-left: 10px;"></td>
         <td id="projectalign" style="font-size: x-small">
-          <div id="projectname">  WorkflowLauncher 1.1.0</span>
+          <div id="projectname">  WorkflowLauncher 1.1.1</span>
           </div>
         </td>
       </tr>
@@ -101,6 +101,7 @@ $(function(){ initResizable(false); });
 <code>#include &lt;QWidget&gt;</code><br />
 <code>#include &quot;launcher_structures.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="single__repository__widget_8hpp_source.html">single_repository_widget.hpp</a>&quot;</code><br />
+<code>#include &quot;palette_utils.hpp&quot;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -108,42 +109,44 @@ Include dependency graph for WorkflowLauncher_repos_widget.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_workflow_launcher__repos__widget_8hpp__incl.png" border="0" usemap="#asrc_2_workflow_launcher__repos__widget_8hpp" alt=""/></div>
 <map name="asrc_2_workflow_launcher__repos__widget_8hpp" id="asrc_2_workflow_launcher__repos__widget_8hpp">
-<area shape="rect" title="Repositories tab in the main application&#39;s widget." alt="" coords="312,5,462,48"/>
-<area shape="rect" title=" " alt="" coords="5,96,68,123"/>
-<area shape="poly" title=" " alt="" coords="313,46,83,98,82,93,311,41"/>
-<area shape="rect" title=" " alt="" coords="92,96,184,123"/>
-<area shape="poly" title=" " alt="" coords="324,51,193,93,191,88,322,46"/>
-<area shape="rect" title=" " alt="" coords="49,171,114,197"/>
-<area shape="poly" title=" " alt="" coords="348,51,121,166,119,161,345,46"/>
-<area shape="rect" title=" " alt="" coords="572,96,674,123"/>
-<area shape="poly" title=" " alt="" coords="449,46,572,88,571,93,447,51"/>
-<area shape="rect" title=" " alt="" coords="698,96,767,123"/>
-<area shape="poly" title=" " alt="" coords="463,42,684,93,682,98,462,47"/>
-<area shape="rect" title=" " alt="" coords="139,171,211,197"/>
-<area shape="poly" title=" " alt="" coords="361,51,206,164,203,159,357,46"/>
-<area shape="rect" title=" " alt="" coords="235,171,395,197"/>
-<area shape="poly" title=" " alt="" coords="376,50,350,97,326,157,321,155,345,95,372,47"/>
-<area shape="rect" href="single__repository__widget_8hpp.html" title="Dialog to show / collect the data related to a single repository." alt="" coords="359,96,548,123"/>
-<area shape="poly" title=" " alt="" coords="406,47,436,82,432,86,402,50"/>
-<area shape="rect" title=" " alt="" coords="790,96,848,123"/>
-<area shape="poly" title=" " alt="" coords="463,36,605,58,776,93,775,98,604,64,462,41"/>
-<area shape="rect" title=" " alt="" coords="872,96,926,123"/>
-<area shape="poly" title=" " alt="" coords="463,32,640,54,747,71,858,93,857,98,746,77,639,59,463,38"/>
-<area shape="poly" title=" " alt="" coords="376,126,264,146,130,173,129,168,263,141,375,121"/>
-<area shape="poly" title=" " alt="" coords="406,126,227,172,225,167,405,121"/>
-<area shape="poly" title=" " alt="" coords="431,126,354,165,352,161,428,121"/>
-<area shape="rect" title=" " alt="" coords="742,171,832,197"/>
-<area shape="poly" title=" " alt="" coords="513,121,728,167,727,172,512,126"/>
-<area shape="rect" title=" " alt="" coords="856,171,950,197"/>
-<area shape="poly" title=" " alt="" coords="545,121,841,167,840,173,544,126"/>
-<area shape="rect" title=" " alt="" coords="975,171,1037,197"/>
-<area shape="poly" title=" " alt="" coords="549,119,960,168,959,174,548,124"/>
-<area shape="rect" title=" " alt="" coords="420,171,498,197"/>
-<area shape="poly" title=" " alt="" coords="457,123,460,155,454,155,452,123"/>
-<area shape="rect" title=" " alt="" coords="523,171,595,197"/>
-<area shape="poly" title=" " alt="" coords="474,121,530,159,527,164,471,125"/>
-<area shape="rect" title=" " alt="" coords="619,171,718,197"/>
-<area shape="poly" title=" " alt="" coords="492,121,618,163,616,168,490,126"/>
+<area shape="rect" title="Repositories tab in the main application&#39;s widget." alt="" coords="395,5,559,45"/>
+<area shape="rect" title=" " alt="" coords="5,93,72,119"/>
+<area shape="poly" title=" " alt="" coords="396,41,255,64,86,96,85,91,254,59,395,36"/>
+<area shape="rect" title=" " alt="" coords="96,93,195,119"/>
+<area shape="poly" title=" " alt="" coords="398,48,208,93,206,88,397,43"/>
+<area shape="rect" title=" " alt="" coords="41,167,111,192"/>
+<area shape="poly" title=" " alt="" coords="420,48,282,96,116,164,114,159,280,91,418,43"/>
+<area shape="rect" title=" " alt="" coords="609,93,719,119"/>
+<area shape="poly" title=" " alt="" coords="523,43,625,85,623,90,521,48"/>
+<area shape="rect" title=" " alt="" coords="743,93,817,119"/>
+<area shape="poly" title=" " alt="" coords="550,43,731,89,729,94,549,48"/>
+<area shape="rect" title=" " alt="" coords="135,167,214,192"/>
+<area shape="poly" title=" " alt="" coords="438,48,339,96,209,163,207,158,336,91,436,43"/>
+<area shape="rect" title=" " alt="" coords="239,167,417,192"/>
+<area shape="poly" title=" " alt="" coords="428,48,392,68,361,95,344,124,335,154,330,152,339,121,357,92,389,63,425,43"/>
+<area shape="rect" href="single__repository__widget_8hpp.html" title="Dialog to show / collect the data related to a single repository." alt="" coords="371,93,584,119"/>
+<area shape="poly" title=" " alt="" coords="480,46,480,79,475,79,475,46"/>
+<area shape="rect" title=" " alt="" coords="841,93,972,119"/>
+<area shape="poly" title=" " alt="" coords="560,39,831,88,830,94,559,44"/>
+<area shape="rect" title=" " alt="" coords="997,93,1059,119"/>
+<area shape="poly" title=" " alt="" coords="560,32,749,54,984,91,983,96,749,59,559,37"/>
+<area shape="rect" title=" " alt="" coords="1084,93,1143,119"/>
+<area shape="poly" title=" " alt="" coords="560,29,786,50,927,67,1071,91,1070,96,926,72,786,55,559,34"/>
+<area shape="poly" title=" " alt="" coords="400,121,275,141,126,169,125,164,274,136,399,116"/>
+<area shape="poly" title=" " alt="" coords="429,121,228,168,227,163,428,116"/>
+<area shape="poly" title=" " alt="" coords="454,121,366,163,364,158,452,116"/>
+<area shape="rect" title=" " alt="" coords="783,167,881,192"/>
+<area shape="poly" title=" " alt="" coords="535,116,770,163,769,168,534,121"/>
+<area shape="rect" title=" " alt="" coords="905,167,1007,192"/>
+<area shape="poly" title=" " alt="" coords="564,116,892,164,891,169,563,121"/>
+<area shape="rect" title=" " alt="" coords="1032,167,1099,192"/>
+<area shape="poly" title=" " alt="" coords="585,116,825,141,1018,164,1018,169,824,146,584,121"/>
+<area shape="rect" title=" " alt="" coords="442,167,526,192"/>
+<area shape="poly" title=" " alt="" coords="481,119,484,153,479,153,476,119"/>
+<area shape="rect" title=" " alt="" coords="551,167,628,192"/>
+<area shape="poly" title=" " alt="" coords="497,116,561,157,558,161,494,121"/>
+<area shape="rect" title=" " alt="" coords="652,167,759,192"/>
+<area shape="poly" title=" " alt="" coords="515,116,656,160,654,165,513,121"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -178,7 +181,7 @@ Classes</h2></td></tr>
 <table width = "100%" border="0">
  <tr valign="middle">
    <td>
-     <font size="-1"><i>WorkflowLauncher (1.1.0). Documentation generated on Tue Dec 3 2024 13:45:50 </i></font>
+     <font size="-1"><i>WorkflowLauncher (1.1.1). Documentation generated on Wed Dec 18 2024 12:29:29 </i></font>
    </td>
    <td  style="padding-right: 10px;">
      <div align="right">

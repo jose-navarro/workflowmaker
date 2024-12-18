@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>WorkflowLauncher (1.1.0)</title>
+<title>WorkflowLauncher (1.1.1)</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
         <td id="projectlogo" style="padding-bottom: 8px; padding-top: 8px;padding-left: 10px;"><img alt="WorkflowLauncher" src="HTML_WorkflowLauncher_logo.png"/></td>
 		<td id="projectlogospacing" style="padding-bottom: 8px; padding-left: 10px;"></td>
         <td id="projectalign" style="font-size: x-small">
-          <div id="projectname">  WorkflowLauncher 1.1.0</span>
+          <div id="projectname">  WorkflowLauncher 1.1.1</span>
           </div>
         </td>
       </tr>
@@ -101,79 +101,80 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;launcher_structures.hpp&quot;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="single__parameter__widget_8hpp.html">single_parameter_widget.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">using namespace </span>std;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_workflow_launcher__parameters__widget.html">   29</a></span><span class="keyword">class </span><a class="code hl_class" href="class_workflow_launcher__parameters__widget.html">WorkflowLauncher_parameters_widget</a> : <span class="keyword">public</span> QWidget</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    Q_OBJECT</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">bool</span>                <a class="code hl_function" href="class_workflow_launcher__parameters__widget.html#a4a2450227b31859d92eaf50f78af8d10">check_completeness</a>         (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    QVector&lt;QString&gt;    <a class="code hl_function" href="class_workflow_launcher__parameters__widget.html#a1f1fcd08ab717db2be3d612ce147c417">error_list</a>                 (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    vector&lt;WLParameter&gt; <a class="code hl_function" href="class_workflow_launcher__parameters__widget.html#aa10de91a9966d82c8c413527ec580ece">get_current_parameter_list</a> (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span>                <a class="code hl_function" href="class_workflow_launcher__parameters__widget.html#a40d11abee3875fa73b908e893c8827b4">reset_error_list</a>           (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span>                <a class="code hl_function" href="class_workflow_launcher__parameters__widget.html#a2b785f0d1dd78248a44310d28ea1fc8e">set_values</a>                 (vector&lt;WLParameter&gt;&amp; params);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                     <a class="code hl_function" href="class_workflow_launcher__parameters__widget.html#aa8379dc4477e4e44727085fc2382b209">WorkflowLauncher_parameters_widget</a>  (QWidget* parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                     <a class="code hl_function" href="class_workflow_launcher__parameters__widget.html#a67a97309979f51af455442f2d95b85cc">~WorkflowLauncher_parameters_widget</a> (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;palette_utils.hpp&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_workflow_launcher__parameters__widget.html">   30</a></span><span class="keyword">class </span><a class="code hl_class" href="class_workflow_launcher__parameters__widget.html">WorkflowLauncher_parameters_widget</a> : <span class="keyword">public</span> QWidget</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    Q_OBJECT</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">bool</span>                <a class="code hl_function" href="class_workflow_launcher__parameters__widget.html#a4a2450227b31859d92eaf50f78af8d10">check_completeness</a>         (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    QVector&lt;QString&gt;    <a class="code hl_function" href="class_workflow_launcher__parameters__widget.html#a1f1fcd08ab717db2be3d612ce147c417">error_list</a>                 (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    vector&lt;WLParameter&gt; <a class="code hl_function" href="class_workflow_launcher__parameters__widget.html#aa10de91a9966d82c8c413527ec580ece">get_current_parameter_list</a> (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span>                <a class="code hl_function" href="class_workflow_launcher__parameters__widget.html#a40d11abee3875fa73b908e893c8827b4">reset_error_list</a>           (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span>                <a class="code hl_function" href="class_workflow_launcher__parameters__widget.html#a2b785f0d1dd78248a44310d28ea1fc8e">set_values</a>                 (vector&lt;WLParameter&gt;&amp; params);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                     <a class="code hl_function" href="class_workflow_launcher__parameters__widget.html#aa8379dc4477e4e44727085fc2382b209">WorkflowLauncher_parameters_widget</a>  (QWidget* parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                     <a class="code hl_function" href="class_workflow_launcher__parameters__widget.html#a67a97309979f51af455442f2d95b85cc">~WorkflowLauncher_parameters_widget</a> (<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="class_workflow_launcher__parameters__widget.html#ab1cfb4adb68ff8f9ef8209470b804280">   84</a></span>    QVBoxLayout*                     <a class="code hl_variable" href="class_workflow_launcher__parameters__widget.html#ab1cfb4adb68ff8f9ef8209470b804280">container_layout_</a>;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="class_workflow_launcher__parameters__widget.html#a36de89e1756ebe3cbb03b96f2bc6cd07">   89</a></span>    QVector&lt;QString&gt;                 <a class="code hl_variable" href="class_workflow_launcher__parameters__widget.html#a36de89e1756ebe3cbb03b96f2bc6cd07">error_list_</a>;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="class_workflow_launcher__parameters__widget.html#a7f76a764418145029cc5deed23ef6715">   93</a></span>    vector&lt;WLParameter&gt;              <a class="code hl_variable" href="class_workflow_launcher__parameters__widget.html#a7f76a764418145029cc5deed23ef6715">params_</a>;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="class_workflow_launcher__parameters__widget.html#a6fc4816a1f2835a71265ad6988ee327b">   97</a></span>    vector&lt;single_parameter_widget*&gt; <a class="code hl_variable" href="class_workflow_launcher__parameters__widget.html#a6fc4816a1f2835a71265ad6988ee327b">wparams_</a>;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>};</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="class_workflow_launcher__parameters__widget.html#ab1cfb4adb68ff8f9ef8209470b804280">   85</a></span>    QVBoxLayout*                     <a class="code hl_variable" href="class_workflow_launcher__parameters__widget.html#ab1cfb4adb68ff8f9ef8209470b804280">container_layout_</a>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="class_workflow_launcher__parameters__widget.html#a36de89e1756ebe3cbb03b96f2bc6cd07">   90</a></span>    QVector&lt;QString&gt;                 <a class="code hl_variable" href="class_workflow_launcher__parameters__widget.html#a36de89e1756ebe3cbb03b96f2bc6cd07">error_list_</a>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="class_workflow_launcher__parameters__widget.html#a7f76a764418145029cc5deed23ef6715">   94</a></span>    vector&lt;WLParameter&gt;              <a class="code hl_variable" href="class_workflow_launcher__parameters__widget.html#a7f76a764418145029cc5deed23ef6715">params_</a>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="class_workflow_launcher__parameters__widget.html#a6fc4816a1f2835a71265ad6988ee327b">   98</a></span>    vector&lt;single_parameter_widget*&gt; <a class="code hl_variable" href="class_workflow_launcher__parameters__widget.html#a6fc4816a1f2835a71265ad6988ee327b">wparams_</a>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>};</div>
 </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#endif </span><span class="comment">// WORKFLOWLAUNCHER_PARAMETERS_WIDGET_HPP</span></div>
-<div class="ttc" id="aclass_workflow_launcher__parameters__widget_html"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html">WorkflowLauncher_parameters_widget</a></div><div class="ttdoc">Parameters tab in the main application's widget (application GUI).</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.hpp:30</div></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#endif </span><span class="comment">// WORKFLOWLAUNCHER_PARAMETERS_WIDGET_HPP</span></div>
+<div class="ttc" id="aclass_workflow_launcher__parameters__widget_html"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html">WorkflowLauncher_parameters_widget</a></div><div class="ttdoc">Parameters tab in the main application's widget (application GUI).</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.hpp:31</div></div>
 <div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_a1f1fcd08ab717db2be3d612ce147c417"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#a1f1fcd08ab717db2be3d612ce147c417">WorkflowLauncher_parameters_widget::error_list</a></div><div class="ttdeci">QVector&lt; QString &gt; error_list(void)</div><div class="ttdoc">Return the list of errors detected up to the moment.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.cpp:32</div></div>
 <div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_a2b785f0d1dd78248a44310d28ea1fc8e"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#a2b785f0d1dd78248a44310d28ea1fc8e">WorkflowLauncher_parameters_widget::set_values</a></div><div class="ttdeci">void set_values(vector&lt; WLParameter &gt; &amp;params)</div><div class="ttdoc">Set the parameters that will be handled by the widget and shown on the screen.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.cpp:69</div></div>
-<div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_a36de89e1756ebe3cbb03b96f2bc6cd07"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#a36de89e1756ebe3cbb03b96f2bc6cd07">WorkflowLauncher_parameters_widget::error_list_</a></div><div class="ttdeci">QVector&lt; QString &gt; error_list_</div><div class="ttdoc">List of errors detected when checking the completeness or validity of the list of parameters.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.hpp:89</div></div>
+<div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_a36de89e1756ebe3cbb03b96f2bc6cd07"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#a36de89e1756ebe3cbb03b96f2bc6cd07">WorkflowLauncher_parameters_widget::error_list_</a></div><div class="ttdeci">QVector&lt; QString &gt; error_list_</div><div class="ttdoc">List of errors detected when checking the completeness or validity of the list of parameters.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.hpp:90</div></div>
 <div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_a40d11abee3875fa73b908e893c8827b4"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#a40d11abee3875fa73b908e893c8827b4">WorkflowLauncher_parameters_widget::reset_error_list</a></div><div class="ttdeci">void reset_error_list(void)</div><div class="ttdoc">Reset the list of errors, so it is emptied.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.cpp:59</div></div>
 <div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_a4a2450227b31859d92eaf50f78af8d10"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#a4a2450227b31859d92eaf50f78af8d10">WorkflowLauncher_parameters_widget::check_completeness</a></div><div class="ttdeci">bool check_completeness(void)</div><div class="ttdoc">Check that all the required data items have been input in the widget's interface.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.cpp:10</div></div>
-<div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_a67a97309979f51af455442f2d95b85cc"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#a67a97309979f51af455442f2d95b85cc">WorkflowLauncher_parameters_widget::~WorkflowLauncher_parameters_widget</a></div><div class="ttdeci">~WorkflowLauncher_parameters_widget(void)</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.cpp:134</div></div>
-<div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_a6fc4816a1f2835a71265ad6988ee327b"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#a6fc4816a1f2835a71265ad6988ee327b">WorkflowLauncher_parameters_widget::wparams_</a></div><div class="ttdeci">vector&lt; single_parameter_widget * &gt; wparams_</div><div class="ttdoc">The list of parameters sub-widgets we're handling.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.hpp:97</div></div>
-<div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_a7f76a764418145029cc5deed23ef6715"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#a7f76a764418145029cc5deed23ef6715">WorkflowLauncher_parameters_widget::params_</a></div><div class="ttdeci">vector&lt; WLParameter &gt; params_</div><div class="ttdoc">The list of parameters to handle.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.hpp:93</div></div>
+<div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_a67a97309979f51af455442f2d95b85cc"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#a67a97309979f51af455442f2d95b85cc">WorkflowLauncher_parameters_widget::~WorkflowLauncher_parameters_widget</a></div><div class="ttdeci">~WorkflowLauncher_parameters_widget(void)</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.cpp:139</div></div>
+<div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_a6fc4816a1f2835a71265ad6988ee327b"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#a6fc4816a1f2835a71265ad6988ee327b">WorkflowLauncher_parameters_widget::wparams_</a></div><div class="ttdeci">vector&lt; single_parameter_widget * &gt; wparams_</div><div class="ttdoc">The list of parameters sub-widgets we're handling.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.hpp:98</div></div>
+<div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_a7f76a764418145029cc5deed23ef6715"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#a7f76a764418145029cc5deed23ef6715">WorkflowLauncher_parameters_widget::params_</a></div><div class="ttdeci">vector&lt; WLParameter &gt; params_</div><div class="ttdoc">The list of parameters to handle.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.hpp:94</div></div>
 <div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_aa10de91a9966d82c8c413527ec580ece"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#aa10de91a9966d82c8c413527ec580ece">WorkflowLauncher_parameters_widget::get_current_parameter_list</a></div><div class="ttdeci">vector&lt; WLParameter &gt; get_current_parameter_list(void)</div><div class="ttdoc">Return the current list of parameters.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.cpp:42</div></div>
-<div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_aa8379dc4477e4e44727085fc2382b209"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#aa8379dc4477e4e44727085fc2382b209">WorkflowLauncher_parameters_widget::WorkflowLauncher_parameters_widget</a></div><div class="ttdeci">WorkflowLauncher_parameters_widget(QWidget *parent=nullptr)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.cpp:107</div></div>
-<div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_ab1cfb4adb68ff8f9ef8209470b804280"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#ab1cfb4adb68ff8f9ef8209470b804280">WorkflowLauncher_parameters_widget::container_layout_</a></div><div class="ttdeci">QVBoxLayout * container_layout_</div><div class="ttdoc">Widget including the different parameter sub-widgets.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.hpp:84</div></div>
+<div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_aa8379dc4477e4e44727085fc2382b209"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#aa8379dc4477e4e44727085fc2382b209">WorkflowLauncher_parameters_widget::WorkflowLauncher_parameters_widget</a></div><div class="ttdeci">WorkflowLauncher_parameters_widget(QWidget *parent=nullptr)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.cpp:112</div></div>
+<div class="ttc" id="aclass_workflow_launcher__parameters__widget_html_ab1cfb4adb68ff8f9ef8209470b804280"><div class="ttname"><a href="class_workflow_launcher__parameters__widget.html#ab1cfb4adb68ff8f9ef8209470b804280">WorkflowLauncher_parameters_widget::container_layout_</a></div><div class="ttdeci">QVBoxLayout * container_layout_</div><div class="ttdoc">Widget including the different parameter sub-widgets.</div><div class="ttdef"><b>Definition</b> WorkflowLauncher_parameters_widget.hpp:85</div></div>
 <div class="ttc" id="asingle__parameter__widget_8hpp_html"><div class="ttname"><a href="single__parameter__widget_8hpp.html">single_parameter_widget.hpp</a></div><div class="ttdoc">Dialog to show / collect the data related to a single parameter.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <hr>
 <table width = "100%" border="0">
  <tr valign="middle">
    <td>
-     <font size="-1"><i>WorkflowLauncher (1.1.0). Documentation generated on Tue Dec 3 2024 13:45:50 </i></font>
+     <font size="-1"><i>WorkflowLauncher (1.1.1). Documentation generated on Wed Dec 18 2024 12:29:29 </i></font>
    </td>
    <td  style="padding-right: 10px;">
      <div align="right">

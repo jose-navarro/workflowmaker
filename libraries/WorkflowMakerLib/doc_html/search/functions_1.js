@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['launcher_5fparser_0',['launcher_parser',['../classlauncher__parser.html#a5dbb73fe44a4c9717fcb6fb4e3027dbe',1,'launcher_parser']]],
-  ['launcher_5fwriter_1',['launcher_writer',['../classlauncher__writer.html#ad876dd05b27e9eb265c5c61a5cf65702',1,'launcher_writer']]]
+  ['is_5fdark_5fpalette_0',['is_dark_palette',['../classpalette__utils.html#a55216f365249b29acef0c950907769c8',1,'palette_utils']]]
 ];
