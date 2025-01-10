@@ -2,11 +2,6 @@
 
 .svn/
 
-# Deployment directories
-
-QT_redistributables/
-VC_redistributables/
-
 # Installers, wherever these are.
 
 **/installer/deployment
