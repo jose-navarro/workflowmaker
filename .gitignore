@@ -5,7 +5,7 @@
 # Installers, wherever these are.
 
 **/installer/deployment
-**/installer/installer_sw/*.exe
+/installer/installer_sw_windows/*.exe
 
 # Binaries, header and intermediat build folders.
 
