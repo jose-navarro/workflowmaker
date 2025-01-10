@@ -1,8 +1,9 @@
+# WorkFlowMaker
+
 <p align="center">
   <img src="readme_images/cover.png" alt="WorkflowMaker" width="600">
 </p>
 
-# WorkFlowMaker
 
 ## What is it for?
 
@@ -25,11 +26,11 @@ obtaining the final result.
 
 This can be a tedious and error-prone process. In cases where it is necessary to
 combine a specific set of console applications, it would be interesting to have
-scripts that automate this process. However, not everyone is capable of writing
+scripts automating this process. However, not everyone is capable of writing
 such scripts, so they will depend on other people who are capable of doing so.
 
 WorkFlowMaker tries to solve this problem by allowing users *without programming
-knowledge* to combine these console applications using a graphical tool that
+knowledge* to combine these console applications using a *graphical* tool that
 allows them to add/remove applications to a workflow and connect the input and
 output files of these applications using connections. With such a tool, users without
 programming skills but with knowledge of the domain in which they are working
@@ -37,7 +38,7 @@ will be able to generate scripts that execute their workflows without the need t
 write a line of code.
 
 To achieve this, WorkFlowMaker imposes a few restrictions that explain how console
-applications should be programmed. Thanks to these restrictions it is possible to
+applications should be implemented. Thanks to these restrictions it is possible to
 formalize the definition of these applications and, from here, draw these
 workflows and generate scripts to execute them. Obviously, developers who want
 to be able to integrate their console applications with WorkFlowMaker will have to
@@ -51,7 +52,7 @@ WorkflowMaker is a set of visual tools whose gool is making possible the
 visual design of workflows integrating self-developed console applications as
 well as the generation of the necessary scripts to run these workflows.
 
-Thanks to WorkflowMaker, there is o need to write a single line of code to
+Thanks to WorkflowMaker, there is no need to write a single line of code to
 design and execute your own workflows.
 
 #### Features ####
@@ -136,7 +137,7 @@ Yes, providing that:
 A **non-exhaustive** list of these languages could be:
 
 <p style="text-align: center;">
-Ada / C / C# / D / Haskell / Fortran / Go / Pascal / Rust / Swift /
+Ada / C / C# / C++ / D / Haskell / Fortran / Go / Pascal / Rust / Swift /
 Visual Basic.NET.
 </p>
 
@@ -304,9 +305,9 @@ image processing toolkit are given.
 1. Download the WorkFlowMaker installer / compressed package from the
 [Releases](https://github.com/jose-navarro/workflowmaker/releases) section. 
 
-2. Install WorkFlowMaker on your computer (for Windows, the installer is a
+2. Install WorkFlowMaker on your computer. For Windows, the installer is a
    classic next->next process; for Linux, the deb package may be installed using
-   GDebi &mdash;double clicking on the deb file&mdash;or using the console).
+   GDebi &mdash;double clicking on the deb file&mdash;or using the console.
 
 3. Take a look at the WorkflowMaker user guide to learn where to find the
    relevant information about the tools. All user guides are part of the
@@ -314,16 +315,25 @@ image processing toolkit are given.
    or as a specific folder created by the installer on Windows, which may
    be accessed via the Start menu).
 
-**Then**, install the pre-built example image processing toolkit. This toolkit
-includes the executable files of a series of console applications dealing with
+**Then**, install the pre-built example image processing toolkit. This toolkit simulates
+the work that a developer in some organization would have done to make a series of
+console applications compatible with WorkflowMaker. In this particular example, the
+toolkit includes the executable files of a series of console applications dealing with
 image processing tasks, such as rotation, format conversion, effects of several
-kinds, etc. The installer (Windows) appends their path to the system's
-path, so they may be executed directly: there's no need to prepend the
-path to the folder where they stay. On Linux boxes the applications are stored
+kinds, etc.
+
+There is an installer for Windows. It appends the path where the tools are
+installed to the system's path, so they may be executed directly: there's no need to prepend
+said path to the folder where they stay. On Linux computers the applications are stored
 in */usr/local/bin*, so they become immediately accessible.
 
-Furthermore, these applications have been characterized using ToolkitEditor so they
-are ready to be used: it is possible to draw workflows and then execute them.
+These applications have been characterized using ToolkitEditor; this is the last
+task that a developer must do to create a WorkflowMaker-compatible toolkit. Thanks
+to this characterization the tools in the image processing example toolkit
+may be immediately used by users with no programming skills to create workflows visually and,
+afterwards, create the necessary scripts to execute these.
+
+Please, proceed as follows:
 
 1. Download said example image toolkit, either Windows installer or the
    deb package for Linux. Both versions are available in the
@@ -338,8 +348,8 @@ are ready to be used: it is possible to draw workflows and then execute them.
    subfolder of the WorkflowMaker package. The files to copy are:
    
    * *image_processing_toolkit.xml*. This file includes the *formal definition
-      of all the tasks* included in the example image processing toolkit. As
-      stated above, this definition was made using the ToolkitEditor tool.
+      of all the tasks* included in the example image processing toolkit.
+      This definition was made using the ToolkitEditor tool.
       Note that this file **must not be modified**; otherwise, the remaining
       files in the example will become unusable. However, it is possible to
       open it with ToolkitEditor to see how the tasks have been defined.
