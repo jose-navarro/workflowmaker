@@ -54,7 +54,7 @@
 *.lib
 
 # Executables
-*.exe
+#*.exe
 *.out
 *.app
 deployment
