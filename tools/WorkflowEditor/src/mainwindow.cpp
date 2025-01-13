@@ -1103,6 +1103,7 @@ saveWorkflow
     QFileDialog dialog(this);
     dialog.setWindowTitle(tr("Name of the output file to save the workflow"));
     dialog.setFileMode(QFileDialog::AnyFile);
+    dialog.setAcceptMode(QFileDialog::AcceptSave);
     dialog.setNameFilter("Workflow files (*.xml)");
 
     if (!dialog.exec()) return;
