@@ -1,5 +1,5 @@
 ---
-title: 'WorkflowMaker, a visual workflow software tool for the easy integration of self-developed applications'
+title: 'WorkflowMaker, a visual workflow software tool for the easy integration of self-developed console applications'
 tags:
   - Cross-platform application
   - Visual tools
@@ -11,7 +11,7 @@ authors:
 affiliations:
  - name: Centre Tecnològic de Telecomunicacions de Catalunya-CERCA, Av. Carl Friedrich Gauss 7, Castelldefels, 08860, Spain
    index: 1
-date: 20 December 2024
+date: 28 January 2025
 bibliography: paper.bib
 ---
 
@@ -19,13 +19,17 @@ bibliography: paper.bib
 
 WorkflowMaker is a set of tools aimed at the *visual design* and subsequent *execution* of
 workflows that integrate *console applications* developed by users themselves, whether in
-research or production environments involving in-house software development.
+research or production environments involving in-house software development. Figure [@fig:FIGwfeditor]
+depicts how WorkFlowMaker draws a workflow made of said console applications.
+
+![WorkflowEditor: visually designing a workflow.](figure_wfeditor.png){#fig:FIGwfeditor height="300pt"}
 
 In this context, *visual design* means *drawing* the workflow by including tasks (the
 applications) and connecting their inputs and outputs, thereby creating a *template* that
 specifies who does what (applications) and how information flows between them
 (data connections). *Execution* means automatically generating the necessary scripts
 (for Windows or Linux) to process the data according to the designed workflow.
+
 
 The goal of WorkflowMaker is to reduce the complexity of combining different console
 applications to create said workflows. It seeks to eliminate the need for manual
@@ -116,7 +120,7 @@ the tasks defined with ToolkitEditor. It relies on three pillars: (1) repositori
 locations where input and output files reside, (2) tasks, the formally defined applications, and
 (3) connections, which indicate how data flows between repositories and tasks.
 
-![WorkflowEditor: visually designing a workflow.\label{fig_wfeditor}](figure_wfeditor.png){height="300pt"}
+%![WorkflowEditor: visually designing a workflow.\label{fig_wfeditor}](figure_wfeditor.png){height="300pt"}
 
 *WorkflowLauncher* – The workflows created with WorkflowEditor are simply templates that
 outline how to perform some process, but do not set the values of the datato be
