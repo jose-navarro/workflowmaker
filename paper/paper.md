@@ -36,7 +36,11 @@ that not everyone possesses. This approach makes it possible for these applicati
 not only by their developers but also by any expert in the application field, even if they
 lack programming skills.
 
-WorkflowMaker is available for Windows and Ubuntu-based Linux platforms.
+WorkflowMaker is *domain-agnostic*; that is, it is not targeted at building workflows for any
+specific field of knowledge. The only restrictions to comply with are those stating how
+console applications must be developed to be integrable with WorkflowMaker.
+
+This software suite is available for Windows and Ubuntu-based Linux platforms.
 
 # Statement of need
 
