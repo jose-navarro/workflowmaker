@@ -27,7 +27,7 @@ specifies who does what (applications) and how information flows between them
 (data connections). See Figure \ref{fig_wfeditor}. *Execution* means automatically generating
 the necessary scripts to process some dataset according to said workflow.
 
-![WorkflowEditor: visually designing a workflow.\label{fig_wfeditor}](figure_wfeditor.png){height="200pt"}
+![WorkflowEditor: visually designing a workflow.\label{fig_wfeditor}](figure_wfeditor.png){height="250pt"}
 
 The goal of WorkflowMaker is to reduce the complexity of combining different console
 applications to create workflows. It seeks to eliminate the need for manual
@@ -116,7 +116,7 @@ To be integrable with WorkflowMaker console applicatoins must comply with very f
 
 Figure \ref{fig_toolkit} shows the formal caracterization of a console application.
 
-![ToolkitEditor: formal characterization of a console application.\label{fig_toolkit}](figure_toolkit.png){height="300pt"}
+![ToolkitEditor: formal characterization of a console application.\label{fig_toolkit}](figure_toolkit.png){height="250pt"}
 
 *WorkflowEditor* &mdash; This is a visual editor that allows users to design workflows by combining
 the tasks defined with ToolkitEditor. It relies on three pillars: (1) repositories, which are
@@ -131,7 +131,7 @@ input and output files, and the values of the required keyboard parameters. Then
 execute the workflow using these data is generated. Figure \ref{fig_wflauncher} depicts how the values
 of some keyboard parameters are set.
 
-![WorkflowLauncher: Setting the values of keyboard parameters.\label{fig_wflauncher}](figure_wflauncher.png){height="300pt"}
+![WorkflowLauncher: Setting the values of keyboard parameters.\label{fig_wflauncher}](figure_wflauncher.png){height="250pt"}
 
 # A very simple example
 
