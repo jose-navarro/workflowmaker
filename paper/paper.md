@@ -18,25 +18,25 @@ bibliography: paper.bib
 # Summary
 
 WorkflowMaker is a set of tools aimed at the *visual design* and subsequent *execution* of
-workflows that integrate *console applications* developed by users themselves, whether in
+workflows that integrate *console applications* developed by users themselves, in
 research (or even production) environments involving in-house software development.
 
 In this context, *visual design* means *drawing* the workflow by including tasks (the
 applications) and connecting their inputs and outputs, thereby creating a *template* that
 specifies who does what (applications) and how information flows between them
 (data connections). See Figure \ref{fig_wfeditor}. *Execution* means automatically generating
-the necessary scripts to process the data according to the designed workflow.
+the necessary scripts to process some dataset according to said workflow.
 
 ![WorkflowEditor: visually designing a workflow.\label{fig_wfeditor}](figure_wfeditor.png){height="300pt"}
 
 The goal of WorkflowMaker is to reduce the complexity of combining different console
-applications to create said workflows. It seeks to eliminate the need for manual
+applications to create workflows. It seeks to eliminate the need for manual
 execution of these applications or the writing of automation scripts, which require skills
 that not everyone possesses. This approach makes it possible for these applications to be used
 not only by their developers but also by any expert in the application field, even if they
 lack programming skills.
 
-WorkflowMaker is *domain-agnostic*; that is, it is not targeted at building workflows for any
+WorkflowMaker is a general, *domain-agnostic* tool; that is, it is not targeted at building workflows for any
 specific field of knowledge. It is available for Windows and Ubuntu-based Linux platforms.
 
 # Statement of need
@@ -45,7 +45,7 @@ It is not surprising to find research (or even production) groups that create th
 Often, however, despite being experts in their field of knowledge, only some members of
 these groups have programming skills.
 
-Developers in these groups are able to create *console* applications with relative ease,
+Developers in these groups are able to create console applications with relative ease,
 as these do not include graphical interfaces. Combining these, it is possible to achieve more
 complex results. This requires either manually running the applications one by one or *writing
 scripts* to automate the process. This, which may be easy for developers, can be a stumbling
@@ -116,7 +116,7 @@ To be integrable with WorkflowMaker console applicatoins must comply with very f
 
 Figure \ref{fig_toolkit} shows the formal caracterization of a console application.
 
-![ToolkitEditor: formally characterizing the a console application.\label{fig_toolkit}](figure_toolkit.png){height="300pt"}
+![ToolkitEditor: formal characterization of a console application.\label{fig_toolkit}](figure_toolkit.png){height="300pt"}
 
 *WorkflowEditor* &mdash; This is a visual editor that allows users to design workflows by combining
 the tasks defined with ToolkitEditor. It relies on three pillars: (1) repositories, which are
@@ -124,12 +124,12 @@ locations where input and output files reside, (2) tasks, the formally defined a
 (3) connections, which indicate how data flows between repositories and tasks. See Figure \ref{fig_wfeditor}
 above.
 
-*WorkflowLauncher* &mdash; The workflows created with WorkflowEditor are just *templates* that
-outline how to perform some process, but say nothing about the data to be processed&mdash;that is,
-these can be reused for may data sets. WorkflowLauncher is used to set the names of the input files
-for those workflows, as well as the values of the required keyboard parameters. From this, an executable
-script is generated. Figure \ref{fig_wflauncher} depicts how the values of some keyboard parameters
-are set.
+*WorkflowLauncher* &mdash; The workflows created with WorkflowEditor are just *processing templates*,
+saying nothing about the data to process&mdash;that is, these can be reused for may datasets.
+Given a workflow, WorkflowLauncher is used to set the paths of the repositories used, the names of the
+input and output files, and the values of the required keyboard parameters. Then, a script to
+execute the workflow using these data is generated. Figure \ref{fig_wflauncher} depicts how the values
+of some keyboard parameters are set.
 
 ![WorkflowLauncher: Setting the values of keyboard parameters.\label{fig_wflauncher}](figure_wflauncher.png){height="300pt"}
 
@@ -137,11 +137,11 @@ are set.
 
 Figure \ref{fig_workflow}(a) show a very simple workflow drawn with WorkflowEditor. The knowledge
 domain is image processing, but it could be any other.  There, two images stored in some 
-epository (REPO_1) are rotated (tasks (1) ROTATE and (2) ROTATE). Then, their outputs
+repository (REPO_1) are rotated (tasks (1) ROTATE and (2) ROTATE). Then, their outputs
 are used by a third task ((3) MOSAIC) to mosaic these images producing a new one, which is used
 by the last task ((4) OILPAINT) to apply an artistic image effect known as "oil painting". The
 result of this process is stored in a new repository, (REPO_2). In Figure \ref{fig_workflow}(b)
-the two input images used to run this workflow are shown; \ref{fig_workflow}(c) depicts the
+the two input images used to run this workflow are shown; Figure \ref{fig_workflow}(c) depicts the
 result.
 
 The workflow in the example has been created using the *sample image processing toolkit* available in
