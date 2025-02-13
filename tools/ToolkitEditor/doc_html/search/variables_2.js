@@ -1,4 +1,0 @@
-var searchData=
-[
-  ['description_5ftext_5f_0',['description_text_',['../class_toolkit_editor__description__widget.html#aafdba0c860c59732995fd75c040b2235',1,'ToolkitEditor_description_widget::description_text_'],['../class_toolkit_editor__filetype__selector__widget.html#ab3b27af327682b5a6be568ef078bf00a',1,'ToolkitEditor_filetype_selector_widget::description_text_'],['../class_toolkit_editor__single__filetype__widget.html#a8a8ac996facb347c38780b6c9cc1536e',1,'ToolkitEditor_single_filetype_widget::description_text_'],['../class_toolkit_editor__single__parameter__widget.html#a11f8d3900c408671bb4dca10426fbffe',1,'ToolkitEditor_single_parameter_widget::description_text_'],['../class_toolkit_editor__single__task__widget.html#a46862658380a023f1e988916ea160f43',1,'ToolkitEditor_single_task_widget::description_text_']]]
-];

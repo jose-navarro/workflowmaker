@@ -16,6 +16,7 @@
 # HTML directories.
 
 **/html/
+**/doc_html/
 
 # QT files and folders.
 

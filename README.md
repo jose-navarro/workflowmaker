@@ -251,8 +251,11 @@ With regard to the *example image processing toolkit*, there are two folder to c
 
 ## Are there any documents describing the API? ##
 
-Yes. The API for the main WorkflowMaker library as well as for the three tools are
-included in HTML form in the corresponding subfolders. These are:
+Yes and no. No because said documents are not directly included in the repository.
+Yes because they are automatically generated when building the software.
+
+When built, a series of folders named *doc_html* containing HTML documentation
+are created in the following sub-folders:
 
 * *WorkflowMakerLib*: libraries/WorkflowMakerLib/doc_html
 
@@ -277,7 +280,7 @@ In *all* cases the file to open is *index.html*.
 The API of the rapidxml library is documented in
 [its own web page](https://rapidxml.sourceforge.net/manual.html)
 
-Note that the API HTML documentation is generated whenever WorkflowMaker or the sample
+Remember that the API HTML documentation is generated whenever WorkflowMaker or the sample
 image processing toolkit are built.
 
 ## How may I build from source code?

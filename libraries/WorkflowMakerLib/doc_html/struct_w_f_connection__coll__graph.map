@@ -1,5 +1,0 @@
-<map id="WFConnection" name="WFConnection">
-<area shape="rect" id="Node000001" title="Defines a single connection." alt="" coords="5,112,114,139"/>
-<area shape="rect" id="Node000002" href="$struct_w_f_end_point.html" title="Defines a connection endpoint." alt="" coords="12,5,107,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="62,47,62,112,57,112,57,47"/>
-</map>

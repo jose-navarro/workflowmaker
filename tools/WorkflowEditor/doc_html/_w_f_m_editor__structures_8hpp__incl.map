@@ -1,9 +1,0 @@
-<map id="src/WFMEditor_structures.hpp" name="src/WFMEditor_structures.hpp">
-<area shape="rect" id="Node000001" title="Defines several structures and enumerations for the use of the WorkflowEditor." alt="" coords="72,5,272,32"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,75,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,35,77,75,75,70,148,30"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="99,80,245,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,33,175,64,169,64,169,33"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="269,80,326,107"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="195,30,264,70,261,74,193,35"/>
-</map>

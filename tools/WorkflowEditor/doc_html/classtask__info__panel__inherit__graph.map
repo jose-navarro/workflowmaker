@@ -1,5 +1,0 @@
-<map id="task_info_panel" name="task_info_panel">
-<area shape="rect" id="Node000001" title="Widget showing a list of tasks and, for each of these, their input and output files." alt="" coords="5,80,118,107"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="25,5,98,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,48,64,80,59,80,59,48"/>
-</map>
