@@ -8,7 +8,7 @@ RequestExecutionLevel admin ;Require admin rights on NT6+ (When UAC is turned on
 ; Some definitions used later on. Change HERE its values tto customize the
 ; installer.
 
-!define InstallFrom        ".\deployment\bin"
+!define InstallFrom        ".\deployment"
 !define defCompanyShortDir "cttc"
 !define defVersion         "1.1.3"
 !define defProductName     "WorkflowMaker"
@@ -243,52 +243,40 @@ Section "WorkflowMaker applications"
 
   SectionIn RO
   
-  ;
-  ; FIRST COPY the executables included in this section...
-  ;
-  
   ; Set output path to the installation\bin directory.
   SetOutPath $INSTDIR\bin
-  
-  ;
-  ; Copy the output files from the proper directory, taking
-  ; into account whether we're installing for 32 or 64 bit.
-  ;
-  
-  ; INSTALLING FOR 64-BIT ONLY.
     
   ; Copy runtimes (QT + VC) and any other DLL files.
-  File ${InstallFrom}\*.dll
+  File ${InstallFrom}\bin\*.dll
 
   ; Copy the executables, including the external tools.
 
-  File ${InstallFrom}\*.exe
-  
-  ; Copy the XML schemas.
-
-  File ${InstallFrom}\*.xsd
-  
-  ; Copy the version file
-
-  File ${InstallFrom}\*.txt
+  File ${InstallFrom}\bin\*.exe
 
   ; Set output path to the installation\platforms directory.
   SetOutPath $INSTDIR\bin\platforms
 
   ; Copy QT's platform files.
-  File ${InstallFrom}\platforms\*.*
+  File ${InstallFrom}\bin\platforms\*.*
+  
+  ; Set output path to the installation\data directory.
+  SetOutPath $INSTDIR\data
+  
+  ; Copy the XML schemas.
+
+  File ${InstallFrom}\data\*.xsd
+
+  ; Copy the version file
+
+  File ${InstallFrom}\data\*.txt
   
   ; Create shortcuts.
   SetShellVarContext all
   
   CreateDirectory "$SMPROGRAMS\${defProductName}"
-  CreateShortCut  "$SMPROGRAMS\${defProductName}\ToolkitEditor.lnk" "$INSTDIR\bin\ToolkitEditor.exe" "" "$INSTDIR\bin\ToolkitEditor.exe" 0
-  CreateShortCut  "$SMPROGRAMS\${defProductName}\WorkflowEditor.lnk" "$INSTDIR\bin\WorkflowEditor.exe" "" "$INSTDIR\bin\WorkflowEditor.exe" 0
+  CreateShortCut  "$SMPROGRAMS\${defProductName}\ToolkitEditor.lnk"    "$INSTDIR\bin\ToolkitEditor.exe"    "" "$INSTDIR\bin\ToolkitEditor.exe" 0
+  CreateShortCut  "$SMPROGRAMS\${defProductName}\WorkflowEditor.lnk"   "$INSTDIR\bin\WorkflowEditor.exe"   "" "$INSTDIR\bin\WorkflowEditor.exe" 0
   CreateShortCut  "$SMPROGRAMS\${defProductName}\WorkflowLauncher.lnk" "$INSTDIR\bin\WorkflowLauncher.exe" "" "$INSTDIR\bin\WorkflowLauncher.exe" 0
-  
-  ;
-  ; NOW copy the license file.
-  ;
 
   ; Set output path to the installation\docs directory.
 
@@ -337,23 +325,6 @@ Section "Data samples"
   CreateShortCut "$SMPROGRAMS\${defProductName}\${defProductName} Data samples folder.lnk" "$INSTDIR\data_samples" "" "$INSTDIR\data_samples" 0
 
 SectionEnd
-
-;Section "Software samples"
-;
-; Set output path to the installation\software_samples directory.
-
-;  SetOutPath $INSTDIR\software_samples
-
-; Copy the whole set of documents in the data_samples folder
-
-;  File /r "..\deployment\software_samples\*.*"
-
-; Create a specific shortcut for the data_samples folder.
-
-;  SetShellVarContext all
-;  CreateShortCut "$SMPROGRAMS\${defProductName}\${defProductName} Software samples folder.lnk" "$INSTDIR\software_samples" "" "$INSTDIR\software_samples" 0
-
-;SectionEnd
 
 Section "Register toolset and create uninstaller"
 
@@ -414,7 +385,7 @@ Section "Microsoft Visual Studio Runtime"
   SetOutPath $INSTDIR\bin
 
   ; Copy the MSVC redistributable installer.
-  File "${InstallFrom}\VC_redist.x64.exe"
+  File "${InstallFrom}\bin\VC_redist.x64.exe"
 
   ; Launch the installer
   ExecWait "$INSTDIR\bin\VC_redist.x64.exe"

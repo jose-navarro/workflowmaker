@@ -20,9 +20,12 @@ CALL "..\..\installer\installer_sw_windows\copy_redistributables.bat" "..\..\ins
 
 REM Copy the launcher schema & sample to the destination folder.
 
-@ECHO INSTALLER'S DEPLOYMENT FOLDERS: Copying WorkflowLauncher's schema and sample
+@ECHO INSTALLER'S DEPLOYMENT FOLDERS: Copying WorkflowLauncher's schema
 
-COPY ..\..\data\launcher.xsd ..\..\installer\installer_sw_windows\deployment\bin\launcher.xsd
+COPY ..\..\data\launcher.xsd ..\..\installer\installer_sw_windows\deployment\data\launcher.xsd
+
+@ECHO INSTALLER'S DEPLOYMENT FOLDERS: Copying WorkflowLauncher's sample
+
 COPY ..\..\samples\image_processing\sample_workflowmaker_files\image_processing_launcher.xml ..\..\installer\installer_sw_windows\deployment\data_samples\image_processing_launcher.xml
 
 REM Copy the executable to destination folders.

@@ -15,6 +15,9 @@ IF NOT EXIST "%1\deployment\bin" (
 IF NOT EXIST "%1\deployment\bin\platforms" (
   MKDIR "%1\deployment\bin\platforms"
 )
+IF NOT EXIST "%1\deployment\data" (
+  MKDIR "%1\deployment\data"
+)
 IF NOT EXIST "%1\deployment\data_samples" (
   MKDIR "%1\deployment\data_samples"
 )

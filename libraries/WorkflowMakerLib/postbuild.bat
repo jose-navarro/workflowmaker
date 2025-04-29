@@ -40,9 +40,9 @@ COPY "%1\%2\*.lib" .\binaries\*.*
 
 REM Copy the version file.
 
-@ECHO INSTALLER'S DEPLOYMENT FOLDERS: Copying the version file to the binaries folder...
+@ECHO INSTALLER'S DEPLOYMENT FOLDERS: Copying the version file to the data folder...
 
-COPY .\data_to_bin_folder\workflowmaker_version.txt       ..\..\installer\installer_sw_windows\deployment\bin\*.* 
+COPY .\data\workflowmaker_version.txt       ..\..\installer\installer_sw_windows\deployment\data\*.* 
 
 REM Copy the documentation
 
