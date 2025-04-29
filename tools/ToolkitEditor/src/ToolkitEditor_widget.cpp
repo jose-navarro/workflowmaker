@@ -141,6 +141,50 @@ dropEvent
 }
 
 #ifdef __GNUC__
+string
+ToolkitEditor_widget::
+get_data_path
+(void)
+{
+  {
+    // We store the read-only files in the standard Ubuntu folder.
+    return "/usr/share/workflowmaker";
+  }
+}
+#else
+string
+ToolkitEditor_widget::
+get_data_path
+(void)
+{
+  {
+    // Get the path to the executable folder
+
+    fs::path exec_path(get_executable_path());
+
+    // Navigate to the parent directory of the executable
+
+    fs::path parent_path = exec_path.parent_path();
+
+    // Construct the path to the target folder
+
+    fs::path target_path = parent_path / "data";
+
+    // Check if the target folder exists
+
+    if (fs::exists(target_path) && fs::is_directory(target_path))
+    {
+      return target_path.string();
+    }
+
+    // Return an empty string if the folder is not found
+
+    return "";
+  }
+}
+#endif
+
+#ifdef __GNUC__
 
 string
 ToolkitEditor_widget::
@@ -401,10 +445,15 @@ parse_and_load_tk
 
     //
     // Get the path to the schema defining the toolkit files.
-    // It resides in the same folder than our executable file.
+    // On Windows it resides in the data folder, which is a sibling
+    // of the binary folder (the place where our executable file reside).
+    // On Linux, it will be stored in the default share folder for
+    // the WorkflowMaker package (typically, /usr/share/workflowmaker).
+    // The function get_data_path() below will return the appropriate
+    // path for each operating system.
     //
 
-    schema_file = QString::fromStdString(get_executable_path() + "/toolkit.xsd");
+    schema_file = QString::fromStdString(get_data_path() + "/toolkit.xsd");
 
     //
     // THE FOLLOWING BLOCK, CHECKING THE VALIDITY OF THE FILE, IS COMMENTED
@@ -694,10 +743,10 @@ version_string
 
     //
     // Get the path of the file containing the version string.
-    // It is (should be) located in the application's directory.
+    // It is (should be) located in the application's data directory.
     //
 
-    version_file_name = get_executable_path()
+    version_file_name = get_data_path()
                         + "/workflowmaker_version.txt";
 
     //

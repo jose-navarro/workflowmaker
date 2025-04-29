@@ -13,6 +13,8 @@
   #include <Windows.h>
 #endif
 
+#include <filesystem>
+
 #include <QDragEnterEvent>
 #include <QDropEvent>
 #include <QFile>
@@ -41,6 +43,8 @@
 #include "ToolkitEditor_tasks_widget.hpp"
 
 using namespace std;
+
+namespace fs = std::filesystem;
 
 /// \brief Main application's widget (application GUI).
 /**
@@ -137,9 +141,31 @@ class ToolkitEditor_widget : public QWidget
 
     void   dropEvent             (QDropEvent *event) override;
 
-    /// \brief Retrieve the path or the executable.
+    /// \brief Retrieve the path where the read-only data files are stored.
     /**
-      \return The path were the executable resides.
+      \return The path (with no slash at the end) where the several read-only
+              files loaded by the applications in the WorkflowMaker package
+              reside, or the empty string if such path cannot be determined.
+
+      On Windows it is assumed that the data folder is named "data" and that
+      it is a sibling of the folder where executables reside.
+
+      This function will fail in Linux systems where the /proc directory
+      does not exist. Either for this reason or because the said "data"
+      folder does not exist, this function may return the empty string.
+     */
+
+    string get_data_path                      (void);
+
+    /// \brief Retrieve the path of the current executable.
+    /**
+      \return The path (with no slash at the end) where the executable
+              calling this function resides or the empty string if
+              such path cannot be determined.
+
+      This function will fail in Linux systems where the /proc directory
+      does not exist. This is the reason why an empty string may be
+      returned.
      */
 
     string get_executable_path   (void);

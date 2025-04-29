@@ -6,6 +6,9 @@
 
 **/installer/deployment
 /installer/installer_sw_windows/*.exe
+/installer/installer_sw_linux/workflowmaker_x.y-zz_amd64
+/installer/installer_sw_linux/workflowmaker_x.y-zz_doc_and_samples
+
 
 # Binaries, header and intermediat build folders.
 
@@ -59,9 +62,3 @@
 *.out
 *.app
 deployment
-#tools/ToolkitEditor/doc_html/
-#tools/WorkflowEditor/doc_html/
-#tools/WorkflowLauncher/doc_html/
-#libraries/WorkflowMakerLib/doc_html/
-/paper/compile.bat
-/paper/paper.pdf

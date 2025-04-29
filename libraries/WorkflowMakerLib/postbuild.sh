@@ -39,7 +39,7 @@ cp $1/*.a ./binaries/
 
 # Copy the version file to the .deb folder.
 
-cp ./data_to_bin_folder/workflowmaker_version.txt ../../installer/installer_sw_linux/workflowmaker_x.y-zz_amd64/usr/local/bin
+cp ./data/workflowmaker_version.txt ../../installer/installer_sw_linux/workflowmaker_x.y-zz_amd64/usr/share/workflowmaker
 
 # Try to generate the doxygen documentation. Only if doxygen is installed.
 

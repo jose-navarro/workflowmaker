@@ -29,9 +29,9 @@ build_doc_samples_folder_structure "$1"
 
 cp $2/$3                   ../../installer/installer_sw_linux/workflowmaker_x.y-zz_amd64/usr/local/bin/
 
-# Copy the launcher schema to the destination folder.
+# Copy the launcher schema to the destination share folder.
 
-cp ../../data/launcher.xsd ../../installer/installer_sw_linux/workflowmaker_x.y-zz_amd64/usr/local/bin
+cp ../../data/launcher.xsd ../../installer/installer_sw_linux/workflowmaker_x.y-zz_amd64/usr/share/workflowmaker/
 
 # Copy the icons and desktop files to the destination share folder
 
